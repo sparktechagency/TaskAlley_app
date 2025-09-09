@@ -1,16 +1,25 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import ButtonBG from '../../components/ui/buttons/ButtonBG'
+import ButtonGreenOpacity30 from '../../components/ui/buttons/ButtonGreenOpacity30'
+import ButtonTransparentBG from '../../components/ui/buttons/ButtonTransparentBG'
+import IconButtonBG from '../../components/ui/buttons/IconButtonBG'
+import IconButtonTransparent from '../../components/ui/buttons/IconButtonTransparent'
 
 const Home = () => {
   const { top, bottom } = useSafeAreaInsets()
   return (
     <View style={{
-      backgroundColor: "red",
       marginTop: top,
-      marginBottom: bottom
+      marginBottom: bottom,
+      paddingHorizontal: 15
     }}>
-      <Text>Home</Text>
+      <IconButtonBG handler={() => console.log("")} />
+      <ButtonBG handler={() => console.log("")} />
+      <ButtonTransparentBG handler={() => console.log("")} />
+      <ButtonGreenOpacity30 handler={() => console.log("")} />
+      <IconButtonTransparent handler={() => console.log("")} />
     </View>
   )
 }
