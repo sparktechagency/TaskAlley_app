@@ -5,8 +5,8 @@ import Profile from '../assets/icons/profile.png'
 import task from "../assets/icons/task.png"
 export const TabIcons = {
   Home,
-  "My Tasks": task,
+  "My Tasks": post,
   Chat,
   Profile,
-  "Post Task": post
+  "Post Task": task
 }

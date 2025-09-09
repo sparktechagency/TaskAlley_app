@@ -2,13 +2,15 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { PlatformPressable } from '@react-navigation/elements';
 import { useLinkBuilder, useTheme } from '@react-navigation/native';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import TabItem from './TabItem';
 const Tabbar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   const { colors } = useTheme();
   const { buildHref } = useLinkBuilder();
-
+  const { bottom } = useSafeAreaInsets()
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={{ flexDirection: 'row', marginBottom: bottom, height: 70 }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -49,9 +51,14 @@ const Tabbar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
             onLongPress={onLongPress}
             style={{ flex: 1 }}
           >
-            <Text style={{ color: isFocused ? colors.primary : colors.text }}>
+            <TabItem
+              route={route.name}
+              label={label as string}
+              isFocused={isFocused}
+            />
+            {/* <Text style={{ color: isFocused ? colors.primary : colors.text }}>
               {label as string}
-            </Text>
+            </Text> */}
           </PlatformPressable>
         );
       })}

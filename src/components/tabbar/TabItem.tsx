@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native';
+import { Image, ImageSourcePropType, StyleSheet, Text, View } from 'react-native';
 import { TabIcons } from '../../constant/images';
 
 
@@ -19,9 +19,12 @@ const TabItem = ({
         alignItems: 'center',
         justifyContent: 'center',
         height: 50,
-        borderTopWidth: isFocused ? 3 : 0,
+        borderTopWidth: isFocused ? 2 : 0,
         borderColor: isFocused
-          ? ""
+          ? "#115E59"
+          : 'transparent',
+        backgroundColor: isFocused
+          ? "#E6F4F1"
           : 'transparent',
       }}>
       <Image
@@ -29,11 +32,19 @@ const TabItem = ({
         style={{
           width: 24,
           height: 24,
+          marginBottom: 4,
           tintColor: isFocused
-            ? ""
-            : "",
+            ? "#115E59"
+            : "black",
         }}
       />
+      <Text style={{
+        color: isFocused
+          ? "#115E59"
+          : "black",
+      }}>
+        {label}
+      </Text>
     </View>
   );
 };
