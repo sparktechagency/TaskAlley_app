@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import BlueBadgeOpacity30 from '../../components/ui/badges/BlueBadgeOpacity30'
 import ButtonBG from '../../components/ui/buttons/ButtonBG'
 import ButtonGreenOpacity30 from '../../components/ui/buttons/ButtonGreenOpacity30'
 import ButtonTransparentBG from '../../components/ui/buttons/ButtonTransparentBG'
@@ -20,6 +21,7 @@ const Home = () => {
       <ButtonTransparentBG handler={() => console.log("")} />
       <ButtonGreenOpacity30 handler={() => console.log("")} />
       <IconButtonTransparent handler={() => console.log("")} />
+      <BlueBadgeOpacity30 />
     </View>
   )
 }
