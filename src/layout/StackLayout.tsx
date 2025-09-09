@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import TabLayout from './TabLayout';
+const Stack = createNativeStackNavigator();
 const StackLayout = () => {
   return (
-    <View>
-      <Text>StackLayout</Text>
-    </View>
+    <Stack.Navigator
+      initialRouteName='TabLayout'
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="TabLayout" component={TabLayout} />
+    </Stack.Navigator>
   )
 }
 

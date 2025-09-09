@@ -1,11 +1,14 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
-import Privacy from '../screens/drawer/Privacy';
+import StackLayout from './StackLayout';
 const Drawer = createDrawerNavigator();
 const DrawerLayout = () => {
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={Privacy} />
+    <Drawer.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName='StackLayout'
+    >
+      <Drawer.Screen name="StackLayout" component={StackLayout} />
     </Drawer.Navigator>
   )
 }
