@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheetProperties, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackgroundProps, StyleSheetProperties, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { otherIcons } from '../../../constant/images';
 
 const PasswordInput = ({
   type,
@@ -53,9 +54,16 @@ const PasswordInput = ({
         onChangeText={(text) => handler?.(name as string)}
       />
       <TouchableOpacity style={{
-        position: "absolute"
-      }}>
-
+        position: "absolute",
+        right: 4,
+        top: 45,
+      }}
+        activeOpacity={.7}
+        onPress={() => setShow(!show)}
+      >
+        <Image
+          source={show ? otherIcons?.EyeX as ImageBackgroundProps : otherIcons?.Eye as ImageBackgroundProps}
+        />
       </TouchableOpacity>
     </View>
   )
