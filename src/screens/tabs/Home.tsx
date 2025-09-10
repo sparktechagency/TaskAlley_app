@@ -8,6 +8,7 @@ import ButtonTransparentBG from '../../components/ui/buttons/ButtonTransparentBG
 import IconButtonBG from '../../components/ui/buttons/IconButtonBG'
 import IconButtonTransparent from '../../components/ui/buttons/IconButtonTransparent'
 import Input from '../../components/ui/inputs/Input'
+import PasswordInput from '../../components/ui/inputs/PasswordInput'
 
 const Home = () => {
   const { top, bottom } = useSafeAreaInsets()
@@ -24,6 +25,7 @@ const Home = () => {
       <IconButtonTransparent handler={() => console.log("")} />
       <BlueBadgeOpacity30 />
       <Input type='default' />
+      <PasswordInput type='default' />
     </View>
   )
 }

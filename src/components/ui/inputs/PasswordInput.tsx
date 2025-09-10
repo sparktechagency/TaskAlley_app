@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheetProperties, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheetProperties, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-const Input = ({
+const PasswordInput = ({
   type,
   style,
   inputStyle,
@@ -22,9 +22,11 @@ const Input = ({
   value?: string,
   name?: string
 }) => {
+  const [show, setShow] = useState(true)
   return (
     <View style={{
       backgroundColor: "transparent",
+      position: "relative",
       ...style
     }}>
       <Text
@@ -34,6 +36,7 @@ const Input = ({
         }}
       >{label}</Text>
       <TextInput
+        secureTextEntry={show}
         value={value}
         style={{
           backgroundColor: "#E6F4F1",
@@ -49,8 +52,14 @@ const Input = ({
         keyboardType={type as any}
         onChangeText={(text) => handler?.(name as string)}
       />
+      <TouchableOpacity style={{
+        position: "absolute"
+      }}>
+
+      </TouchableOpacity>
     </View>
   )
 }
 
-export default Input
+
+export default PasswordInput
