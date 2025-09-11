@@ -4,13 +4,35 @@ import {
   Image,
   ImageSourcePropType,
   StyleSheet,
+  StyleSheetProperties,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
 
-const SelectInput = () => {
+const SelectInput = ({
+  value,
+  placeHolder = "please select",
+  style,
+  options = [
+    { label: "options 1 ", value: "options 1" },
+    { label: "options 2 ", value: "options 2" },
+  ],
+  label = "select item",
+  error = false,
+  handler,
+  name
+}: {
+  value?: string,
+  placeHolder?: string,
+  style?: StyleSheetProperties,
+  options?: { label: string, value: string }[],
+  label?: string;
+  error?: boolean;
+  handler?: (name: string) => void;
+  name: string
+}) => {
   const bottomSheetRef = useRef<BottomSheet | null>(null);
   const handleClose = () => {
     bottomSheetRef.current?.close();
@@ -18,7 +40,14 @@ const SelectInput = () => {
 
   return (
     <>
-      <Text>SelectInput</Text>
+      <Text
+        style={{
+          marginVertical: 4,
+          color: error ? "red" : "#000000",
+        }}
+      >
+        {label}
+      </Text>
       <TouchableOpacity
         onPress={() => bottomSheetRef.current?.snapToIndex(1)}
         style={{
@@ -29,9 +58,10 @@ const SelectInput = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          ...style
         }}
       >
-        <Text>select</Text>
+        <Text>{placeHolder}</Text>
         <Image source={otherIcons.arrowDown as ImageSourcePropType} />
       </TouchableOpacity>
 
@@ -66,13 +96,38 @@ const SelectInput = () => {
           </View>
         )}
         index={-1}
-        snapPoints={["25%", "50%", "90%"]}
+        snapPoints={["25%", "45%", "70%"]}
         ref={bottomSheetRef}
       >
         <BottomSheetView style={styles.sheetContent}>
-          <View></View>
+          <View style={{
+            flex: 1,
+            gap: 8,
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+          }}>
+            {
+              options?.map((item) => <TouchableOpacity
+                onPress={() => {
+                  bottomSheetRef?.current?.close()
+                  handler?.(name)
+                }}
+                style={{
+                  padding: 6,
+                  backgroundColor: item?.value == value ? "#C1E0DA" : "#E6F4F1",
+                  width: "100%",
+                  borderRadius: 4
+                }}>
+                <Text style={{
+                  textTransform: "capitalize"
+                }}>
+                  {item?.label}
+                </Text>
+              </TouchableOpacity>)
+            }
+          </View>
         </BottomSheetView>
-      </BottomSheet>
+      </BottomSheet >
     </>
   );
 };
