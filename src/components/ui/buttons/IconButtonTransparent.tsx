@@ -1,23 +1,29 @@
-import { Image, ImageSourcePropType, StyleSheetProperties, Text, TouchableOpacity } from 'react-native'
-import { otherIcons } from '../../../constant/images'
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheetProperties,
+  Text,
+  TouchableOpacity,
+} from "react-native";
+import { otherIcons } from "../../../constant/images";
 
 const IconButtonTransparent = ({
   style,
   icon,
   text,
-  handler
+  handler,
 }: {
-  style?: StyleSheetProperties,
-  icon?: ImageSourcePropType,
-  text?: string,
-  handler: () => void
+  style?: StyleSheetProperties;
+  icon?: ImageSourcePropType;
+  text?: string;
+  handler: () => void;
 }) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        handler?.()
+        handler?.();
       }}
-      activeOpacity={.7}
+      activeOpacity={0.7}
       style={{
         paddingHorizontal: 16,
         paddingVertical: 10,
@@ -30,23 +36,26 @@ const IconButtonTransparent = ({
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        ...style
+        ...style,
       }}
     >
       <Image
-        source={icon ? icon : otherIcons.manCircle as ImageSourcePropType}
+        source={icon ? icon : (otherIcons.manCircle as ImageSourcePropType)}
         style={{
           height: 24,
           width: 24,
-          tintColor: "#115E59"
+          tintColor: "#115E59",
         }}
       />
-      <Text style={{
-        color: "#115E59"
-      }}>{text ? text : "Map View"}</Text>
+      <Text
+        style={{
+          color: "#115E59",
+        }}
+      >
+        {text ? text : "Map View"}
+      </Text>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-
-export default IconButtonTransparent
+export default IconButtonTransparent;

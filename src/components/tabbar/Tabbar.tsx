@@ -1,30 +1,30 @@
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { PlatformPressable } from '@react-navigation/elements';
-import { useLinkBuilder, useTheme } from '@react-navigation/native';
-import React from 'react';
-import { View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import TabItem from './TabItem';
+import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { PlatformPressable } from "@react-navigation/elements";
+import { useLinkBuilder, useTheme } from "@react-navigation/native";
+import React from "react";
+import { View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import TabItem from "./TabItem";
 const Tabbar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   const { colors } = useTheme();
   const { buildHref } = useLinkBuilder();
-  const { bottom } = useSafeAreaInsets()
+  const { bottom } = useSafeAreaInsets();
   return (
-    <View style={{ flexDirection: 'row', marginBottom: bottom, height: 70 }}>
+    <View style={{ flexDirection: "row", marginBottom: bottom, height: 70 }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-              ? options.title
-              : route.name;
+            ? options.title
+            : route.name;
 
         const isFocused = state.index === index;
 
         const onPress = () => {
           const event = navigation.emit({
-            type: 'tabPress',
+            type: "tabPress",
             target: route.key,
             canPreventDefault: true,
           });
@@ -36,7 +36,7 @@ const Tabbar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
 
         const onLongPress = () => {
           navigation.emit({
-            type: 'tabLongPress',
+            type: "tabLongPress",
             target: route.key,
           });
         };
@@ -64,6 +64,6 @@ const Tabbar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
       })}
     </View>
   );
-}
+};
 
-export default Tabbar
+export default Tabbar;

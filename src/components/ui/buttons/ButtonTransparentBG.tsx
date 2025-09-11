@@ -1,18 +1,21 @@
-import React from 'react'
-import { StyleSheetProperties, Text, TouchableOpacity } from 'react-native'
+import React from "react";
+import { StyleSheetProperties, Text, TouchableOpacity } from "react-native";
 
-const ButtonTransparentBG = ({ style,
+const ButtonTransparentBG = ({
+  style,
   text,
-  handler
+  handler,
 }: {
-  style?: StyleSheetProperties,
-  text?: string,
-  handler: () => void
+  style?: StyleSheetProperties;
+  text?: string;
+  handler: () => void;
 }) => {
   return (
     <TouchableOpacity
-      onPress={() => { handler?.() }}
-      activeOpacity={.7}
+      onPress={() => {
+        handler?.();
+      }}
+      activeOpacity={0.7}
       style={{
         paddingHorizontal: 16,
         paddingVertical: 10,
@@ -25,15 +28,18 @@ const ButtonTransparentBG = ({ style,
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        ...style
+        ...style,
       }}
     >
-      <Text style={{
-        color: "#115E59"
-      }}>{text ? text : "Close"}</Text>
+      <Text
+        style={{
+          color: "#115E59",
+        }}
+      >
+        {text ? text : "Close"}
+      </Text>
     </TouchableOpacity>
-  )
+  );
+};
 
-}
-
-export default ButtonTransparentBG
+export default ButtonTransparentBG;

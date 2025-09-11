@@ -1,7 +1,12 @@
-import React from 'react';
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from 'react-native';
-import { TabIcons } from '../../constant/images';
-
+import React from "react";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import { TabIcons } from "../../constant/images";
 
 const TabItem = ({
   route,
@@ -16,39 +21,34 @@ const TabItem = ({
     <View
       style={{
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
         height: 50,
         borderTopWidth: isFocused ? 2 : 0,
-        borderColor: isFocused
-          ? "#115E59"
-          : 'transparent',
-        backgroundColor: isFocused
-          ? "#E6F4F1"
-          : 'transparent',
-      }}>
+        borderColor: isFocused ? "#115E59" : "transparent",
+        backgroundColor: isFocused ? "#E6F4F1" : "transparent",
+      }}
+    >
       <Image
         source={TabIcons[label as keyof typeof TabIcons] as ImageSourcePropType}
         style={{
           width: 24,
           height: 24,
           marginBottom: 4,
-          tintColor: isFocused
-            ? "#115E59"
-            : "black",
+          tintColor: isFocused ? "#115E59" : "black",
         }}
       />
-      <Text style={{
-        color: isFocused
-          ? "#115E59"
-          : "black",
-      }}>
+      <Text
+        style={{
+          color: isFocused ? "#115E59" : "black",
+        }}
+      >
         {label}
       </Text>
     </View>
   );
 };
 
-export default TabItem
+export default TabItem;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

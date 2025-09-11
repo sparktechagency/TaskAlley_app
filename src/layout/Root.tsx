@@ -1,15 +1,18 @@
-import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
-import { StatusBar } from 'react-native'
-import DrawerLayout from './DrawerLayout'
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { StatusBar } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import DrawerLayout from "./DrawerLayout";
 
 const Root = () => {
   return (
-    <NavigationContainer>
-      <StatusBar barStyle={"dark-content"} backgroundColor={`#FFFFFF`} />
-      <DrawerLayout />
-    </NavigationContainer>
-  )
-}
+    <GestureHandlerRootView>
+      <NavigationContainer>
+        <StatusBar barStyle={"dark-content"} backgroundColor={`#FFFFFF`} />
+        <DrawerLayout />
+      </NavigationContainer>
+    </GestureHandlerRootView>
+  );
+};
 
-export default Root
+export default Root;
