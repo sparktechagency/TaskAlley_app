@@ -22,10 +22,13 @@ const BackButton = ({ text }: propType) => {
           />}
         />
       </TouchableOpacity>
-      <Text style={{
-        fontSize: 20,
-        fontWeight: '500',
-      }}>{text}</Text>
+      <Text
+        numberOfLines={1}
+        style={{
+          fontSize: 20,
+          fontWeight: '500',
+
+        }}>{text}</Text>
       <Text></Text>
     </View>
   )

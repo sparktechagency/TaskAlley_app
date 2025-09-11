@@ -48,6 +48,7 @@ const TabLayout = () => {
           name={item?.route}
           options={{
             tabBarLabel: item?.label,
+            headerShown: false
           }}
           component={item?.component}
         />
