@@ -22,16 +22,16 @@ const SelectInput = ({
   label = "select item",
   error = false,
   handler,
-  name
+  name,
 }: {
-  value?: string,
-  placeHolder?: string,
-  style?: StyleSheetProperties,
-  options?: { label: string, value: string }[],
+  value?: string;
+  placeHolder?: string;
+  style?: StyleSheetProperties;
+  options?: { label: string; value: string }[];
   label?: string;
   error?: boolean;
   handler?: (name: string) => void;
-  name: string
+  name?: string;
 }) => {
   const bottomSheetRef = useRef<BottomSheet | null>(null);
   const handleClose = () => {
@@ -58,7 +58,7 @@ const SelectInput = ({
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          ...style
+          ...style,
         }}
       >
         <Text>{placeHolder}</Text>
@@ -100,34 +100,39 @@ const SelectInput = ({
         ref={bottomSheetRef}
       >
         <BottomSheetView style={styles.sheetContent}>
-          <View style={{
-            flex: 1,
-            gap: 8,
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-          }}>
-            {
-              options?.map((item) => <TouchableOpacity
+          <View
+            style={{
+              flex: 1,
+              gap: 8,
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+            }}
+          >
+            {options?.map((item) => (
+              <TouchableOpacity
                 onPress={() => {
-                  bottomSheetRef?.current?.close()
-                  handler?.(name)
+                  bottomSheetRef?.current?.close();
+                  handler?.(name as string);
                 }}
                 style={{
                   padding: 6,
                   backgroundColor: item?.value == value ? "#C1E0DA" : "#E6F4F1",
                   width: "100%",
-                  borderRadius: 4
-                }}>
-                <Text style={{
-                  textTransform: "capitalize"
-                }}>
+                  borderRadius: 4,
+                }}
+              >
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                  }}
+                >
                   {item?.label}
                 </Text>
-              </TouchableOpacity>)
-            }
+              </TouchableOpacity>
+            ))}
           </View>
         </BottomSheetView>
-      </BottomSheet >
+      </BottomSheet>
     </>
   );
 };

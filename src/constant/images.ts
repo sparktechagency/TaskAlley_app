@@ -1,4 +1,5 @@
 import arrowDown from "../assets/arrowDown.png";
+import ArrowLeft from "../assets/arrowLeft.png";
 import Close from "../assets/close.png";
 import Eye from "../assets/eye.png";
 import EyeX from "../assets/eyeX.png";
@@ -21,4 +22,5 @@ export const otherIcons = Object.freeze({
   EyeX,
   Close,
   arrowDown,
+  ArrowLeft
 });

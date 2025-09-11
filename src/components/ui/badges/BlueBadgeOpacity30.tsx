@@ -2,21 +2,24 @@ import React from "react";
 import {
   Image,
   ImageSourcePropType,
-  StyleSheetProperties,
+  StyleProp,
   View,
+  ViewStyle
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
 
 const BlueBadgeOpacity30 = ({
   style,
   icon,
+  component
 }: {
-  style?: StyleSheetProperties;
+  style?: StyleProp<ViewStyle>;
   icon?: ImageSourcePropType;
+  component?: any
 }) => {
   return (
     <View
-      style={{
+      style={[{
         backgroundColor: "#E6F4F1",
         flex: 1,
         justifyContent: "center",
@@ -25,17 +28,20 @@ const BlueBadgeOpacity30 = ({
         width: 40,
         height: 40,
         borderRadius: 40,
-        ...style,
-      }}
+
+      }, style]}
     >
-      <Image
-        source={icon ? icon : (otherIcons.manCircle as ImageSourcePropType)}
-        style={{
-          height: 24,
-          width: 24,
-          tintColor: "#115E59",
-        }}
-      />
+      {
+        component ? component : <Image
+          source={icon ? icon : (otherIcons.manCircle as ImageSourcePropType)}
+          style={{
+            height: 24,
+            width: 24,
+            tintColor: "#115E59",
+          }}
+        />
+      }
+
     </View>
   );
 };

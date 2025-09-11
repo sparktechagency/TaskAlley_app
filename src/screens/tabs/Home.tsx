@@ -1,6 +1,7 @@
 import React from "react";
 import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BackButton from '../../components/shered/BackButton';
 import BlueBadgeOpacity30 from "../../components/ui/badges/BlueBadgeOpacity30";
 import ButtonBG from "../../components/ui/buttons/ButtonBG";
 import ButtonGreenOpacity30 from "../../components/ui/buttons/ButtonGreenOpacity30";
@@ -37,6 +38,7 @@ const Home = () => {
         <Input type="default" />
         <PasswordInput type="default" />
         <SelectInput />
+        <BackButton text='back button' />
       </View>
     </ScrollView>
   );
