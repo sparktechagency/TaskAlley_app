@@ -1,20 +1,18 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
+import HeaderDesign from '../../components/authentication/HeaderDesign'
 import SafeAreaProvider from '../../providers/SafeAreaProvider'
 
 const Login = () => {
   return (
     <SafeAreaProvider
-      backButtonText='test'
     >
       <ScrollView
         style={{
         }}
       >
         <View>
-          <Text>
-            Login
-          </Text>
+          <HeaderDesign />
         </View>
       </ScrollView>
     </SafeAreaProvider>
