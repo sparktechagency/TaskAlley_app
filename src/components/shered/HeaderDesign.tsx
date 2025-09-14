@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, TextStyle } from 'react-native'
+import { Text, TextStyle } from 'react-native'
 
 const HeaderDesign = ({ text, style }: { text?: string, style?: TextStyle }) => {
   return <Text style={[{
@@ -11,5 +11,3 @@ const HeaderDesign = ({ text, style }: { text?: string, style?: TextStyle }) => 
 }
 
 export default HeaderDesign
-
-const styles = StyleSheet.create({})

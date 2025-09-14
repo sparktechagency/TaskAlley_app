@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheetProperties, TextInput, View } from "react-native";
+import { KeyboardType, StyleSheetProperties, TextInput, View } from "react-native";
 import HeaderSecondary from '../../shered/HeaderSecondary';
 
 const Input = ({
-  type,
+  keyboard,
   style,
   inputStyle,
   placeHolder = "Please enter",
@@ -12,16 +12,18 @@ const Input = ({
   handler,
   value,
   name,
+  required = true
 }: {
-  type: string;
+  keyboard: string;
   style?: StyleSheetProperties;
   inputStyle?: StyleSheetProperties;
   placeHolder?: string;
   label?: string;
   error?: boolean;
-  handler?: (name: string) => void;
+  handler?: (name: string, value: string) => void;
   value?: string;
   name?: string;
+  required?: boolean
 }) => {
   return (
     <View
@@ -32,7 +34,7 @@ const Input = ({
     >
       <HeaderSecondary
         style={{
-          color: error ? "red" : "#111827",
+          color: required ? error ? "red" : "#111827" : "#111827",
         }}
         text={label}
       />
@@ -51,8 +53,8 @@ const Input = ({
           ...inputStyle,
         }}
         placeholder={placeHolder}
-        keyboardType={type as any}
-        onChangeText={(text) => handler?.(name as string)}
+        keyboardType={keyboard as KeyboardType}
+        onChangeText={(text) => handler?.(name as string, text)}
       />
     </View>
   );

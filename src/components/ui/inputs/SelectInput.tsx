@@ -24,6 +24,7 @@ const SelectInput = ({
   error = false,
   handler,
   name,
+  required = true
 }: {
   value?: string;
   placeHolder?: string;
@@ -31,8 +32,9 @@ const SelectInput = ({
   options?: { label: string; value: string }[];
   label?: string;
   error?: boolean;
-  handler?: (name: string) => void;
+  handler?: (name: string, value: string) => void;
   name?: string;
+  required: boolean
 }) => {
   const bottomSheetRef = useRef<BottomSheet | null>(null);
   const handleClose = () => {
@@ -43,7 +45,7 @@ const SelectInput = ({
     <>
       <HeaderSecondary
         style={{
-          color: error ? "red" : "#111827",
+          color: required ? error ? "red" : "#111827" : "#111827",
         }}
         text={label}
       />
@@ -111,7 +113,7 @@ const SelectInput = ({
               <TouchableOpacity
                 onPress={() => {
                   bottomSheetRef?.current?.close();
-                  handler?.(name as string);
+                  handler?.(name as string, item?.value);
                 }}
                 style={{
                   padding: 6,

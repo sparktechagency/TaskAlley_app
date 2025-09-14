@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Image,
   ImageBackgroundProps,
+  KeyboardType,
   StyleSheetProperties,
   TextInput,
   TouchableOpacity,
@@ -11,7 +12,7 @@ import { otherIcons } from "../../../constant/images";
 import HeaderSecondary from '../../shered/HeaderSecondary';
 
 const PasswordInput = ({
-  type,
+  keyboard,
   style,
   inputStyle,
   placeHolder = "Please enter",
@@ -20,16 +21,18 @@ const PasswordInput = ({
   handler,
   value,
   name,
+  required = true
 }: {
-  type: string;
+  keyboard: string;
   style?: StyleSheetProperties;
   inputStyle?: StyleSheetProperties;
   placeHolder?: string;
   label?: string;
   error?: boolean;
-  handler?: (name: string) => void;
+  handler?: (name: string, value: string) => void;
   value?: string;
   name?: string;
+  required?: boolean
 }) => {
   const [show, setShow] = useState(true);
   return (
@@ -42,7 +45,7 @@ const PasswordInput = ({
     >
       <HeaderSecondary
         style={{
-          color: error ? "red" : "#111827",
+          color: required ? error ? "red" : "#111827" : "#111827",
         }}
         text={label}
       />
@@ -62,14 +65,14 @@ const PasswordInput = ({
           ...inputStyle,
         }}
         placeholder={placeHolder}
-        keyboardType={type as any}
-        onChangeText={(text) => handler?.(name as string)}
+        keyboardType={keyboard as KeyboardType}
+        onChangeText={(text) => handler?.(name as string, text)}
       />
       <TouchableOpacity
         style={{
           position: "absolute",
           right: 4,
-          top: 45,
+          top: 35,
         }}
         activeOpacity={0.7}
         onPress={() => setShow(!show)}

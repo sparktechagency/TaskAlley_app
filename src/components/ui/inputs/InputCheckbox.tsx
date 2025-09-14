@@ -10,8 +10,8 @@ const InputCheckbox = ({
 }: {
   label?: string;
   error?: boolean;
-  handler?: (name: string) => void;
-  value?: string;
+  handler?: (name: string, value: boolean) => void;
+  value?: boolean;
   name?: string;
 }) => {
   return (
@@ -26,7 +26,7 @@ const InputCheckbox = ({
         size={20}
         fillColor="#115E59"
         unFillColor="#FFFFFF"
-        isChecked={true}
+        isChecked={value}
 
         iconStyle={{
           borderColor: "#115E59",
@@ -41,7 +41,7 @@ const InputCheckbox = ({
           textDecorationLine: "none"
         }}
         onPress={(isChecked: boolean) => {
-          handler?.(name as string)
+          handler?.(name as string, isChecked)
         }}
       />
     </View>
