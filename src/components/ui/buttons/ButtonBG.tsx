@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheetProperties, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, ViewStyle } from "react-native";
 
 const ButtonBG = ({
   style,
   text,
   handler,
 }: {
-  style?: StyleSheetProperties;
+  style?: ViewStyle;
   text?: string;
   handler: () => void;
 }) => {

@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import ForgetPassword from '../screens/stack/ForgetPassword';
 import Login from '../screens/stack/Login';
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
@@ -10,6 +11,11 @@ const StackLayout = () => {
       route: "Login",
       label: "Login",
       component: Login,
+    },
+    {
+      route: "Forget",
+      label: "Forget",
+      component: ForgetPassword,
     },
     {
       route: "TabLayout",

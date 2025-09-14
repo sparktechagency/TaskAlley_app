@@ -1,3 +1,4 @@
+import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -15,6 +16,7 @@ import { FieldsType } from '../../types/Types'
 import { RenderField } from '../../utils/RenderField'
 
 const Login = () => {
+  const navigate = useNavigation<NavigationProp<ParamListBase>>()
   const { height } = Dimensions.get("window");
   const { fields, setFields } = LoginFields()
   const { top, bottom } = useSafeAreaInsets()
@@ -42,7 +44,9 @@ const Login = () => {
             fields?.map((field: FieldsType) => RenderField(field, setFields))
           }
 
-          <TouchableOpacity style={[styles.forget]}>
+          <TouchableOpacity
+            onPress={() => navigate.navigate("Forget")}
+            style={[styles.forget]}>
             <TextSecondary
               style={{
                 color: "#115E59"
