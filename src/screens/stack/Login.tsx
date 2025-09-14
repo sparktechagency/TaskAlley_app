@@ -1,6 +1,8 @@
 import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
-import HeaderDesign from '../../components/authentication/HeaderDesign'
+import HeaderDesign from '../../components/shered/HeaderDesign'
+import TextSecondary from '../../components/shered/TextSecondary'
+import InputCheckbox from '../../components/ui/inputs/InputCheckbox'
 import SafeAreaProvider from '../../providers/SafeAreaProvider'
 
 const Login = () => {
@@ -12,7 +14,12 @@ const Login = () => {
         }}
       >
         <View>
-          <HeaderDesign />
+          <HeaderDesign
+          />
+          <TextSecondary
+            text='Log in with your credentials to access your account and manage everything from one place.'
+          />
+          <InputCheckbox />
         </View>
       </ScrollView>
     </SafeAreaProvider>

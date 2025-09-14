@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheetProperties, Text, TextInput, View } from "react-native";
+import { StyleSheetProperties, TextInput, View } from "react-native";
+import HeaderSecondary from '../../shered/HeaderSecondary';
 
 const Input = ({
   type,
@@ -29,14 +30,12 @@ const Input = ({
         ...style,
       }}
     >
-      <Text
+      <HeaderSecondary
         style={{
-          marginVertical: 4,
-          color: error ? "red" : "#000000",
+          color: error ? "red" : "#111827",
         }}
-      >
-        {label}
-      </Text>
+        text={label}
+      />
       <TextInput
         value={value}
         style={{
@@ -45,9 +44,9 @@ const Input = ({
           borderRadius: 8,
           ...(error
             ? {
-                borderColor: "red",
-                borderWidth: 1,
-              }
+              borderColor: "red",
+              borderWidth: 1,
+            }
             : {}),
           ...inputStyle,
         }}

@@ -3,12 +3,12 @@ import {
   Image,
   ImageBackgroundProps,
   StyleSheetProperties,
-  Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
+import HeaderSecondary from '../../shered/HeaderSecondary';
 
 const PasswordInput = ({
   type,
@@ -40,14 +40,12 @@ const PasswordInput = ({
         ...style,
       }}
     >
-      <Text
+      <HeaderSecondary
         style={{
-          marginVertical: 4,
-          color: error ? "red" : "#000000",
+          color: error ? "red" : "#111827",
         }}
-      >
-        {label}
-      </Text>
+        text={label}
+      />
       <TextInput
         secureTextEntry={show}
         value={value}
@@ -57,9 +55,9 @@ const PasswordInput = ({
           borderRadius: 8,
           ...(error
             ? {
-                borderColor: "red",
-                borderWidth: 1,
-              }
+              borderColor: "red",
+              borderWidth: 1,
+            }
             : {}),
           ...inputStyle,
         }}

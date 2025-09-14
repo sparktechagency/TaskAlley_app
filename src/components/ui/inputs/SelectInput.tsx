@@ -10,6 +10,7 @@ import {
   View,
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
+import HeaderSecondary from '../../shered/HeaderSecondary';
 
 const SelectInput = ({
   value,
@@ -40,14 +41,12 @@ const SelectInput = ({
 
   return (
     <>
-      <Text
+      <HeaderSecondary
         style={{
-          marginVertical: 4,
-          color: error ? "red" : "#000000",
+          color: error ? "red" : "#111827",
         }}
-      >
-        {label}
-      </Text>
+        text={label}
+      />
       <TouchableOpacity
         onPress={() => bottomSheetRef.current?.snapToIndex(1)}
         style={{

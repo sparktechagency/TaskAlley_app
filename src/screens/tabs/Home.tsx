@@ -7,7 +7,6 @@ const Home = () => {
 
   return (
     <SafeAreaProvider
-      backButtonText='test'
     >
       <ScrollView
         style={{
@@ -16,7 +15,7 @@ const Home = () => {
       >
         <View>
           <Text>
-            asdasd
+            Home
           </Text>
         </View>
       </ScrollView>
