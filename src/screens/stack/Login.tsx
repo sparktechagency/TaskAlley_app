@@ -9,6 +9,7 @@ import TextSecondary from '../../components/shered/TextSecondary'
 import ButtonBG from '../../components/ui/buttons/ButtonBG'
 import Divider from '../../components/ui/devider/Divider'
 import LoginFields from '../../formFields/LoginFields'
+import { handleSignIn } from '../../handler/signIn'
 import SafeAreaProvider from '../../providers/SafeAreaProvider'
 import { FieldsType } from '../../types/Types'
 import { RenderField } from '../../utils/RenderField'
@@ -17,6 +18,7 @@ const Login = () => {
   const { height } = Dimensions.get("window");
   const { fields, setFields } = LoginFields()
   const { top, bottom } = useSafeAreaInsets()
+  console.log(fields)
   return (
     <SafeAreaProvider
     >
@@ -79,7 +81,7 @@ const Login = () => {
           </FlexText>
           <ButtonBG
             text=' Log In'
-            handler={() => console.log("")}
+            handler={() => handleSignIn(fields, setFields)}
           />
         </View>
       </ScrollView>

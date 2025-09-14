@@ -73,7 +73,7 @@ const PasswordInput = ({
         style={{
           position: "absolute",
           right: 4,
-          top: 35,
+          top: 40,
         }}
         activeOpacity={0.7}
         onPress={() => setShow(!show)}

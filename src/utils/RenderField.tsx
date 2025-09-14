@@ -12,10 +12,11 @@ export const RenderField = (field: FieldsType, setFields: React.Dispatch<React.S
       handler={(name, value) =>
         setFields((prev) =>
           prev.map((field) =>
-            field.name === name ? { ...field, value } : field
+            field.name === name ? { ...field, value, error: false } : field
           )
         )
       }
+      error={field?.error}
       label={field?.label}
       name={field?.name}
       value={field?.value as boolean}
@@ -25,13 +26,15 @@ export const RenderField = (field: FieldsType, setFields: React.Dispatch<React.S
   if (field.type == FieldType.PASSWORD) {
     return (<PasswordInput
       key={field.name}
+      error={field?.error}
       handler={(name, value) =>
         setFields((prev) =>
           prev.map((field) =>
-            field.name === name ? { ...field, value } : field
+            field.name === name ? { ...field, value, error: false } : field
           )
         )
       }
+      placeHolder={field?.placeHolder}
       label={field?.label}
       name={field?.name}
       value={field?.value as string}
@@ -41,11 +44,13 @@ export const RenderField = (field: FieldsType, setFields: React.Dispatch<React.S
 
   if (field.type == FieldType.STRING) {
     return (<Input
+      placeHolder={field?.placeHolder}
+      error={field?.error}
       key={field.name}
       handler={(name, value) =>
         setFields((prev) =>
           prev.map((field) =>
-            field.name === name ? { ...field, value } : field
+            field.name === name ? { ...field, value, error: false } : field
           )
         )
       }

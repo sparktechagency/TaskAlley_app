@@ -6,10 +6,10 @@ const LoginFields = () => {
     {
       name: "email",
       type: FieldType.STRING,
-      placeHolder: "siyamoffice0273@gmail.com",
+      placeHolder: "Enter Email Address",
       label: "Email Address",
       error: false,
-      value: "",
+      value: "siyamoffice0273@gmail.com",
       required: true,
       keyboard: KeyboardType.EMAIL_ADDRESS
     },
@@ -19,7 +19,7 @@ const LoginFields = () => {
       placeHolder: "******",
       label: "Password",
       error: false,
-      value: "",
+      value: "123456",
       required: true,
       keyboard: KeyboardType.DEFAULT
     },
