@@ -1,22 +1,36 @@
 import React from 'react'
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import FlexText from '../../components/shered/FlexText'
 import HeaderDesign from '../../components/shered/HeaderDesign'
+import HeaderSecondary from '../../components/shered/HeaderSecondary'
+import TextPrimary from '../../components/shered/TextPrimary'
 import TextSecondary from '../../components/shered/TextSecondary'
+import ButtonBG from '../../components/ui/buttons/ButtonBG'
+import Divider from '../../components/ui/devider/Divider'
 import LoginFields from '../../formFields/LoginFields'
 import SafeAreaProvider from '../../providers/SafeAreaProvider'
 import { FieldsType } from '../../types/Types'
 import { RenderField } from '../../utils/RenderField'
 
 const Login = () => {
+  const { height } = Dimensions.get("window");
   const { fields, setFields } = LoginFields()
+  const { top, bottom } = useSafeAreaInsets()
   return (
     <SafeAreaProvider
     >
       <ScrollView
+        showsVerticalScrollIndicator={false}
         style={{
         }}
       >
-        <View>
+        <View style={{
+          flex: 1,
+          gap: 6,
+          justifyContent: "center",
+          minHeight: height - top - bottom
+        }}>
           <HeaderDesign
           />
           <TextSecondary
@@ -25,6 +39,48 @@ const Login = () => {
           {
             fields?.map((field: FieldsType) => RenderField(field, setFields))
           }
+
+          <TouchableOpacity style={[styles.forget]}>
+            <TextSecondary
+              style={{
+                color: "#115E59"
+              }}
+              text=' Forget Password ?'
+            />
+          </TouchableOpacity>
+
+          <FlexText style={{
+            marginTop: 8
+          }}>
+            <Divider style={{
+              width: "45%"
+            }} />
+            <HeaderSecondary text='OR' />
+            <Divider style={{
+              width: "45%"
+            }} />
+          </FlexText>
+
+          <FlexText style={{
+            marginTop: 8,
+            marginBottom: 6
+          }}>
+            <TextPrimary
+              text='Don’t have an account?'
+            />
+            <TouchableOpacity>
+              <TextSecondary
+                style={{
+                  color: "#115E59"
+                }}
+                text='Sign Up'
+              />
+            </TouchableOpacity>
+          </FlexText>
+          <ButtonBG
+            text=' Log In'
+            handler={() => console.log("")}
+          />
         </View>
       </ScrollView>
     </SafeAreaProvider>
@@ -33,4 +89,9 @@ const Login = () => {
 
 export default Login
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  forget: {
+    marginLeft: "auto",
+    marginTop: -24
+  }
+})

@@ -1,4 +1,4 @@
-import { NavigationProp, ParamListBase, useNavigation, useRoute } from '@react-navigation/native';
+import { CommonActions, NavigationProp, ParamListBase, useNavigation, useRoute } from '@react-navigation/native';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,7 +13,12 @@ const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, b
     if (!login) {
       const currentRoute = route.name.toLowerCase();
       if (!withoutLog.includes(currentRoute)) {
-        navigation.navigate('Login');
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [{ name: 'Login' }],
+          })
+        );
       }
     }
   }, [login, route.name]);

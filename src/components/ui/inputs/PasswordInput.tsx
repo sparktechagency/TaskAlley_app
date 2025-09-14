@@ -46,6 +46,7 @@ const PasswordInput = ({
       <HeaderSecondary
         style={{
           color: required ? error ? "red" : "#111827" : "#111827",
+          marginBottom: 5
         }}
         text={label}
       />
