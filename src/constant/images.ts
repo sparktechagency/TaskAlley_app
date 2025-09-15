@@ -1,6 +1,7 @@
 import arrowDown from "../assets/arrowDown.png";
 import ArrowLeft from "../assets/arrowLeft.png";
 import Close from "../assets/close.png";
+import Customer from "../assets/customer.png";
 import Eye from "../assets/eye.png";
 import EyeX from "../assets/eyeX.png";
 import Chat from "../assets/icons/chat.png";
@@ -9,6 +10,7 @@ import post from "../assets/icons/post.png";
 import Profile from "../assets/icons/profile.png";
 import task from "../assets/icons/task.png";
 import manCircle from "../assets/manCircle.png";
+import Service from "../assets/service.png";
 export const TabIcons = {
   Home,
   "My Tasks": post,
@@ -22,5 +24,7 @@ export const otherIcons = Object.freeze({
   EyeX,
   Close,
   arrowDown,
-  ArrowLeft
+  ArrowLeft,
+  Customer,
+  Service
 });

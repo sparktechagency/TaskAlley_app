@@ -73,7 +73,9 @@ const Login = () => {
             <TextPrimary
               text='Don’t have an account?'
             />
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigate.navigate("ChooseSignUp")}
+            >
               <TextSecondary
                 style={{
                   color: "#115E59"
