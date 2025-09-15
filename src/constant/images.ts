@@ -9,6 +9,7 @@ import Home from "../assets/icons/home.png";
 import post from "../assets/icons/post.png";
 import Profile from "../assets/icons/profile.png";
 import task from "../assets/icons/task.png";
+import Image from "../assets/image.png";
 import manCircle from "../assets/manCircle.png";
 import Service from "../assets/service.png";
 export const TabIcons = {
@@ -26,5 +27,6 @@ export const otherIcons = Object.freeze({
   arrowDown,
   ArrowLeft,
   Customer,
-  Service
+  Service,
+  Image
 });

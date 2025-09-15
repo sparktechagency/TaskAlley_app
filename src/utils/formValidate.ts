@@ -4,10 +4,12 @@ export const validateFields = (
   fields: FieldsType[],
   setFields: React.Dispatch<React.SetStateAction<FieldsType[]>>
 ): boolean => {
+  console.log({ fields, setFields })
   let isValid = true;
 
   setFields(prev =>
     prev.map(field => {
+      console.log({ prev })
       let hasError = false;
 
       if (field.required) {

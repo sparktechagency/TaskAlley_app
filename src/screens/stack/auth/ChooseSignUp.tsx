@@ -25,7 +25,8 @@ const ChooseSignUp = () => {
           flex: 1,
           gap: 6,
           justifyContent: "center",
-          minHeight: height - top - bottom
+          minHeight: height - top - bottom,
+          paddingBottom: 90
         }}>
           <HeaderDesign
             text='Choose Your Role to Get Started'
