@@ -14,63 +14,25 @@ import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
 
 const StackLayout = () => {
-  const stacks = [
-    {
-      route: "Login",
-      label: "Login",
-      component: Login,
-    },
-    {
-      route: "Forget",
-      label: "Forget",
-      component: ForgetPassword,
-    },
-    {
-      route: "Verify",
-      label: "Verify",
-      component: Verify,
-    },
-    {
-      route: "ResetPassword",
-      label: "ResetPassword",
-      component: ResetPassword,
-    },
-    {
-      route: "ChooseSignUp",
-      label: "ChooseSignUp",
-      component: ChooseSignUp,
-    },
-    {
-      route: "CustomerSignUp",
-      label: "CustomerSignUp",
-      component: CustomerSignUp,
-    },
-    {
-      route: "ServiceSignUp",
-      label: "ServiceSignUp",
-      component: ServiceSignUp,
-    },
-    {
-      route: "RealTimeBooking",
-      label: "RealTimeBooking",
-      component: RealTimeBooking,
-    },
-    {
-      route: "SecurePayments",
-      label: "SecurePayments",
-      component: SecurePayments,
-    },
-    {
-      route: "TrustedServices",
-      label: "TrustedServices",
-      component: TrustedServices,
-    },
-    {
-      route: "TabLayout",
-      label: "TabLayout",
-      component: TabLayout,
-    },
-  ];
+  const screens = {
+    Login: Login,
+    Forget: ForgetPassword,
+    Verify: Verify,
+    ResetPassword: ResetPassword,
+    ChooseSignUp: ChooseSignUp,
+    CustomerSignUp: CustomerSignUp,
+    ServiceSignUp: ServiceSignUp,
+    RealTimeBooking: RealTimeBooking,
+    SecurePayments: SecurePayments,
+    TrustedServices: TrustedServices,
+    TabLayout: TabLayout,
+  };
+
+  const stacks = Object.keys(screens).map(key => ({
+    route: key,
+    label: key,
+    component: screens[key as keyof typeof screens],
+  }));
 
   return (
     <Stack.Navigator
