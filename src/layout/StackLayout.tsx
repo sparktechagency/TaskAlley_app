@@ -7,6 +7,9 @@ import Login from '../screens/stack/auth/Login';
 import ResetPassword from '../screens/stack/auth/ResetPassword';
 import ServiceSignUp from '../screens/stack/auth/ServiceSignUp';
 import Verify from '../screens/stack/auth/Verify';
+import RealTimeBooking from '../screens/stack/onboarding/RealTimeBooking';
+import SecurePayments from '../screens/stack/onboarding/SecurePayments';
+import TrustedServices from '../screens/stack/onboarding/TrustedServices';
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +49,21 @@ const StackLayout = () => {
       route: "ServiceSignUp",
       label: "ServiceSignUp",
       component: ServiceSignUp,
+    },
+    {
+      route: "RealTimeBooking",
+      label: "RealTimeBooking",
+      component: RealTimeBooking,
+    },
+    {
+      route: "SecurePayments",
+      label: "SecurePayments",
+      component: SecurePayments,
+    },
+    {
+      route: "TrustedServices",
+      label: "TrustedServices",
+      component: TrustedServices,
     },
     {
       route: "TabLayout",
