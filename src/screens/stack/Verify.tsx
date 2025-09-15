@@ -1,21 +1,15 @@
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
+import { OtpInput } from 'react-native-otp-entry'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import HeaderDesign from '../../components/shered/HeaderDesign'
 import TextSecondary from '../../components/shered/TextSecondary'
 import ButtonBG from '../../components/ui/buttons/ButtonBG'
-import ForgetPasswordFields from '../../formFields/ForgetPasswordFields'
-import { handleForgetPassword } from '../../handler/forgetPassword'
 import SafeAreaProvider from '../../providers/SafeAreaProvider'
-import { FieldsType } from '../../types/Types'
-import { RenderField } from '../../utils/RenderField'
 
-const ForgetPassword = () => {
+const Verify = () => {
   const { height } = Dimensions.get("window");
-  const { fields, setFields } = ForgetPasswordFields()
   const { top, bottom } = useSafeAreaInsets()
-  const navigate = useNavigation<NavigationProp<ParamListBase>>()
   return (
     <SafeAreaProvider
     >
@@ -31,23 +25,20 @@ const ForgetPassword = () => {
           minHeight: height - top - bottom
         }}>
           <HeaderDesign
-            text='Verify Your Phone Number'
+            text='6-digit code'
           />
           <TextSecondary
-            text="We'll send a verification code to this Phone Number to confirm your account."
+            text="Please enter the code we've sent to your Phone Number"
           />
-          {
-            fields?.map((field: FieldsType) => RenderField(field, setFields))
-          }
-
+          <OtpInput numberOfDigits={6} onTextChange={(text) => console.log(text)} />
           <ButtonBG
             style={{
               marginTop: 10
             }}
-            text='Send'
+            text='Confirm'
             handler={() => {
-              handleForgetPassword(fields, setFields)
-              navigate.navigate("Verify")
+              // handleSignIn(fields, setFields)
+              // navigate.navigate("Verify")
 
             }}
           />
@@ -57,11 +48,6 @@ const ForgetPassword = () => {
   )
 }
 
-export default ForgetPassword
+export default Verify
 
-const styles = StyleSheet.create({
-  forget: {
-    marginLeft: "auto",
-    marginTop: -24
-  }
-})
+const styles = StyleSheet.create({})
