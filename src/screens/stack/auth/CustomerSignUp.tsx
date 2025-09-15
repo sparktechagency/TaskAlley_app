@@ -125,9 +125,9 @@ const CustomerSignUp = () => {
             text={currentSlide == 2 ? "Apply Code & Continue" : 'Continue'}
             handler={() => {
               const isValid = handleCustomerSignUp(fields?.slice(slide[currentSlide].skip, slide[currentSlide].keep + slide[currentSlide].skip), setFields, currentSlide)
-              if (!isValid) {
+              if (isValid && currentSlide < 2) {
                 setCurrentSlide(prev => prev + 1)
-              } else {
+              } else if (currentSlide == 2) {
                 navigate("Verify", {
                   params: { phoneNumber: "", from: "signup" }
                 })
