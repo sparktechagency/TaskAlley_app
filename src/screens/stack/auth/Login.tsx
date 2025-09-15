@@ -2,25 +2,24 @@ import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/
 import React from 'react'
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import FlexText from '../../components/shered/FlexText'
-import HeaderDesign from '../../components/shered/HeaderDesign'
-import HeaderSecondary from '../../components/shered/HeaderSecondary'
-import TextPrimary from '../../components/shered/TextPrimary'
-import TextSecondary from '../../components/shered/TextSecondary'
-import ButtonBG from '../../components/ui/buttons/ButtonBG'
-import Divider from '../../components/ui/devider/Divider'
-import LoginFields from '../../formFields/LoginFields'
-import { handleSignIn } from '../../handler/signIn'
-import SafeAreaProvider from '../../providers/SafeAreaProvider'
-import { FieldsType } from '../../types/Types'
-import { RenderField } from '../../utils/RenderField'
+import FlexText from '../../../components/shered/FlexText'
+import HeaderDesign from '../../../components/shered/HeaderDesign'
+import HeaderSecondary from '../../../components/shered/HeaderSecondary'
+import TextPrimary from '../../../components/shered/TextPrimary'
+import TextSecondary from '../../../components/shered/TextSecondary'
+import ButtonBG from '../../../components/ui/buttons/ButtonBG'
+import Divider from '../../../components/ui/devider/Divider'
+import LoginFields from '../../../formFields/LoginFields'
+import { handleSignIn } from '../../../handler/signIn'
+import SafeAreaProvider from '../../../providers/SafeAreaProvider'
+import { FieldsType } from '../../../types/Types'
+import { RenderField } from '../../../utils/RenderField'
 
 const Login = () => {
   const navigate = useNavigation<NavigationProp<ParamListBase>>()
   const { height } = Dimensions.get("window");
   const { fields, setFields } = LoginFields()
   const { top, bottom } = useSafeAreaInsets()
-  console.log(fields)
   return (
     <SafeAreaProvider
     >

@@ -2,14 +2,14 @@ import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/
 import React from 'react'
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import HeaderDesign from '../../components/shered/HeaderDesign'
-import TextSecondary from '../../components/shered/TextSecondary'
-import ButtonBG from '../../components/ui/buttons/ButtonBG'
-import ForgetPasswordFields from '../../formFields/ForgetPasswordFields'
-import { handleForgetPassword } from '../../handler/forgetPassword'
-import SafeAreaProvider from '../../providers/SafeAreaProvider'
-import { FieldsType } from '../../types/Types'
-import { RenderField } from '../../utils/RenderField'
+import HeaderDesign from '../../../components/shered/HeaderDesign'
+import TextSecondary from '../../../components/shered/TextSecondary'
+import ButtonBG from '../../../components/ui/buttons/ButtonBG'
+import ForgetPasswordFields from '../../../formFields/ForgetPasswordFields'
+import { handleForgetPassword } from '../../../handler/forgetPassword'
+import SafeAreaProvider from '../../../providers/SafeAreaProvider'
+import { FieldsType } from '../../../types/Types'
+import { RenderField } from '../../../utils/RenderField'
 
 const ForgetPassword = () => {
   const { height } = Dimensions.get("window");
@@ -18,6 +18,7 @@ const ForgetPassword = () => {
   const navigate = useNavigation<NavigationProp<ParamListBase>>()
   return (
     <SafeAreaProvider
+      backButtonText='Forget Password'
     >
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -47,7 +48,9 @@ const ForgetPassword = () => {
             text='Send'
             handler={() => {
               handleForgetPassword(fields, setFields)
-              navigate.navigate("Verify")
+              navigate.navigate("Verify", {
+                params: { phoneNumber: fields[0].value, from: "forget" }
+              })
 
             }}
           />

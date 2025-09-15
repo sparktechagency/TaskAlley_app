@@ -3,7 +3,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import BackButton from '../components/shered/BackButton';
-const withoutLog = ['login', 'signup', "forget", "verify"];
+const withoutLog = ['login', 'signup', "forget", "verify", "resetpassword"];
 const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, backButtonText?: string }) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();

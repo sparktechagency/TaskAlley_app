@@ -13,10 +13,10 @@ const BackButton = ({ text }: propType) => {
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, justifyContent: 'space-between', paddingHorizontal: 20, marginTop: 8 }}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <BlueBadgeOpacity30
-          style={{
-            borderColor: "#115E59",
-            borderWidth: 1,
-          }}
+          // style={{
+          //   borderColor: "#115E59",
+          //   borderWidth: 1,
+          // }}
           component={<Image
             source={otherIcons.ArrowLeft as ImageSourcePropType}
           />}
