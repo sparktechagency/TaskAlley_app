@@ -103,16 +103,16 @@ const CustomerSignUp = () => {
                 marginTop: 8,
               }}>
                 <TextPrimary
-                  text='Don’t have an account?'
+                  text='Already have an account?'
                 />
                 <TouchableOpacity
-                  onPress={() => navigate("ChooseSignUp")}
+                  onPress={() => navigate("Login")}
                 >
                   <TextSecondary
                     style={{
                       color: "#115E59"
                     }}
-                    text='Sign Up'
+                    text='Login'
                   />
                 </TouchableOpacity>
               </FlexText>
