@@ -1,9 +1,10 @@
 import { CommonActions, NavigationProp, ParamListBase, useNavigation, useRoute } from '@react-navigation/native';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import BackButton from '../components/shered/BackButton';
+import { useGlobalContext } from './GlobalContextProvider';
 const withoutLog = [
   'login',
   'signup',
@@ -21,9 +22,9 @@ const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, b
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const route = useRoute();
-  const [login, setLogin] = useState<boolean>(false);
+  const { role } = useGlobalContext()
   useEffect(() => {
-    if (!login) {
+    if (!role) {
       const currentRoute = route.name.toLowerCase();
       if (!withoutLog.includes(currentRoute)) {
         navigation.dispatch(
@@ -34,7 +35,7 @@ const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, b
         );
       }
     }
-  }, [login, route.name]);
+  }, [role, route.name]);
   return (
     <View style={{
       marginTop: top,

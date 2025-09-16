@@ -1,5 +1,6 @@
 import React from "react";
-import { Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
+import UserProfileHeader from '../../components/home/UserProfileHeader';
 import SafeAreaProvider from '../../providers/SafeAreaProvider';
 
 const Home = () => {
@@ -14,9 +15,7 @@ const Home = () => {
         }}
       >
         <View>
-          <Text>
-            Home
-          </Text>
+          <UserProfileHeader />
         </View>
       </ScrollView>
     </SafeAreaProvider>

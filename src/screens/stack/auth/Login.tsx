@@ -1,4 +1,3 @@
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -11,15 +10,18 @@ import ButtonBG from '../../../components/ui/buttons/ButtonBG'
 import Divider from '../../../components/ui/devider/Divider'
 import LoginFields from '../../../formFields/LoginFields'
 import { handleSignIn } from '../../../handler/signIn'
+import { useGlobalContext } from '../../../providers/GlobalContextProvider'
 import SafeAreaProvider from '../../../providers/SafeAreaProvider'
 import { FieldsType } from '../../../types/Types'
+import Navigate from '../../../utils/Navigate'
 import { RenderField } from '../../../utils/RenderField'
 
 const Login = () => {
-  const navigate = useNavigation<NavigationProp<ParamListBase>>()
   const { height } = Dimensions.get("window");
   const { fields, setFields } = LoginFields()
   const { top, bottom } = useSafeAreaInsets()
+  const { setRole } = useGlobalContext()
+  const navigate = Navigate()
   return (
     <SafeAreaProvider
     >
@@ -44,7 +46,7 @@ const Login = () => {
           }
 
           <TouchableOpacity
-            onPress={() => navigate.navigate("Forget")}
+            onPress={() => navigate("Forget")}
             style={[styles.forget]}>
             <TextSecondary
               style={{
@@ -74,7 +76,7 @@ const Login = () => {
               text='Don’t have an account?'
             />
             <TouchableOpacity
-              onPress={() => navigate.navigate("ChooseSignUp")}
+              onPress={() => navigate("ChooseSignUp")}
             >
               <TextSecondary
                 style={{
@@ -86,7 +88,11 @@ const Login = () => {
           </FlexText>
           <ButtonBG
             text=' Log In'
-            handler={() => handleSignIn(fields, setFields)}
+            handler={() => {
+              setRole("user")
+              navigate("TabLayout")
+              handleSignIn(fields, setFields)
+            }}
           />
         </View>
       </ScrollView>
