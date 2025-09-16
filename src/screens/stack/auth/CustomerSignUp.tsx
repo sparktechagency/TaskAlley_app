@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ScrollView, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import FlexText from '../../../components/shered/FlexText';
 import HeaderDesign from '../../../components/shered/HeaderDesign';
@@ -152,10 +152,3 @@ const CustomerSignUp = () => {
 
 export default CustomerSignUp
 
-
-const styles = StyleSheet.create({
-  forget: {
-    marginLeft: "auto",
-    marginTop: -24
-  }
-})

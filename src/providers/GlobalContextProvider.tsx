@@ -1,20 +1,24 @@
 import React, {
   createContext,
   ReactNode,
-  useContext
+  useContext,
+  useState
 } from 'react';
 
 interface GlobalContextType {
-
+  role: "user" | "service" | null;
+  setRole: React.Dispatch<React.SetStateAction<"user" | "service" | null>>;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 const GlobalContextProvider = ({ children }: { children: ReactNode }) => {
-
-
+  const [role, setRole] = useState<"user" | "service" | null>(null)
+  const value: GlobalContextType = {
+    role, setRole
+  }
   return (
-    <GlobalContext.Provider value={{}}>
+    <GlobalContext.Provider value={value}>
       {children}
     </GlobalContext.Provider>
   );
