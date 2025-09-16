@@ -46,7 +46,7 @@ const Verify = () => {
               if (from === "forget") {
                 navigate("ResetPassword")
               } else {
-                navigate("Login")
+                navigate("TrustedServices")
               }
               // handleSignIn(fields, setFields)
 

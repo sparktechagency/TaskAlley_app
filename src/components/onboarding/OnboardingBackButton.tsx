@@ -1,14 +1,19 @@
 import React from 'react'
-import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ImageSourcePropType, Text, TouchableOpacity, View } from 'react-native'
 import { otherIcons } from '../../constant/images'
+import Navigate, { Navigation } from '../../utils/Navigate'
 
 const OnboardingBackButton = ({ show = true }: { show?: boolean }) => {
+  const navigate = Navigate()
+  const navigation = Navigation()
   return (
     <View style={{
-      flexDirection: "row", alignItems: "center", gap: 10, justifyContent: "center"
+      flexDirection: "row", alignItems: "center", gap: 10, justifyContent: "space-between", marginTop: 10
     }}>
       {
-        show ? <TouchableOpacity>
+        show ? <TouchableOpacity
+          onPress={() => navigation.goBack()}
+        >
           <Image
             source={otherIcons.LeftArrow as ImageSourcePropType}
           />
@@ -16,7 +21,7 @@ const OnboardingBackButton = ({ show = true }: { show?: boolean }) => {
       }
 
       <TouchableOpacity
-        onPress={() => console.log("Pressed")}
+        onPress={() => navigate("TabLayout")}
       >
         <Text style={{
           fontSize: 14,
@@ -29,5 +34,3 @@ const OnboardingBackButton = ({ show = true }: { show?: boolean }) => {
 }
 
 export default OnboardingBackButton
-
-const styles = StyleSheet.create({})

@@ -1,7 +1,6 @@
 import { CommonActions, NavigationProp, ParamListBase, useNavigation, useRoute } from '@react-navigation/native';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
+import { Dimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import BackButton from '../components/shered/BackButton';
 const withoutLog = [
@@ -17,11 +16,13 @@ const withoutLog = [
   "securepayments",
   "realtimebooking"
 ];
-const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, backButtonText?: string }) => {
+
+const SafeAreaProviderNoScroll = ({ children, backButtonText }: { children: ReactNode, backButtonText?: string }) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const route = useRoute();
   const [login, setLogin] = useState<boolean>(false);
+  const { height } = Dimensions.get("window")
   useEffect(() => {
     if (!login) {
       const currentRoute = route.name.toLowerCase();
@@ -39,22 +40,17 @@ const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, b
     <View style={{
       marginTop: top,
       marginBottom: bottom,
+      height
     }}>
       {backButtonText && <BackButton text={backButtonText} />}
       <View style={{
         paddingHorizontal: 20,
       }}>
-        <KeyboardAwareScrollView
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-        >
-          {children}
-        </KeyboardAwareScrollView>
+        {children}
       </View>
     </View>
   )
 }
 
-export default SafeAreaProvider
 
-const styles = StyleSheet.create({})
+export default SafeAreaProviderNoScroll
