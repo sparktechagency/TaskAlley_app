@@ -65,6 +65,42 @@ const ServiceSignUpFields = () => {
       keyboard: KeyboardType.DEFAULT
     },
     {
+      name: "bvn",
+      type: FieldType.STRING,
+      placeHolder: "Enter Bank Verification Number (BVN)",
+      label: "Bank Verification Number (BVN)",
+      error: false,
+      value: "1252",
+      required: true,
+      keyboard: KeyboardType.DEFAULT
+    },
+    {
+      name: "documentType",
+      type: FieldType.SELECT,
+      placeHolder: "Select Identification Document",
+      label: "Select Identification Document",
+      error: false,
+      value: "255",
+      required: true,
+      keyboard: KeyboardType.DEFAULT,
+      options: [
+        { label: "National Identification Number (NIN)", value: "National Identification Number (NIN)" },
+        { label: "Voter’s Card", value: "Voter’s Card" },
+        { label: "International Passport", value: "international_passport" },
+        { label: "Driver’s License", value: "Driver’s License" },
+      ]
+    },
+    {
+      name: "bvn_id",
+      type: FieldType.STRING,
+      placeHolder: "Enter ID Number",
+      label: "Enter ID Number",
+      error: false,
+      value: "258",
+      required: true,
+      keyboard: KeyboardType.DEFAULT
+    },
+    {
       name: "city",
       type: FieldType.STRING,
       placeHolder: "Enter City / LGA",
@@ -90,7 +126,7 @@ const ServiceSignUpFields = () => {
       placeHolder: "Enter Referral Code (Optional)",
       label: "Referral Code (Optional)",
       error: false,
-      value: "",
+      value: "685",
       required: false,
       keyboard: KeyboardType.DEFAULT
     },

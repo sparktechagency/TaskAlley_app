@@ -30,4 +30,5 @@ export interface FieldsType {
   error: boolean;
   value: string | number | boolean;
   required: boolean;
+  options?: { label: string; value: string }[];
 }

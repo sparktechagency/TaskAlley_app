@@ -2,6 +2,7 @@ import React from 'react';
 import Input from '../components/ui/inputs/Input';
 import InputCheckbox from '../components/ui/inputs/InputCheckbox';
 import PasswordInput from '../components/ui/inputs/PasswordInput';
+import SelectInput from '../components/ui/inputs/SelectInput';
 import { FieldsType, FieldType, KeyboardType } from '../types/Types';
 
 export const RenderField = (field: FieldsType, setFields: React.Dispatch<React.SetStateAction<FieldsType[]>>) => {
@@ -60,5 +61,23 @@ export const RenderField = (field: FieldsType, setFields: React.Dispatch<React.S
       keyboard={field?.keyboard}
     />)
   }
-
+  if (field.type == FieldType.SELECT) {
+    return (<SelectInput
+      placeHolder={field?.placeHolder}
+      error={field?.error}
+      key={field.name}
+      handler={(name, value) =>
+        setFields((prev) =>
+          prev.map((field) =>
+            field.name === name ? { ...field, value, error: false } : field
+          )
+        )
+      }
+      label={field?.label}
+      name={field?.name}
+      value={field?.value as string}
+      required={field?.required}
+      options={field?.options as [{ label: string, value: string }]}
+    />)
+  }
 }

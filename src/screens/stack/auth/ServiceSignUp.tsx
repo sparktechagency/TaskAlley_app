@@ -24,10 +24,18 @@ const slide = [
   },
   {
     skip: 6,
+    keep: 1
+  },
+  {
+    skip: 7,
     keep: 2
   },
   {
-    skip: 8,
+    skip: 9,
+    keep: 2
+  },
+  {
+    skip: 11,
     keep: 1
   }
 ]
@@ -35,7 +43,15 @@ const slide = [
 const Content = [
   {
     heading: "Create Your Account",
-    text: "Join our community to easily find and book the services you need, with a smooth and personalized experience from start to finish."
+    text: "Create your account to start offering your services, connect with customers, and manage everything in one place."
+  },
+  {
+    heading: "Verify Your BVN",
+    text: "Enter your 11-digit Bank Verification Number (BVN) for identity confirmation."
+  },
+  {
+    heading: "Complete Identity Verification",
+    text: "Verify your identity with NIN or other accepted documents using Smile ID’s secure process. "
   },
   {
     heading: "Provide Your Address",
@@ -43,7 +59,7 @@ const Content = [
   },
   {
     heading: "Have a Referral Code? Unlock Your Reward",
-    text: "Apply a referral code and get 10% OFF your first task – up to ₦50!"
+    text: "Use a referral code and earn 10% EXTRA payout on your first Completed task (done within 48 hours)!"
   }
 ]
 
@@ -79,7 +95,7 @@ const ServiceSignUp = () => {
             fields?.slice(slide[currentSlide].skip, slide[currentSlide].keep + slide[currentSlide].skip)?.map((field: FieldsType) => RenderField(field, setFields))
           }
           {
-            currentSlide == 1 && <View>
+            (currentSlide == 2 || currentSlide == 3) && <View>
               <ImageUploader />
             </View>
           }
@@ -121,12 +137,13 @@ const ServiceSignUp = () => {
             style={{
               marginTop: 6
             }}
-            text={currentSlide == 2 ? "Apply Code & Continue" : 'Continue'}
+            text={currentSlide == 4 ? "Apply Code & Continue" : currentSlide == 1 ? "Verify" : 'Continue'}
             handler={() => {
               const isValid = handleServiceSignUp(fields?.slice(slide[currentSlide].skip, slide[currentSlide].keep + slide[currentSlide].skip), setFields, currentSlide)
-              if (isValid && currentSlide < 2) {
+              console.log(isValid)
+              if (isValid && currentSlide < 4) {
                 setCurrentSlide(prev => prev + 1)
-              } else if (currentSlide == 2) {
+              } else if (currentSlide == 4) {
                 navigate("Verify", {
                   params: { phoneNumber: "", from: "signup" }
                 })
@@ -134,7 +151,7 @@ const ServiceSignUp = () => {
             }}
           />
           {
-            currentSlide == 2 && <ButtonTransparentBG
+            currentSlide == 4 && <ButtonTransparentBG
               text='Skip & Continue Without Code'
               handler={() => {
                 navigate("Verify", {
