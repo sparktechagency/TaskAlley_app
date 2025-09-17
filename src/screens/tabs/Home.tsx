@@ -1,6 +1,7 @@
 import React from "react";
 import { Dimensions, FlatList, StyleSheet } from "react-native";
 import CategorySection from '../../components/home/CategorySection';
+import RecentlyAddedTask from '../../components/home/RecentlyAddedTask';
 import UserProfileHeader from '../../components/home/UserProfileHeader';
 import SearchBar from '../../components/shered/SearchBar';
 import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
@@ -11,7 +12,7 @@ const Home = () => {
     <UserProfileHeader key={1} />,
     <SearchBar key={2} />,
     <CategorySection key={3} />,
-
+    <RecentlyAddedTask key={4} />
   ]
   return (
     <SafeAreaProviderNoScroll
