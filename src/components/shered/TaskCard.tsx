@@ -9,8 +9,13 @@ const TaskCard = () => {
       backgroundColor: "#FFFFFF",
       padding: 10,
       borderRadius: 6,
+      marginTop: 10
     }}>
-      <FlexText>
+      <FlexText
+        style={{
+          justifyContent: "space-between"
+        }}
+      >
         <HeaderDesign
           style={{
             fontSize: 18,

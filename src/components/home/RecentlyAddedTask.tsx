@@ -87,11 +87,7 @@ const RecentlyAddedTask = () => {
     <View style={{ marginTop: 10 }}>
       <SectionHeading text="Recently added task" />
       <FlatList
-        columnWrapperStyle={{
-          marginTop: 10
-        }}
         data={data}
-        numColumns={4}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <TaskCard
