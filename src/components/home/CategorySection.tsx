@@ -1,57 +1,50 @@
-import React from 'react'
-import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity, View } from 'react-native'
-import { otherIcons } from '../../constant/images'
-import FlexText from '../shered/FlexText'
-import HeaderSecondary from '../shered/HeaderSecondary'
-import TextPrimary from '../shered/TextPrimary'
+import React from 'react';
+import { Dimensions, FlatList, StyleSheet, View } from 'react-native';
+import CategoryButton from '../shered/CategoryButton';
+import SectionHeading from '../shered/SectionHeading';
 
-const CategorySection = ({
-  color = "#1F2937"
-}: { color?: string }) => {
+const { width } = Dimensions.get("window");
+
+const data = [
+  { name: "Cleaning", image: "" },
+  { name: "Plumbing", image: "" },
+  { name: "Appliances", image: "" },
+  { name: "Painting", image: "" },
+  { name: "Moving", image: "" },
+  { name: "Furniture", image: "" },
+  { name: "Gardening", image: "" },
+  { name: "Carpentry", image: "" }
+];
+
+const CategorySection = () => {
+  const itemWidth = (width - 80) / 4;
   return (
-    <View
-      style={{
-        marginTop: 10
-      }}
-    >
-      <FlexText
-        style={{
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <FlexText
-          style={{
-          }}
-        >
-          <Image
-            source={otherIcons.Represent as ImageSourcePropType}
-            style={{
-              tintColor: color
-            }}
+    <View style={{ marginTop: 10 }}>
+      <SectionHeading text="Category" />
+      <FlatList
+        data={data}
+        numColumns={4}
+        keyExtractor={(item, index) => index.toString()}
+        contentContainerStyle={styles.listContent}
+        renderItem={({ item }) => (
+          <CategoryButton
+
+            width={itemWidth}
+            style={{ width: itemWidth, paddingVertical: 15, }}
+            name={item.name}
           />
-          <HeaderSecondary
-            text='Category'
-            style={{
-              fontWeight: "700",
-              fontSize: 18,
-              color
-            }}
-          />
-        </FlexText>
-        <TouchableOpacity>
-          <TextPrimary
-            style={{
-              color: "#0EA5E9"
-            }}
-            text={`View All`}
-          />
-        </TouchableOpacity>
-      </FlexText>
+        )}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default CategorySection
+export default CategorySection;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  listContent: {
+    alignItems: "center",
+    gap: 10,
+    justifyContent: "space-between"
+  },
+});

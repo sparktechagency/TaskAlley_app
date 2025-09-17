@@ -17,6 +17,7 @@ const Home = () => {
     <SafeAreaProviderNoScroll
     >
       <FlatList
+        keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{
           paddingBottom: 150
         }}
