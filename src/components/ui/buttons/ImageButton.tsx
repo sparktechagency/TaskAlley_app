@@ -1,14 +1,15 @@
 import React from 'react';
-import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native';
 
 interface CardProps {
-  imageSource: ImageSourcePropType; // Type for image source (can be a remote URL or local image)
-  title: string; // Title of the card
-  onPress: () => void; // Function triggered on card press
+  imageSource: ImageSourcePropType;
+  title?: string;
+  onPress: () => void;
+  style?: ViewStyle
 }
-const ImageButton: React.FC<CardProps> = ({ imageSource, title, onPress }) => {
+const ImageButton: React.FC<CardProps> = ({ imageSource, title, onPress, style }) => {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
+    <TouchableOpacity style={[styles.card, style]} onPress={onPress}>
       <Image
         source={imageSource}
         style={{
@@ -17,7 +18,9 @@ const ImageButton: React.FC<CardProps> = ({ imageSource, title, onPress }) => {
           objectFit: 'contain',
         }}
       />
-      <Text style={styles.title}>{title}</Text>
+      {
+        title && <Text style={styles.title}>{title}</Text>
+      }
     </TouchableOpacity >
   );
 };

@@ -1,5 +1,7 @@
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import React, { useRef } from "react";
+
+import { Portal } from '@gorhom/portal';
 import {
   Image,
   ImageSourcePropType,
@@ -11,7 +13,7 @@ import {
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
 import HeaderSecondary from '../../shered/HeaderSecondary';
-
+import TextPrimary from '../../shered/TextPrimary';
 const SelectInput = ({
   value,
   placeHolder = "please select",
@@ -52,88 +54,93 @@ const SelectInput = ({
       <TouchableOpacity
         onPress={() => bottomSheetRef.current?.snapToIndex(1)}
         style={{
-          padding: 10,
+
+          padding: 15,
           borderRadius: 6,
           backgroundColor: "#E6F4F1",
-          paddingVertical: 16,
+          paddingVertical: 12,
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
           ...style,
         }}
       >
-        <Text>{placeHolder}</Text>
+        <TextPrimary
+          text={value ? value : placeHolder}
+        />
         <Image source={otherIcons.arrowDown as ImageSourcePropType} />
       </TouchableOpacity>
-
-      <BottomSheet
-        onClose={handleClose}
-        handleComponent={() => (
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: 6,
-              paddingHorizontal: 10,
-            }}
-          >
-            <View></View>
+      <Portal>
+        <BottomSheet
+          style={{ zIndex: 99999999999 }}
+          onClose={handleClose}
+          handleComponent={() => (
             <View
               style={{
-                backgroundColor: "gray",
-                padding: 3,
-                paddingHorizontal: 20,
-                borderRadius: 5,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: 6,
+                paddingHorizontal: 10,
               }}
-            ></View>
-            <TouchableOpacity onPress={handleClose}>
-              <Image
-                source={otherIcons.Close as ImageSourcePropType}
-                style={styles.closeIcon}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-          </View>
-        )}
-        index={-1}
-        snapPoints={["25%", "45%", "70%"]}
-        ref={bottomSheetRef}
-      >
-        <BottomSheetView style={styles.sheetContent}>
-          <View
-            style={{
-              flex: 1,
-              gap: 8,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-            }}
-          >
-            {options?.map((item) => (
-              <TouchableOpacity
-                onPress={() => {
-                  bottomSheetRef?.current?.close();
-                  handler?.(name as string, item?.value);
-                }}
+            >
+              <View></View>
+              <View
                 style={{
-                  padding: 6,
-                  backgroundColor: item?.value == value ? "#C1E0DA" : "#E6F4F1",
-                  width: "100%",
-                  borderRadius: 4,
+                  backgroundColor: "gray",
+                  padding: 3,
+                  paddingHorizontal: 20,
+                  borderRadius: 5,
                 }}
-              >
-                <Text
+              ></View>
+              <TouchableOpacity onPress={handleClose}>
+                <Image
+                  source={otherIcons.Close as ImageSourcePropType}
+                  style={styles.closeIcon}
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
+            </View>
+          )}
+          index={-1}
+          snapPoints={["25%", "45%", "70%"]}
+          ref={bottomSheetRef}
+        >
+          <BottomSheetView style={styles.sheetContent}>
+            <View
+              style={{
+                flex: 1,
+                gap: 8,
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+              }}
+            >
+              {options?.map((item) => (
+                <TouchableOpacity
+                  onPress={() => {
+                    bottomSheetRef?.current?.close();
+                    handler?.(name as string, item?.value);
+                  }}
                   style={{
-                    textTransform: "capitalize",
+                    padding: 6,
+                    backgroundColor: item?.value == value ? "#C1E0DA" : "#E6F4F1",
+                    width: "100%",
+                    borderRadius: 4,
                   }}
                 >
-                  {item?.label}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </BottomSheetView>
-      </BottomSheet>
+                  <Text
+                    style={{
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    {item?.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </BottomSheetView>
+        </BottomSheet>
+      </Portal>
     </>
   );
 };

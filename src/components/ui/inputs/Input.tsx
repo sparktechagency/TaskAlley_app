@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardType, StyleSheetProperties, TextInput, View } from "react-native";
+import { KeyboardType, TextInput, View, ViewStyle } from "react-native";
 import HeaderSecondary from '../../shered/HeaderSecondary';
 
 const Input = ({
@@ -12,18 +12,20 @@ const Input = ({
   handler,
   value,
   name,
-  required = true
+  required = true,
+  showLabel = true
 }: {
   keyboard: string;
-  style?: StyleSheetProperties;
-  inputStyle?: StyleSheetProperties;
+  style?: ViewStyle;
+  inputStyle?: ViewStyle;
   placeHolder?: string;
   label?: string;
   error?: boolean;
   handler?: (name: string, value: string) => void;
   value?: string;
   name?: string;
-  required?: boolean
+  required?: boolean,
+  showLabel?: boolean
 }) => {
   return (
     <View
@@ -32,18 +34,23 @@ const Input = ({
         ...style,
       }}
     >
-      <HeaderSecondary
-        style={{
-          color: required ? error ? "red" : "#111827" : "#111827",
-          marginBottom: 5
-        }}
-        text={label}
-      />
+      {
+        showLabel && <HeaderSecondary
+          style={{
+            color: required ? error ? "red" : "#111827" : "#111827",
+            marginBottom: 5
+          }}
+          text={label}
+        />
+      }
+
       <TextInput
         value={value}
         style={{
           backgroundColor: "#E6F4F1",
+          lineHeight: 26,
           padding: 15,
+          paddingVertical: 12,
           borderRadius: 8,
           ...(error
             ? {

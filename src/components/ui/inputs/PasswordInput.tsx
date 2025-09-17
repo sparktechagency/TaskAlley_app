@@ -56,7 +56,9 @@ const PasswordInput = ({
         style={{
           backgroundColor: "#E6F4F1",
           padding: 15,
+          paddingVertical: 12,
           borderRadius: 8,
+          lineHeight: 26,
           ...(error
             ? {
               borderColor: "red",

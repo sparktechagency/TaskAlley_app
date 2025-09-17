@@ -12,9 +12,11 @@ import task from "../assets/icons/task.png";
 import Image from "../assets/image.png";
 import LeftArrow from "../assets/leftArrow.png";
 import manCircle from "../assets/manCircle.png";
+import Notifications from "../assets/notification.png";
 import RealTimeImage from "../assets/onboarding/booking.png";
 import SecurePaymentImage from "../assets/onboarding/secure.png";
 import TrustedImage from "../assets/onboarding/trusted.png";
+import Search from "../assets/Search.png";
 import Service from "../assets/service.png";
 export const TabIcons = {
   Home,
@@ -36,5 +38,7 @@ export const otherIcons = Object.freeze({
   LeftArrow,
   TrustedImage,
   RealTimeImage,
-  SecurePaymentImage
+  SecurePaymentImage,
+  Notifications,
+  Search
 });
