@@ -1,5 +1,6 @@
 import arrowDown from "../assets/arrowDown.png";
 import ArrowLeft from "../assets/arrowLeft.png";
+import Category from "../assets/category.png";
 import Close from "../assets/close.png";
 import Customer from "../assets/customer.png";
 import Eye from "../assets/eye.png";
@@ -16,6 +17,7 @@ import Notifications from "../assets/notification.png";
 import RealTimeImage from "../assets/onboarding/booking.png";
 import SecurePaymentImage from "../assets/onboarding/secure.png";
 import TrustedImage from "../assets/onboarding/trusted.png";
+import Represent from "../assets/Represent.png";
 import Search from "../assets/Search.png";
 import Service from "../assets/service.png";
 export const TabIcons = {
@@ -40,5 +42,7 @@ export const otherIcons = Object.freeze({
   RealTimeImage,
   SecurePaymentImage,
   Notifications,
-  Search
+  Search,
+  Category,
+  Represent
 });

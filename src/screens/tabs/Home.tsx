@@ -1,26 +1,31 @@
 import React from "react";
-import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
+import { Dimensions, FlatList, StyleSheet } from "react-native";
+import CategorySection from '../../components/home/CategorySection';
 import UserProfileHeader from '../../components/home/UserProfileHeader';
 import SearchBar from '../../components/shered/SearchBar';
-import SafeAreaProvider from '../../providers/SafeAreaProvider';
+import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
 
 const Home = () => {
   const { height } = Dimensions.get("window");
+  const elements = [
+    <UserProfileHeader key={1} />,
+    <SearchBar key={2} />,
+    <CategorySection key={3} />,
 
+  ]
   return (
-    <SafeAreaProvider
+    <SafeAreaProviderNoScroll
     >
-      <ScrollView
-        style={{
-
+      <FlatList
+        contentContainerStyle={{
+          paddingBottom: 150
         }}
-      >
-        <View>
-          <UserProfileHeader />
-          <SearchBar />
-        </View>
-      </ScrollView>
-    </SafeAreaProvider>
+        showsVerticalScrollIndicator={false}
+        data={elements}
+        renderItem={({ item }) => item}
+
+      />
+    </SafeAreaProviderNoScroll>
   );
 };
 
