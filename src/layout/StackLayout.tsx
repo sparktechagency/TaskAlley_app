@@ -10,6 +10,7 @@ import Verify from '../screens/stack/auth/Verify';
 import RealTimeBooking from '../screens/stack/onboarding/RealTimeBooking';
 import SecurePayments from '../screens/stack/onboarding/SecurePayments';
 import TrustedServices from '../screens/stack/onboarding/TrustedServices';
+import Search from '../screens/stack/Search';
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ const StackLayout = () => {
     RealTimeBooking: RealTimeBooking,
     SecurePayments: SecurePayments,
     TrustedServices: TrustedServices,
+    Search: Search,
     TabLayout: TabLayout,
   };
 

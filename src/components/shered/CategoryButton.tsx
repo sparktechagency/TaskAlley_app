@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { otherIcons } from '../../constant/images';
+import Navigate from '../../utils/Navigate';
 import FlexText from './FlexText';
 import TextSecondary from './TextSecondary';
 
@@ -13,8 +14,13 @@ const CategoryButton = ({
   name: string;
   width?: number
 }) => {
+  const navigate = Navigate()
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigate("Search", {
+        category_id: name
+      })}
+    >
       <FlexText
         style={{
           flexDirection: "column",

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ImageSourcePropType, StyleSheet, ViewStyle } from 'react-native'
 import { otherIcons } from '../../constant/images'
+import Navigate from '../../utils/Navigate'
 import ImageButton from '../ui/buttons/ImageButton'
 import Input from '../ui/inputs/Input'
 import FlexText from './FlexText'
@@ -10,6 +11,7 @@ const SearchBar = ({
 }: {
   style?: ViewStyle
 }) => {
+  const navigate = Navigate()
   return (
     <FlexText
       style={{
@@ -45,7 +47,9 @@ const SearchBar = ({
           margin: 0,
           borderRadius: 0
         }}
-        onPress={() => { }}
+        onPress={() => navigate("Search", {
+          search: "search text"
+        })}
         imageSource={otherIcons.Search as ImageSourcePropType}
       />
     </FlexText>

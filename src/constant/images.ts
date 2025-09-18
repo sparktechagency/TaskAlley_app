@@ -6,6 +6,7 @@ import Close from "../assets/close.png";
 import Customer from "../assets/customer.png";
 import Eye from "../assets/eye.png";
 import EyeX from "../assets/eyeX.png";
+import Filter from "../assets/Filter.png";
 import Chat from "../assets/icons/chat.png";
 import Home from "../assets/icons/home.png";
 import post from "../assets/icons/post.png";
@@ -50,5 +51,6 @@ export const otherIcons = Object.freeze({
   Represent,
   Watch,
   Location,
-  Calendar
+  Calendar,
+  Filter
 });

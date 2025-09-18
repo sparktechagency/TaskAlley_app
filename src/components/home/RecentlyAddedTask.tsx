@@ -1,5 +1,6 @@
 import React from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
+import Navigate from '../../utils/Navigate'
 import SectionHeading from '../shered/SectionHeading'
 import TaskCard from '../shered/TaskCard'
 const data = [
@@ -83,9 +84,14 @@ const data = [
   }
 ]
 const RecentlyAddedTask = () => {
+  const navigate = Navigate()
   return (
     <View style={{ marginTop: 10 }}>
-      <SectionHeading color='#115E59' text="Recently added task" />
+      <SectionHeading
+        handler={() => navigate("Search", {
+          type: "Task"
+        })}
+        color='#115E59' text="Recently added task" />
       <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
