@@ -8,6 +8,7 @@ const HeaderSecondary = ({ text, style }: { text?: string, style?: TextStyle }) 
     color: "#111827",
     fontWeight: 500,
     textTransform: "capitalize",
+    lineHeight: 24,
   }, style]}>{text ?? "text here"}</Text>)
 }
 

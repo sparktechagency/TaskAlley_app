@@ -12,6 +12,7 @@ import RealTimeBooking from '../screens/stack/onboarding/RealTimeBooking';
 import SecurePayments from '../screens/stack/onboarding/SecurePayments';
 import TrustedServices from '../screens/stack/onboarding/TrustedServices';
 import Search from '../screens/stack/Search';
+import TaskDetails from '../screens/stack/TaskDetails';
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,8 @@ const StackLayout = () => {
     TrustedServices: TrustedServices,
     Search: Search,
     TabLayout: TabLayout,
-    Category: Category
+    Category: Category,
+    TaskDetails: TaskDetails
   };
 
   const stacks = Object.keys(screens).map(key => ({

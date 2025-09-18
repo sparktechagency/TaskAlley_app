@@ -4,19 +4,21 @@ const ButtonGreenOpacity30 = ({
   style,
   text,
   handler,
-  textStyle
+  textStyle,
+  activeOpacity = 0.7
 }: {
   style?: ViewStyle;
   text?: string;
-  handler: () => void;
-  textStyle?: TextStyle
+  handler?: () => void;
+  textStyle?: TextStyle,
+  activeOpacity?: number
 }) => {
   return (
     <TouchableOpacity
       onPress={() => {
         handler?.();
       }}
-      activeOpacity={0.7}
+      activeOpacity={activeOpacity}
       style={{
         paddingHorizontal: 16,
         paddingVertical: 10,

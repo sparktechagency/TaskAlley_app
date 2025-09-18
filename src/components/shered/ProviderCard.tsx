@@ -17,7 +17,8 @@ const ProviderCard = () => {
         backgroundColor: "#FFFFFF",
         padding: 10,
         borderRadius: 6,
-        marginTop: 10
+        marginTop: 10,
+        position: "relative"
       }}
     >
       <Image
@@ -83,6 +84,16 @@ const ProviderCard = () => {
           handler={() => { }}
         />
       </FlexText>
+      <TextSecondary text='cleaning' style={{
+        color: "#115E59",
+        backgroundColor: "#E6F4F1",
+        position: "absolute",
+        paddingHorizontal: 10,
+        paddingVertical: 3,
+        borderRadius: 5,
+        top: 20,
+        left: 20
+      }} />
     </View>
   )
 }

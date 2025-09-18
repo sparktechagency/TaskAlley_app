@@ -2,7 +2,6 @@ import React from "react";
 import {
   Image,
   ImageSourcePropType,
-  StyleProp,
   View,
   ViewStyle
 } from "react-native";
@@ -13,23 +12,23 @@ const BlueBadgeOpacity30 = ({
   icon,
   component
 }: {
-  style?: StyleProp<ViewStyle>;
+  style?: ViewStyle;
   icon?: ImageSourcePropType;
   component?: any
 }) => {
   return (
     <View
-      style={[{
+      style={{
         backgroundColor: "#E6F4F1",
-        flex: 1,
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
         width: 40,
         height: 40,
         borderRadius: 40,
-
-      }, style]}
+        ...style
+      }}
     >
       {
         component ? component : <Image

@@ -1,21 +1,23 @@
 import React from "react";
-import { StyleSheetProperties, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, ViewStyle } from "react-native";
 
 const ButtonTransparentBG = ({
   style,
   text,
   handler,
+  activeOpacity = 0.7
 }: {
-  style?: StyleSheetProperties;
+  style?: ViewStyle;
   text?: string;
-  handler: () => void;
+  handler?: () => void;
+  activeOpacity?: number
 }) => {
   return (
     <TouchableOpacity
       onPress={() => {
         handler?.();
       }}
-      activeOpacity={0.7}
+      activeOpacity={activeOpacity}
       style={{
         paddingHorizontal: 16,
         paddingVertical: 10,

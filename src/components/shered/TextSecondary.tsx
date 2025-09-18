@@ -7,7 +7,7 @@ const TextSecondary = ({ text, style }: { text?: string, style?: TextStyle }) =>
     fontSize: 14,
     color: "#6B7280",
     fontWeight: 400,
-    lineHeight: 22
+    lineHeight: 23
   }, style]}>{text ?? "text here"}</Text>)
 }
 

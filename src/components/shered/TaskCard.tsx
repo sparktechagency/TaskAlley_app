@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { otherIcons } from '../../constant/images'
+import Navigate from '../../utils/Navigate'
 import FlexCardIcon from './FlexCardIcon'
 import FlexText from './FlexText'
 import HeaderDesign from './HeaderDesign'
@@ -8,13 +9,16 @@ import HeaderSecondary from './HeaderSecondary'
 import TextPrimary from './TextPrimary'
 
 const TaskCard = () => {
+  const navigate = Navigate()
   return (
-    <TouchableOpacity style={{
-      backgroundColor: "#FFFFFF",
-      padding: 10,
-      borderRadius: 6,
-      marginTop: 10
-    }}>
+    <TouchableOpacity
+      onPress={() => navigate("TaskDetails")}
+      style={{
+        backgroundColor: "#FFFFFF",
+        padding: 10,
+        borderRadius: 6,
+        marginTop: 10
+      }}>
       <FlexText
         style={{
           justifyContent: "space-between"
