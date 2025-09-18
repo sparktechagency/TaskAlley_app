@@ -8,12 +8,14 @@ const ImageFlex = ({
   image = 'https://placehold.co/400x400.png',
   text1 = 'text 1',
   text = "text",
-  component
+  component,
+  showText1 = true
 }: {
   image?: string | ImageSourcePropType,
   text?: string,
   text1?: string,
-  component?: ReactNode
+  component?: ReactNode,
+  showText1?: boolean
 }) => {
   return (
     <FlexText style={{
@@ -35,9 +37,12 @@ const ImageFlex = ({
           style={{ fontWeight: "700" }}
           text={text}
         />
-        <TextSecondary
-          text={text1}
-        />
+        {
+          showText1 && <TextSecondary
+            text={text1}
+          />
+        }
+
       </View>
     </FlexText>
   )

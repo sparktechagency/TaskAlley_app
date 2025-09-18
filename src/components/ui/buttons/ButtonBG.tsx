@@ -33,7 +33,7 @@ const ButtonBG = ({
     >
       <Text
         style={{
-          lineHeight: 22,
+          lineHeight: 23,
           color: "#FFFFFF",
           ...textStyle
         }}
