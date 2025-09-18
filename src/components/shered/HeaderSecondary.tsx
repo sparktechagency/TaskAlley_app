@@ -7,7 +7,7 @@ const HeaderSecondary = ({ text, style }: { text?: string, style?: TextStyle }) 
     fontSize: 14,
     color: "#111827",
     fontWeight: 500,
-    textTransform: "capitalize"
+    textTransform: "capitalize",
   }, style]}>{text ?? "text here"}</Text>)
 }
 

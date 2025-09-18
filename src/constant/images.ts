@@ -1,5 +1,6 @@
 import arrowDown from "../assets/arrowDown.png";
 import ArrowLeft from "../assets/arrowLeft.png";
+import Calendar from "../assets/Calendar.png";
 import Category from "../assets/category.png";
 import Close from "../assets/close.png";
 import Customer from "../assets/customer.png";
@@ -12,6 +13,7 @@ import Profile from "../assets/icons/profile.png";
 import task from "../assets/icons/task.png";
 import Image from "../assets/image.png";
 import LeftArrow from "../assets/leftArrow.png";
+import Location from "../assets/location.png";
 import manCircle from "../assets/manCircle.png";
 import Notifications from "../assets/notification.png";
 import RealTimeImage from "../assets/onboarding/booking.png";
@@ -20,6 +22,7 @@ import TrustedImage from "../assets/onboarding/trusted.png";
 import Represent from "../assets/Represent.png";
 import Search from "../assets/Search.png";
 import Service from "../assets/service.png";
+import Watch from "../assets/Watch.png";
 export const TabIcons = {
   Home,
   "My Tasks": post,
@@ -44,5 +47,8 @@ export const otherIcons = Object.freeze({
   Notifications,
   Search,
   Category,
-  Represent
+  Represent,
+  Watch,
+  Location,
+  Calendar
 });
