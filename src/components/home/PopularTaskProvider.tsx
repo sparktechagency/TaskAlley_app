@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
+import ProviderCard from '../shered/ProviderCard'
 import SectionHeading from '../shered/SectionHeading'
-import TaskCard from '../shered/TaskCard'
 const data = [
   {
     "title": "Help move a couch",
@@ -82,15 +82,15 @@ const data = [
     "image": ""
   }
 ]
-const RecentlyAddedTask = () => {
+const PopularTaskProvider = () => {
   return (
     <View style={{ marginTop: 10 }}>
-      <SectionHeading color='#115E59' text="Recently added task" />
+      <SectionHeading color='#115E59' text="Popular Task Provider" />
       <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
-          <TaskCard
+          <ProviderCard
           />
         )}
       />
@@ -98,6 +98,6 @@ const RecentlyAddedTask = () => {
   )
 }
 
-export default RecentlyAddedTask
+export default PopularTaskProvider
 
 const styles = StyleSheet.create({})

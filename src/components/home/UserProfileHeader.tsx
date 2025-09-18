@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageSourcePropType, StyleSheet, View } from 'react-native'
+import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
 import { otherIcons } from '../../constant/images'
 import FlexText from '../shered/FlexText'
 import HeaderSecondary from '../shered/HeaderSecondary'
@@ -14,15 +14,25 @@ const UserProfileHeader = () => {
         justifyContent: 'space-between',
       }}
     >
-      <View>
-        <HeaderSecondary
-          style={{ fontWeight: "700" }}
-          text={`Hello Siyam`}
+      <FlexText>
+        <Image
+          src='https://placehold.co/400x400.png'
+          style={{
+            height: 50,
+            width: 50,
+            borderRadius: 50
+          }}
         />
-        <TextSecondary
-          text={`Welcome to Servify`}
-        />
-      </View>
+        <View>
+          <HeaderSecondary
+            style={{ fontWeight: "700" }}
+            text={`Hello Siyam`}
+          />
+          <TextSecondary
+            text={`Welcome to Servify`}
+          />
+        </View>
+      </FlexText>
       <ImageButton
         style={{
           backgroundColor: '#E0F2F1',

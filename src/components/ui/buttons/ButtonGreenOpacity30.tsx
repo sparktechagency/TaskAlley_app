@@ -1,13 +1,15 @@
 import React from "react";
-import { StyleSheetProperties, Text, TouchableOpacity } from "react-native";
+import { Text, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 const ButtonGreenOpacity30 = ({
   style,
   text,
   handler,
+  textStyle
 }: {
-  style?: StyleSheetProperties;
+  style?: ViewStyle;
   text?: string;
   handler: () => void;
+  textStyle?: TextStyle
 }) => {
   return (
     <TouchableOpacity
@@ -31,6 +33,9 @@ const ButtonGreenOpacity30 = ({
       <Text
         style={{
           color: "#00000",
+          fontWeight: 600,
+          lineHeight: 22,
+          ...textStyle
         }}
       >
         {text ? text : "Close"}

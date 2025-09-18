@@ -7,7 +7,7 @@ const DrawerLayout = () => {
 
   return (
     <Drawer.Navigator
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false, swipeEnabled: false, }}
       initialRouteName="StackLayout"
     >
       <Drawer.Screen name="StackLayout" component={StackLayout} />

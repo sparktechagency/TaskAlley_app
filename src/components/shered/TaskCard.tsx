@@ -1,11 +1,11 @@
 import React from 'react'
 import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { otherIcons } from '../../constant/images'
+import FlexCardIcon from './FlexCardIcon'
 import FlexText from './FlexText'
 import HeaderDesign from './HeaderDesign'
 import HeaderSecondary from './HeaderSecondary'
 import TextPrimary from './TextPrimary'
-import TextSecondary from './TextSecondary'
 
 const TaskCard = () => {
   return (
@@ -33,9 +33,9 @@ const TaskCard = () => {
           text='₦24.00'
         />
       </FlexText>
-      <FlexCard text='Los Angeles CA 90024' image={otherIcons.Location as ImageSourcePropType} />
-      <FlexCard text='New York, USA' image={otherIcons.Calendar as ImageSourcePropType} />
-      <FlexCard text='15 May 2020 8:00 am' image={otherIcons.Watch as ImageSourcePropType} />
+      <FlexCardIcon text='Los Angeles CA 90024' image={otherIcons.Location as ImageSourcePropType} />
+      <FlexCardIcon text='New York, USA' image={otherIcons.Calendar as ImageSourcePropType} />
+      <FlexCardIcon text='15 May 2020 8:00 am' image={otherIcons.Watch as ImageSourcePropType} />
       <FlexText style={{
         marginTop: 6,
         gap: 10
@@ -74,28 +74,6 @@ const TaskCard = () => {
 
 export default TaskCard
 
-const FlexCard = ({
-  text,
-  image
-}: {
-  text: string,
-  image: ImageSourcePropType
-}) => {
-  return (
-    <FlexText
-      style={{
-        marginTop: 6
-      }}
-    >
-      <Image
-        source={image}
-      />
-      <TextSecondary
-        text={text}
-      />
-    </FlexText>
-  )
-}
 
 
 const styles = StyleSheet.create({})
