@@ -1,12 +1,14 @@
 import React from "react";
-import { Text, TouchableOpacity, ViewStyle } from "react-native";
+import { Text, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 
 const ButtonBG = ({
   style,
   text,
   handler,
+  textStyle
 }: {
   style?: ViewStyle;
+  textStyle?: TextStyle,
   text?: string;
   handler: () => void;
 }) => {
@@ -31,7 +33,9 @@ const ButtonBG = ({
     >
       <Text
         style={{
+          lineHeight: 22,
           color: "#FFFFFF",
+          ...textStyle
         }}
       >
         {text ? text : "Close"}

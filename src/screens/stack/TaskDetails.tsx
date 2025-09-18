@@ -7,6 +7,7 @@ import HeaderSecondary from '../../components/shered/HeaderSecondary'
 import ImageFlex from '../../components/shered/ImageFlex'
 import TextPrimary from '../../components/shered/TextPrimary'
 import TextSecondary from '../../components/shered/TextSecondary'
+import Bids_Question from '../../components/taskDetails/Bids_Question'
 import BlueBadgeOpacity30 from '../../components/ui/badges/BlueBadgeOpacity30'
 import ButtonBG from '../../components/ui/buttons/ButtonBG'
 import ButtonGreenOpacity30 from '../../components/ui/buttons/ButtonGreenOpacity30'
@@ -92,7 +93,10 @@ const TaskDetails = () => {
         text='Submit a Bid'
         handler={() => { }}
       />
-    </FlexText>
+    </FlexText>,
+    <Bids_Question
+      key={10}
+    />
   ]
   return (
     <SafeAreaProviderNoScroll>
