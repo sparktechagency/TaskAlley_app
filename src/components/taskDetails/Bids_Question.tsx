@@ -2,7 +2,13 @@ import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import FlexText from '../shered/FlexText'
 import ButtonBG from '../ui/buttons/ButtonBG'
+import Bids from './Bids'
+import Questions from './Questions'
 const tab = ["Bids", "Questions"]
+const component = {
+  Bids: <Bids />,
+  Questions: <Questions />
+}
 const Bids_Question = () => {
   const [active, setActive] = useState(tab[0])
   return (
@@ -23,8 +29,8 @@ const Bids_Question = () => {
             handler={() => setActive(item)}
           />)
         }
-
       </FlexText>
+      {component[active as keyof typeof component]}
     </View>
   )
 }
