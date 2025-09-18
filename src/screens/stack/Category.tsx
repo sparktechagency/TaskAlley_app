@@ -1,11 +1,10 @@
 import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import CategorySquareButton from '../../components/category/CategorySquareButton';
+import BackButton from '../../components/shered/BackButton';
+import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
 import Navigate from '../../utils/Navigate';
 import ScreenSize from '../../utils/ScreenSize';
-import CategoryButton from '../category/CategoryButton';
-import SectionHeading from '../shered/SectionHeading';
-
-
 const data = [
   { name: "Cleaning", image: "" },
   { name: "Plumbing", image: "" },
@@ -17,37 +16,39 @@ const data = [
   { name: "Carpentry", image: "" }
 ];
 
-const CategorySection = () => {
+const Category = () => {
   const { width } = ScreenSize()
-  const itemWidth = (width - 80) / 4;
+  const itemWidth = (width - 80) / 2;
   const navigate = Navigate()
   return (
-    <View style={{ marginTop: 10 }}>
-      <SectionHeading text="Category" handler={() => navigate("Category")} />
+    <SafeAreaProviderNoScroll>
+      <BackButton text='Tasks Categories' />
       <FlatList
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
         data={data}
-        numColumns={4}
+        numColumns={2}
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
-          <CategoryButton
-
+          <CategorySquareButton
             width={itemWidth}
             style={{ width: itemWidth, paddingVertical: 15, }}
             name={item.name}
           />
         )}
       />
-    </View>
-  );
-};
+    </SafeAreaProviderNoScroll>
+  )
+}
 
-export default CategorySection;
+export default Category
 
 const styles = StyleSheet.create({
   listContent: {
     alignItems: "center",
     gap: 10,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginTop: 10
   },
 });

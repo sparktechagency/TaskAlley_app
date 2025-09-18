@@ -7,6 +7,7 @@ import Login from '../screens/stack/auth/Login';
 import ResetPassword from '../screens/stack/auth/ResetPassword';
 import ServiceSignUp from '../screens/stack/auth/ServiceSignUp';
 import Verify from '../screens/stack/auth/Verify';
+import Category from '../screens/stack/Category';
 import RealTimeBooking from '../screens/stack/onboarding/RealTimeBooking';
 import SecurePayments from '../screens/stack/onboarding/SecurePayments';
 import TrustedServices from '../screens/stack/onboarding/TrustedServices';
@@ -28,6 +29,7 @@ const StackLayout = () => {
     TrustedServices: TrustedServices,
     Search: Search,
     TabLayout: TabLayout,
+    Category: Category
   };
 
   const stacks = Object.keys(screens).map(key => ({

@@ -2,10 +2,11 @@ import React from 'react';
 import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { otherIcons } from '../../constant/images';
 import Navigate from '../../utils/Navigate';
-import FlexText from './FlexText';
-import TextSecondary from './TextSecondary';
+import FlexText from '../shered/FlexText';
+import TextPrimary from '../shered/TextPrimary';
+import TextSecondary from '../shered/TextSecondary';
 
-const CategoryButton = ({
+const CategorySquareButton = ({
   style,
   name,
   width
@@ -20,6 +21,13 @@ const CategoryButton = ({
       onPress={() => navigate("Search", {
         category_id: name
       })}
+      style={{
+        backgroundColor: "#E6F4F1",
+        marginHorizontal: 5,
+        borderWidth: 1,
+        borderColor: "#115E59",
+        borderRadius: 8
+      }}
     >
       <FlexText
         style={{
@@ -27,19 +35,13 @@ const CategoryButton = ({
           justifyContent: "center",
           alignItems: "center",
           gap: 5,
-          marginHorizontal: 5,
           ...style
         }}
       >
         <View
-
           style={{
-            backgroundColor: "#E6F4F1",
             width: width ?? "100%",
-            height: width,
             flex: 1,
-            borderRadius: 1000,
-            borderWidth: 1,
             justifyContent: "center",
             alignItems: "center"
           }}
@@ -53,12 +55,15 @@ const CategoryButton = ({
 
             source={otherIcons.Category as ImageSourcePropType} />
         </View>
-        <TextSecondary text={name} />
+        <TextPrimary style={{ fontWeight: 700 }} text={name} />
+        <TextSecondary style={{
+          marginTop: -6
+        }} text={"1754 Providers"} />
       </FlexText>
     </TouchableOpacity>
   );
 };
 
-export default CategoryButton;
+export default CategorySquareButton
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({})
