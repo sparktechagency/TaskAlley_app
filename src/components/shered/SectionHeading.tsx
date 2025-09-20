@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ImageSourcePropType, TouchableOpacity } from 'react-native'
+import { Image, ImageSourcePropType, TouchableOpacity, ViewStyle } from 'react-native'
 import { otherIcons } from '../../constant/images'
 import FlexText from './FlexText'
 import HeaderSecondary from './HeaderSecondary'
@@ -8,17 +8,22 @@ import TextPrimary from './TextPrimary'
 const SectionHeading = ({
   color = "#1F2937",
   handler,
-  text = "heading"
+  text = "heading",
+  style,
+  showViewButton = true
 }: {
   color?: string,
   handler?: () => void,
-  text?: string
+  text?: string,
+  style?: ViewStyle,
+  showViewButton?: boolean
 }) => {
   return (
     <FlexText
       style={{
         justifyContent: "space-between",
         alignItems: "center",
+        ...style
       }}
     >
       <FlexText
@@ -40,16 +45,19 @@ const SectionHeading = ({
           }}
         />
       </FlexText>
-      <TouchableOpacity
-        onPress={() => handler?.()}
-      >
-        <TextPrimary
-          style={{
-            color: "#0EA5E9"
-          }}
-          text={`View All`}
-        />
-      </TouchableOpacity>
+      {
+        showViewButton && <TouchableOpacity
+          onPress={() => handler?.()}
+        >
+          <TextPrimary
+            style={{
+              color: "#0EA5E9"
+            }}
+            text={`View All`}
+          />
+        </TouchableOpacity>
+      }
+
     </FlexText>
   )
 }

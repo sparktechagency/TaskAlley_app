@@ -8,7 +8,6 @@ import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
 
 const Search = () => {
   const { params: { category_id, type } } = useRoute() as { params: { category_id: string, type: "Provider" | "Task" } };
-  console.log(category_id)
   const elements = [
     <FilterOptions key={1} type={type} />,
     type == "Provider" ? <FilteredProvider key={3} /> :
