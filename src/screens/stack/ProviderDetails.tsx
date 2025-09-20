@@ -1,18 +1,15 @@
 import React from 'react'
-import { FlatList, ImageSourcePropType, View } from 'react-native'
+import { FlatList, View } from 'react-native'
+import Details_Review from '../../components/providerDetails/Details_Review'
 import FlexImages from '../../components/providerDetails/FlexImages'
 import BackButton from '../../components/shered/BackButton'
 import FlexText from '../../components/shered/FlexText'
 import HeaderDesign from '../../components/shered/HeaderDesign'
-import HeaderSecondary from '../../components/shered/HeaderSecondary'
 import ImageFlex from '../../components/shered/ImageFlex'
-import TextPrimary from '../../components/shered/TextPrimary'
 import TextSecondary from '../../components/shered/TextSecondary'
-import Bids_Question from '../../components/taskDetails/Bids_Question'
-import BlueBadgeOpacity30 from '../../components/ui/badges/BlueBadgeOpacity30'
 import ButtonBG from '../../components/ui/buttons/ButtonBG'
 import ButtonGreenOpacity30 from '../../components/ui/buttons/ButtonGreenOpacity30'
-import { otherIcons } from '../../constant/images'
+import ButtonTransparentBG from '../../components/ui/buttons/ButtonTransparentBG'
 import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll'
 const ProviderDetails = () => {
   const elements = [
@@ -34,65 +31,64 @@ const ProviderDetails = () => {
     <HeaderDesign key={2} text='Office Cleaning Service ' />,
     <FlexImages key={3} />,
 
-    <ImageFlex
-      key={4}
-      image={`https://placehold.co/400x400.png`}
-      text='Posted by'
-      text1='Marvin Fey'
-    />,
-    <ImageFlex
-      component={<BlueBadgeOpacity30
-        icon={otherIcons.Location as ImageSourcePropType}
-      />}
-      key={5}
-      text='Location'
-      text1='New York, USA'
-    />,
-    <ImageFlex
-      component={<BlueBadgeOpacity30
-        icon={otherIcons.Calendar as ImageSourcePropType}
-      />}
-      key={6}
-      text='to be done on  '
-      text1='15 May 2020 8:00 am'
-    />,
-    <HeaderSecondary
-      key={7}
-      style={{
-        fontWeight: 700,
-      }}
-      text='Details'
-    />,
-    <TextPrimary
-      key={8}
-      text="I'm after 2 palettes that are sold out online but available from 2 specific stores.  They meed to be sent out to you in the US and then forwarded to me in Sydney in 1 package for convenience. For more information please direct message me! Paid!"
-    />,
     <FlexText
-      key={9}
+      key={4}
       style={{
         justifyContent: "space-between",
-        marginTop: 10
+        backgroundColor: "#E6F4F1",
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 10,
+        paddingVertical: 20
       }}
     >
-      <View>
+      <View style={{
+      }}>
         <TextSecondary
-          text='Task budget '
+          text='Starting Price'
         />
         <HeaderDesign
+          style={{
+            fontSize: 18,
+            fontWeight: 700
+          }}
           text='₦24.00'
         />
+
       </View>
       <ButtonBG
+        text='Submit a Offer'
         style={{
           width: "auto"
         }}
-        text='Submit a Bid'
         handler={() => { }}
       />
     </FlexText>,
-    <Bids_Question
-      key={10}
-    />
+
+    <FlexText
+      style={{
+        justifyContent: "space-between",
+        marginVertical: 10
+      }}
+      key={5}
+    >
+      <ImageFlex
+        image={`https://placehold.co/400x400.png`}
+        text='Grace Carey'
+        text1='⭐ 4.5 (149 Reviews)'
+      />
+      <ButtonTransparentBG
+        text='Chat Now'
+        style={{
+          width: "auto",
+          borderWidth: 1,
+          borderColor: "#115E59",
+        }}
+        handler={() => { }}
+      />
+    </FlexText>,
+    <Details_Review key={6} />
+
   ]
   return (
     <SafeAreaProviderNoScroll>
