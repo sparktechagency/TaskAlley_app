@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { View } from 'react-native'
 import Bids_QuestionCard from './Bids_QuestionCard'
 
 const Bids = () => {
@@ -18,5 +18,3 @@ const Bids = () => {
 
 export default Bids
 
-
-const styles = StyleSheet.create({})

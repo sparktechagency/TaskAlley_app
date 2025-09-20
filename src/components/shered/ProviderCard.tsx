@@ -1,6 +1,7 @@
 import React from 'react'
-import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
+import { Image, ImageSourcePropType, View } from 'react-native'
 import { otherIcons } from '../../constant/images'
+import Navigate from '../../utils/Navigate'
 import ScreenSize from '../../utils/ScreenSize'
 import ButtonGreenOpacity30 from '../ui/buttons/ButtonGreenOpacity30'
 import FlexCardIcon from './FlexCardIcon'
@@ -11,6 +12,7 @@ import TextSecondary from './TextSecondary'
 
 const ProviderCard = () => {
   const { width } = ScreenSize()
+  const navigate = Navigate()
   return (
     <View
       style={{
@@ -81,7 +83,7 @@ const ProviderCard = () => {
           style={{
             width: "auto"
           }}
-          handler={() => { }}
+          handler={() => navigate("ProviderDetails")}
         />
       </FlexText>
       <TextSecondary text='cleaning' style={{
@@ -99,5 +101,3 @@ const ProviderCard = () => {
 }
 
 export default ProviderCard
-
-const styles = StyleSheet.create({})

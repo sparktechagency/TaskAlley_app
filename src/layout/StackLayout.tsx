@@ -11,6 +11,7 @@ import Category from '../screens/stack/Category';
 import RealTimeBooking from '../screens/stack/onboarding/RealTimeBooking';
 import SecurePayments from '../screens/stack/onboarding/SecurePayments';
 import TrustedServices from '../screens/stack/onboarding/TrustedServices';
+import ProviderDetails from '../screens/stack/ProviderDetails';
 import Search from '../screens/stack/Search';
 import TaskDetails from '../screens/stack/TaskDetails';
 import TabLayout from "./TabLayout";
@@ -31,7 +32,8 @@ const StackLayout = () => {
     Search: Search,
     TabLayout: TabLayout,
     Category: Category,
-    TaskDetails: TaskDetails
+    TaskDetails: TaskDetails,
+    ProviderDetails: ProviderDetails
   };
 
   const stacks = Object.keys(screens).map(key => ({
