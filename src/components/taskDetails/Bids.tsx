@@ -10,7 +10,7 @@ const Bids = () => {
       }}
     >
       {
-        [...Array(5).keys()]?.map(item => <Bids_QuestionCard />)
+        [...Array(5).keys()]?.map(item => <Bids_QuestionCard type='bids' />)
       }
     </View>
   )
