@@ -2,7 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 import Bids_QuestionCard from './Bids_QuestionCard'
 
-const Bids = () => {
+const Bids = ({
+  from = "Tasks Details"
+}: {
+  from?: "Tasks Details" | "My Tasks Details"
+}) => {
   return (
     <View
       style={{
@@ -10,7 +14,7 @@ const Bids = () => {
       }}
     >
       {
-        [...Array(5).keys()]?.map(item => <Bids_QuestionCard type='bids' />)
+        [...Array(5).keys()]?.map(item => <Bids_QuestionCard type='bids' from={from} />)
       }
     </View>
   )

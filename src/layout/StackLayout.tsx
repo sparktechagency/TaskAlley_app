@@ -8,6 +8,7 @@ import ResetPassword from '../screens/stack/auth/ResetPassword';
 import ServiceSignUp from '../screens/stack/auth/ServiceSignUp';
 import Verify from '../screens/stack/auth/Verify';
 import Category from '../screens/stack/Category';
+import MyTaskDetails from '../screens/stack/MyTaskDetails';
 import RealTimeBooking from '../screens/stack/onboarding/RealTimeBooking';
 import SecurePayments from '../screens/stack/onboarding/SecurePayments';
 import TrustedServices from '../screens/stack/onboarding/TrustedServices';
@@ -33,7 +34,8 @@ const StackLayout = () => {
     TabLayout: TabLayout,
     Category: Category,
     TaskDetails: TaskDetails,
-    ProviderDetails: ProviderDetails
+    ProviderDetails: ProviderDetails,
+    MyTaskDetails: MyTaskDetails
   };
 
   const stacks = Object.keys(screens).map(key => ({

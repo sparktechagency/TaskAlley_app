@@ -5,12 +5,17 @@ import ButtonBG from '../ui/buttons/ButtonBG'
 import Bids from './Bids'
 import Questions from './Questions'
 const tab = ["Bids", "Questions"]
-const component = {
-  Bids: <Bids />,
-  Questions: <Questions />
-}
-const Bids_Question = () => {
+
+const Bids_Question = ({
+  from = "Tasks Details"
+}: {
+  from?: "Tasks Details" | "My Tasks Details"
+}) => {
   const [active, setActive] = useState(tab[0])
+  const component = {
+    Bids: <Bids from={from} />,
+    Questions: <Questions from={from} />
+  }
   return (
     <View style={{
       marginTop: 10

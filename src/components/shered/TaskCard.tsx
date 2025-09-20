@@ -95,7 +95,7 @@ const TaskCard = ({
               width: 120,
             }}
             text='Details'
-            handler={() => navigate("TaskDetails")}
+            handler={() => navigate("MyTaskDetails")}
           />
         </>
       }
