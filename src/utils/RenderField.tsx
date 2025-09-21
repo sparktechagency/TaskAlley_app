@@ -1,4 +1,5 @@
 import React from "react";
+import DatePicker from '../components/ui/inputs/DatePicker';
 import Input from "../components/ui/inputs/Input";
 import InputCheckbox from "../components/ui/inputs/InputCheckbox";
 import PasswordInput from "../components/ui/inputs/PasswordInput";
@@ -87,6 +88,47 @@ export const RenderField = (
         value={field?.value as string}
         required={field?.required}
         options={field?.options as [{ label: string; value: string }]}
+      />
+    );
+  }
+
+  if (field.type == FieldType.DATE) {
+    return (
+      <DatePicker
+        placeHolder={field?.placeHolder}
+        error={field?.error}
+        key={field.name}
+        handler={(name, value) =>
+          setFields((prev) =>
+            prev.map((field) =>
+              field.name === name ? { ...field, value, error: false } : field
+            )
+          )
+        }
+        label={field?.label}
+        name={field?.name}
+        value={field?.value as string}
+        required={field?.required}
+      />
+    );
+  }
+  if (field.type == FieldType.TIME) {
+    return (
+      <DatePicker
+        placeHolder={field?.placeHolder}
+        error={field?.error}
+        key={field.name}
+        handler={(name, value) =>
+          setFields((prev) =>
+            prev.map((field) =>
+              field.name === name ? { ...field, value, error: false } : field
+            )
+          )
+        }
+        label={field?.label}
+        name={field?.name}
+        value={field?.value as string}
+        required={field?.required}
       />
     );
   }

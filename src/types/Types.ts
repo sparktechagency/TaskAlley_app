@@ -4,6 +4,8 @@ export enum FieldType {
   SELECT = "select",
   CHECKBOX = "checkbox",
   PASSWORD = "password",
+  DATE = "date",
+  TIME = "time"
 }
 
 export enum KeyboardType {
