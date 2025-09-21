@@ -26,7 +26,7 @@ export enum KeyboardType {
 export interface FieldsType {
   name: string;
   type: FieldType;
-  keyboard: KeyboardType;
+  keyboard?: KeyboardType;
   placeHolder: string;
   label: string;
   error: boolean;

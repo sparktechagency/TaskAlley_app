@@ -27,9 +27,11 @@ const withoutLog = [
 const SafeAreaProviderNoScroll = ({
   children,
   backButtonText,
+  zeroPadding = false
 }: {
   children: ReactNode;
   backButtonText?: string;
+  zeroPadding?: boolean
 }) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
@@ -52,15 +54,15 @@ const SafeAreaProviderNoScroll = ({
   return (
     <View
       style={{
-        marginTop: top,
-        marginBottom: bottom,
+        marginTop: zeroPadding ? 0 : top,
+        marginBottom: zeroPadding ? 0 : bottom,
         height,
       }}
     >
       {backButtonText && <BackButton text={backButtonText} />}
       <View
         style={{
-          paddingHorizontal: 20,
+          paddingHorizontal: zeroPadding ? 0 : 20,
         }}
       >
         {children}

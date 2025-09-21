@@ -1,10 +1,9 @@
 import React from "react";
 import {
   Dimensions,
-  ScrollView,
   StyleSheet,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FlexText from "../../../components/shered/FlexText";
@@ -30,75 +29,73 @@ const Login = () => {
   const navigate = Navigate();
   return (
     <SafeAreaProvider>
-      <ScrollView showsVerticalScrollIndicator={false} style={{}}>
-        <View
+      <View
+        style={{
+          flex: 1,
+          gap: 6,
+          justifyContent: "center",
+          minHeight: height - top - bottom,
+        }}
+      >
+        <HeaderDesign />
+        <TextSecondary text="Log in with your credentials to access your account and manage everything from one place." />
+        {fields?.map((field: FieldsType) => RenderField(field, setFields))}
+
+        <TouchableOpacity
+          onPress={() => navigate("Forget")}
+          style={[styles.forget]}
+        >
+          <TextSecondary
+            style={{
+              color: "#115E59",
+            }}
+            text=" Forget Password ?"
+          />
+        </TouchableOpacity>
+
+        <FlexText
           style={{
-            flex: 1,
-            gap: 6,
-            justifyContent: "center",
-            minHeight: height - top - bottom,
+            marginTop: 8,
           }}
         >
-          <HeaderDesign />
-          <TextSecondary text="Log in with your credentials to access your account and manage everything from one place." />
-          {fields?.map((field: FieldsType) => RenderField(field, setFields))}
+          <Divider
+            style={{
+              width: "45%",
+            }}
+          />
+          <HeaderSecondary text="OR" />
+          <Divider
+            style={{
+              width: "45%",
+            }}
+          />
+        </FlexText>
 
-          <TouchableOpacity
-            onPress={() => navigate("Forget")}
-            style={[styles.forget]}
-          >
+        <FlexText
+          style={{
+            marginTop: 8,
+            marginBottom: 6,
+          }}
+        >
+          <TextPrimary text="Don’t have an account?" />
+          <TouchableOpacity onPress={() => navigate("ChooseSignUp")}>
             <TextSecondary
               style={{
                 color: "#115E59",
               }}
-              text=" Forget Password ?"
+              text="Sign Up"
             />
           </TouchableOpacity>
-
-          <FlexText
-            style={{
-              marginTop: 8,
-            }}
-          >
-            <Divider
-              style={{
-                width: "45%",
-              }}
-            />
-            <HeaderSecondary text="OR" />
-            <Divider
-              style={{
-                width: "45%",
-              }}
-            />
-          </FlexText>
-
-          <FlexText
-            style={{
-              marginTop: 8,
-              marginBottom: 6,
-            }}
-          >
-            <TextPrimary text="Don’t have an account?" />
-            <TouchableOpacity onPress={() => navigate("ChooseSignUp")}>
-              <TextSecondary
-                style={{
-                  color: "#115E59",
-                }}
-                text="Sign Up"
-              />
-            </TouchableOpacity>
-          </FlexText>
-          <ButtonBG
-            text=" Log In"
-            handler={() => {
-              setRole("user");
-              navigate("TabLayout");
-              handleSignIn(fields, setFields);
-            }}
-          />
-        </View>
-      </ScrollView>
+        </FlexText>
+        <ButtonBG
+          text=" Log In"
+          handler={() => {
+            setRole("user");
+            navigate("TabLayout");
+            handleSignIn(fields, setFields);
+          }}
+        />
+      </View>
     </SafeAreaProvider>
   );
 };
