@@ -20,8 +20,8 @@ import ButtonBG from "../ui/buttons/ButtonBG";
 import ButtonGreenOpacity30 from "../ui/buttons/ButtonGreenOpacity30";
 import ButtonTransparentBG from "../ui/buttons/ButtonTransparentBG";
 import Bids_Question from "./Bids_Question";
-import ProgressBar from '../shered/ProgressBar';
-import TaskProgress from './TaskProgress';
+import ProgressBar from "../shered/ProgressBar";
+import TaskProgress from "./TaskProgress";
 
 const DetailsTask = ({
   heading = "Tasks Details",
@@ -132,7 +132,7 @@ const DetailsTask = ({
                 width: "auto",
               }}
               text="Remove the task."
-              handler={() => { }}
+              handler={() => {}}
             />
           </FlexText>
         </FlexText>
@@ -154,7 +154,7 @@ const DetailsTask = ({
             width: "auto",
           }}
           text="Submit a Bid"
-          handler={() => { }}
+          handler={() => {}}
         />
       </FlexText>
     ),
@@ -164,11 +164,7 @@ const DetailsTask = ({
     ) : (
       <></>
     ),
-    status == "inprogress" ? (
-      <TaskProgress key={11} />
-    ) : (
-      <></>
-    ),
+    status == "inprogress" ? <TaskProgress key={11} /> : <></>,
   ];
   return (
     <SafeAreaProviderNoScroll>

@@ -2,6 +2,7 @@ import arrowDown from "../assets/arrowDown.png";
 import ArrowLeft from "../assets/arrowLeft.png";
 import Calendar from "../assets/Calendar.png";
 import Category from "../assets/category.png";
+import Check from "../assets/check.png";
 import Close from "../assets/close.png";
 import Customer from "../assets/customer.png";
 import Eye from "../assets/eye.png";
@@ -53,4 +54,5 @@ export const otherIcons = Object.freeze({
   Location,
   Calendar,
   Filter,
+  Check,
 });
