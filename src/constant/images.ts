@@ -1,5 +1,6 @@
 import arrowDown from "../assets/arrowDown.png";
 import ArrowLeft from "../assets/arrowLeft.png";
+import Block from "../assets/Block.png";
 import Calendar from "../assets/Calendar.png";
 import Category from "../assets/category.png";
 import Check from "../assets/check.png";
@@ -21,6 +22,7 @@ import Notifications from "../assets/notification.png";
 import RealTimeImage from "../assets/onboarding/booking.png";
 import SecurePaymentImage from "../assets/onboarding/secure.png";
 import TrustedImage from "../assets/onboarding/trusted.png";
+import Report from "../assets/Report.png";
 import Represent from "../assets/Represent.png";
 import Search from "../assets/Search.png";
 import Service from "../assets/service.png";
@@ -55,4 +57,6 @@ export const otherIcons = Object.freeze({
   Calendar,
   Filter,
   Check,
+  Report,
+  Block
 });

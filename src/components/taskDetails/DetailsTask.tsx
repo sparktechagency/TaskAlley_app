@@ -6,8 +6,9 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { otherIcons } from "../../constant/images";
+import { otherIcons, TabIcons } from "../../constant/images";
 import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
+import Navigate from '../../utils/Navigate';
 import BackButton from "../shered/BackButton";
 import FlexText from "../shered/FlexText";
 import HeaderDesign from "../shered/HeaderDesign";
@@ -19,6 +20,7 @@ import BlueBadgeOpacity30 from "../ui/badges/BlueBadgeOpacity30";
 import ButtonBG from "../ui/buttons/ButtonBG";
 import ButtonGreenOpacity30 from "../ui/buttons/ButtonGreenOpacity30";
 import ButtonTransparentBG from "../ui/buttons/ButtonTransparentBG";
+import IconButtonTransparent from '../ui/buttons/IconButtonTransparent';
 import Bids_Question from "./Bids_Question";
 import TaskProgress from "./TaskProgress";
 
@@ -73,6 +75,27 @@ const DetailsTask = ({
         text1="Marvin Fey"
       />
     ),
+    status == "inprogress" ? <FlexText
+      style={{
+        justifyContent: "space-between"
+      }}
+    >
+      <ImageFlex
+        key={4}
+        image={`https://placehold.co/400x400.png`}
+        text="Posted by"
+        text1="Marvin Fey"
+      />
+      <IconButtonTransparent
+        text='Chat'
+        icon={TabIcons.Chat as ImageSourcePropType}
+        handler={() => console.log("")}
+        style={{
+          width: "auto",
+          paddingVertical: 6
+        }}
+      />
+    </FlexText> : <></>,
     <ImageFlex
       component={
         <BlueBadgeOpacity30 icon={otherIcons.Location as ImageSourcePropType} />
@@ -131,7 +154,7 @@ const DetailsTask = ({
                 width: "auto",
               }}
               text="Remove the task."
-              handler={() => {}}
+              handler={() => { }}
             />
           </FlexText>
         </FlexText>
@@ -153,7 +176,7 @@ const DetailsTask = ({
             width: "auto",
           }}
           text="Submit a Bid"
-          handler={() => {}}
+          handler={() => { }}
         />
       </FlexText>
     ),
@@ -165,9 +188,10 @@ const DetailsTask = ({
     ),
     status == "inprogress" ? <TaskProgress key={11} /> : <></>,
   ];
+  const navigate = Navigate()
   return (
     <SafeAreaProviderNoScroll>
-      <BackButton text={heading} />
+      <BackButton text={heading} show={status == "inprogress"} handler={() => navigate("RegulationsCenter")} />
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{

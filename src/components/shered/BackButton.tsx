@@ -10,8 +10,11 @@ import CircleButton from "../ui/buttons/CircleButton";
 
 interface propType {
   text?: string;
+  show?: boolean;
+  imageSource?: ImageSourcePropType;
+  handler?: () => void
 }
-const BackButton = ({ text }: propType) => {
+const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   return (
     <View
@@ -44,7 +47,22 @@ const BackButton = ({ text }: propType) => {
       >
         {text}
       </Text>
-      <Text></Text>
+      {
+        show ? <CircleButton
+          style={{
+            height: 30,
+            width: 30,
+            borderRadius: 30,
+            marginTop: 10,
+            backgroundColor: "#E6F4F1",
+            borderColor: "#115E59",
+            borderWidth: 1,
+          }}
+          imageSource={imageSource ? imageSource : otherIcons.Report as ImageSourcePropType}
+          onPress={() => handler?.()}
+        /> : <Text></Text>
+      }
+
     </View>
   );
 };

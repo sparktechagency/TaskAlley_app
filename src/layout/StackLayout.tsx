@@ -13,6 +13,7 @@ import RealTimeBooking from "../screens/stack/onboarding/RealTimeBooking";
 import SecurePayments from "../screens/stack/onboarding/SecurePayments";
 import TrustedServices from "../screens/stack/onboarding/TrustedServices";
 import ProviderDetails from "../screens/stack/ProviderDetails";
+import RegulationsCenter from '../screens/stack/RegulationsCenter';
 import Search from "../screens/stack/Search";
 import TaskDetails from "../screens/stack/TaskDetails";
 import TabLayout from "./TabLayout";
@@ -36,6 +37,7 @@ const StackLayout = () => {
     TaskDetails: TaskDetails,
     ProviderDetails: ProviderDetails,
     MyTaskDetails: MyTaskDetails,
+    RegulationsCenter: RegulationsCenter
   };
 
   const stacks = Object.keys(screens).map((key) => ({
