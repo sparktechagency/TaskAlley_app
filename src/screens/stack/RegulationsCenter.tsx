@@ -5,17 +5,21 @@ import FlexText from '../../components/shered/FlexText'
 import TextSecondary from '../../components/shered/TextSecondary'
 import { otherIcons } from '../../constant/images'
 import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll'
+import Navigate from '../../utils/Navigate'
 
 const RegulationsCenter = () => {
+  const navigate = Navigate()
   return (
     <SafeAreaProviderNoScroll>
       <BackButton text={`Resolution Center`} />
-      <TouchableOpacity style={{
-        marginTop: 10,
-        padding: 10,
-        borderRadius: 10,
-        backgroundColor: "#E6F4F1"
-      }}>
+      <TouchableOpacity
+        onPress={() => navigate("ExtendDate")}
+        style={{
+          marginTop: 10,
+          padding: 10,
+          borderRadius: 10,
+          backgroundColor: "#E6F4F1"
+        }}>
         <FlexText
           style={{
             justifyContent: "space-between"
