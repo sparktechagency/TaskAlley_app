@@ -9,8 +9,12 @@ const Questions = ({
   from?: "Tasks Details" | "My Tasks Details";
 }) => {
   return (
-    <View>
-      <QuestionForm />
+    <View style={{
+      marginTop: from == "Tasks Details" ? 0 : 10
+    }}>
+      {
+        from == "Tasks Details" && <QuestionForm />
+      }
       {[...Array(5).keys()]?.map((item) => (
         <Bids_QuestionCard type="question" from={from} />
       ))}

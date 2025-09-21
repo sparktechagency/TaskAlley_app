@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   Image,
@@ -22,15 +22,16 @@ import ButtonGreenOpacity30 from "../ui/buttons/ButtonGreenOpacity30";
 import ButtonTransparentBG from "../ui/buttons/ButtonTransparentBG";
 import IconButtonTransparent from '../ui/buttons/IconButtonTransparent';
 import Bids_Question from "./Bids_Question";
+import CancelRefundRequest from './CancelRefundRequest';
+import FeedbackStatusButton from './FeedbackStatusButton';
 import TaskProgress from "./TaskProgress";
 
 const DetailsTask = ({
   heading = "Tasks Details",
-  status = "inprogress",
 }: {
   heading?: "Tasks Details" | "My Tasks Details";
-  status?: "inprogress" | "open";
 }) => {
+  const [status, setStatus] = useState<"open" | "inprogress" | "dispute">("dispute")
   const elements = [
     <ButtonGreenOpacity30
       key={1}
@@ -125,7 +126,7 @@ const DetailsTask = ({
     />,
 
     heading == "My Tasks Details" ? (
-      status == "inprogress" ? (
+      status != "open" ? (
         <></>
       ) : (
         <FlexText
@@ -181,12 +182,17 @@ const DetailsTask = ({
       </FlexText>
     ),
 
-    status != "inprogress" ? (
+    (status != "inprogress" && status != "dispute") ? (
       <Bids_Question from="My Tasks Details" key={10} />
     ) : (
       <></>
     ),
-    status == "inprogress" ? <TaskProgress key={11} /> : <></>,
+    status != "open" ? <>
+      <TaskProgress key={11} />
+      <CancelRefundRequest />
+      <FeedbackStatusButton />
+    </>
+      : <></>,
   ];
   const navigate = Navigate()
   return (

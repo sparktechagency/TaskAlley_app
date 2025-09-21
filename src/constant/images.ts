@@ -15,6 +15,7 @@ import post from "../assets/icons/post.png";
 import Profile from "../assets/icons/profile.png";
 import task from "../assets/icons/task.png";
 import Image from "../assets/image.png";
+import Info from "../assets/Info.png";
 import LeftArrow from "../assets/leftArrow.png";
 import Location from "../assets/location.png";
 import manCircle from "../assets/manCircle.png";
@@ -58,5 +59,6 @@ export const otherIcons = Object.freeze({
   Filter,
   Check,
   Report,
-  Block
+  Block,
+  Info
 });
