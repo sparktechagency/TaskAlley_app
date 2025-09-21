@@ -5,13 +5,13 @@ const ButtonGreenOpacity30 = ({
   text,
   handler,
   textStyle,
-  activeOpacity = 0.7
+  activeOpacity = 0.7,
 }: {
   style?: ViewStyle;
   text?: string;
   handler?: () => void;
-  textStyle?: TextStyle,
-  activeOpacity?: number
+  textStyle?: TextStyle;
+  activeOpacity?: number;
 }) => {
   return (
     <TouchableOpacity
@@ -37,7 +37,7 @@ const ButtonGreenOpacity30 = ({
           color: "#00000",
           fontWeight: 600,
           lineHeight: 22,
-          ...textStyle
+          ...textStyle,
         }}
       >
         {text ? text : "Close"}

@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { FieldsType, FieldType, KeyboardType } from '../types/Types'
-
+import { useState } from "react";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const ForgetPasswordFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -12,10 +11,10 @@ const ForgetPasswordFields = () => {
       error: false,
       value: "+8801566026301",
       required: true,
-      keyboard: KeyboardType.NUMERIC
+      keyboard: KeyboardType.NUMERIC,
     },
-  ])
-  return { fields, setFields }
-}
+  ]);
+  return { fields, setFields };
+};
 
-export default ForgetPasswordFields
+export default ForgetPasswordFields;

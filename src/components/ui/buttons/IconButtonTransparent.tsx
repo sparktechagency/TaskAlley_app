@@ -3,7 +3,7 @@ import {
   ImageSourcePropType,
   Text,
   TouchableOpacity,
-  ViewStyle
+  ViewStyle,
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
 

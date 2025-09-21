@@ -1,12 +1,15 @@
-
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native'
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 
 const Navigate = () => {
-  const navigate = useNavigation<NavigationProp<ParamListBase>>()
-  return navigate.navigate
-}
+  const navigate = useNavigation<NavigationProp<ParamListBase>>();
+  return navigate.navigate;
+};
 export const Navigation = () => {
-  const navigate = useNavigation<NavigationProp<ParamListBase>>()
-  return navigate
-}
-export default Navigate
+  const navigate = useNavigation<NavigationProp<ParamListBase>>();
+  return navigate;
+};
+export default Navigate;

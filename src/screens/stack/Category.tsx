@@ -1,10 +1,10 @@
-import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
-import CategorySquareButton from '../../components/category/CategorySquareButton';
-import BackButton from '../../components/shered/BackButton';
-import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
-import Navigate from '../../utils/Navigate';
-import ScreenSize from '../../utils/ScreenSize';
+import React from "react";
+import { FlatList, StyleSheet } from "react-native";
+import CategorySquareButton from "../../components/category/CategorySquareButton";
+import BackButton from "../../components/shered/BackButton";
+import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
+import Navigate from "../../utils/Navigate";
+import ScreenSize from "../../utils/ScreenSize";
 const data = [
   { name: "Cleaning", image: "" },
   { name: "Plumbing", image: "" },
@@ -13,16 +13,16 @@ const data = [
   { name: "Moving", image: "" },
   { name: "Furniture", image: "" },
   { name: "Gardening", image: "" },
-  { name: "Carpentry", image: "" }
+  { name: "Carpentry", image: "" },
 ];
 
 const Category = () => {
-  const { width } = ScreenSize()
+  const { width } = ScreenSize();
   const itemWidth = (width - 80) / 2;
-  const navigate = Navigate()
+  const navigate = Navigate();
   return (
     <SafeAreaProviderNoScroll>
-      <BackButton text='Tasks Categories' />
+      <BackButton text="Tasks Categories" />
       <FlatList
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
@@ -33,22 +33,22 @@ const Category = () => {
         renderItem={({ item }) => (
           <CategorySquareButton
             width={itemWidth}
-            style={{ width: itemWidth, paddingVertical: 15, }}
+            style={{ width: itemWidth, paddingVertical: 15 }}
             name={item.name}
           />
         )}
       />
     </SafeAreaProviderNoScroll>
-  )
-}
+  );
+};
 
-export default Category
+export default Category;
 
 const styles = StyleSheet.create({
   listContent: {
     alignItems: "center",
     gap: 10,
     justifyContent: "space-between",
-    marginTop: 10
+    marginTop: 10,
   },
 });

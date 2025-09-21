@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { FieldsType, FieldType, KeyboardType } from '../types/Types'
+import { useState } from "react";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const ResetPasswordFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -11,7 +11,7 @@ const ResetPasswordFields = () => {
       error: false,
       value: "123456",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "confirmPassword",
@@ -21,10 +21,10 @@ const ResetPasswordFields = () => {
       error: false,
       value: "123456",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
-  ])
-  return { fields, setFields }
-}
+  ]);
+  return { fields, setFields };
+};
 
-export default ResetPasswordFields
+export default ResetPasswordFields;

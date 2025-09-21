@@ -1,28 +1,24 @@
-import { Image, ImageSourcePropType } from 'react-native'
-import FlexText from './FlexText'
-import TextSecondary from './TextSecondary'
+import { Image, ImageSourcePropType } from "react-native";
+import FlexText from "./FlexText";
+import TextSecondary from "./TextSecondary";
 
 const FlexCardIcon = ({
   text,
-  image
+  image,
 }: {
-  text: string,
-  image: ImageSourcePropType
+  text: string;
+  image: ImageSourcePropType;
 }) => {
   return (
     <FlexText
       style={{
-        marginTop: 6
+        marginTop: 6,
       }}
     >
-      <Image
-        source={image}
-      />
-      <TextSecondary
-        text={text}
-      />
+      <Image source={image} />
+      <TextSecondary text={text} />
     </FlexText>
-  )
-}
+  );
+};
 
-export default FlexCardIcon
+export default FlexCardIcon;

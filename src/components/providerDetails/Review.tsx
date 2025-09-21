@@ -1,9 +1,9 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import FlexText from '../shered/FlexText'
-import HeaderDesign from '../shered/HeaderDesign'
-import TextSecondary from '../shered/TextSecondary'
-import ReviewCard from './ReviewCard'
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import FlexText from "../shered/FlexText";
+import HeaderDesign from "../shered/HeaderDesign";
+import TextSecondary from "../shered/TextSecondary";
+import ReviewCard from "./ReviewCard";
 
 const Review = () => {
   return (
@@ -17,25 +17,20 @@ const Review = () => {
           backgroundColor: "#E6F4F1",
           marginVertical: 10,
           borderRadius: 10,
-          gap: 10
-
+          gap: 10,
         }}
       >
-        <HeaderDesign
-          text='4.8 ⭐'
-        />
+        <HeaderDesign text="4.8 ⭐" />
 
-        <TextSecondary
-          text='of 125 reviews'
-        />
+        <TextSecondary text="of 125 reviews" />
       </FlexText>
-      {
-        [...Array(5).keys()]?.map(item => <ReviewCard />)
-      }
+      {[...Array(5).keys()]?.map((item) => (
+        <ReviewCard />
+      ))}
     </View>
-  )
-}
+  );
+};
 
-export default Review
+export default Review;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

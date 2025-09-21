@@ -1,32 +1,31 @@
-import React from 'react'
-import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
-import OnboardingBackButton from '../../../components/onboarding/OnboardingBackButton'
-import HeaderDesign from '../../../components/shered/HeaderDesign'
-import TextSecondary from '../../../components/shered/TextSecondary'
-import ButtonBG from '../../../components/ui/buttons/ButtonBG'
-import Dots from '../../../components/ui/dots/Dots'
-import { otherIcons } from '../../../constant/images'
-import SafeAreaProviderNoScroll from '../../../providers/SafeAreaProviderNoScroll'
-import Navigate from '../../../utils/Navigate'
+import React from "react";
+import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
+import OnboardingBackButton from "../../../components/onboarding/OnboardingBackButton";
+import HeaderDesign from "../../../components/shered/HeaderDesign";
+import TextSecondary from "../../../components/shered/TextSecondary";
+import ButtonBG from "../../../components/ui/buttons/ButtonBG";
+import Dots from "../../../components/ui/dots/Dots";
+import { otherIcons } from "../../../constant/images";
+import SafeAreaProviderNoScroll from "../../../providers/SafeAreaProviderNoScroll";
+import Navigate from "../../../utils/Navigate";
 
 const SecurePayments = () => {
-  const navigate = Navigate()
+  const navigate = Navigate();
   return (
     <SafeAreaProviderNoScroll>
       <OnboardingBackButton show={true} />
-      <View style={{
-        position: "relative",
-        height: "100%",
-      }}>
-        <Image
-          source={otherIcons.SecurePaymentImage as ImageSourcePropType}
-
-        />
+      <View
+        style={{
+          position: "relative",
+          height: "100%",
+        }}
+      >
+        <Image source={otherIcons.SecurePaymentImage as ImageSourcePropType} />
         <HeaderDesign
           style={{
             textAlign: "center",
           }}
-          text='Secure Payments & Verified Reviews'
+          text="Secure Payments & Verified Reviews"
         />
         <TextSecondary
           style={{
@@ -35,10 +34,7 @@ const SecurePayments = () => {
           }}
           text="Pay with confidence through secure gateways and make informed decisions by reading real user reviews."
         />
-        <Dots
-          size={3}
-          current={2}
-        />
+        <Dots size={3} current={2} />
         <ButtonBG
           style={{
             position: "absolute",
@@ -46,15 +42,13 @@ const SecurePayments = () => {
             width: "100%",
           }}
           handler={() => navigate("TabLayout")}
-          text='Continue'
+          text="Continue"
         />
       </View>
-    </SafeAreaProviderNoScroll >
-  )
-}
+    </SafeAreaProviderNoScroll>
+  );
+};
 
+export default SecurePayments;
 
-
-export default SecurePayments
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

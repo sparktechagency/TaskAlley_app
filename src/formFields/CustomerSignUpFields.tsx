@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { StyleSheet } from 'react-native'
-import { FieldsType, FieldType, KeyboardType } from '../types/Types'
+import { useState } from "react";
+import { StyleSheet } from "react-native";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const CustomerSignUpFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -12,7 +12,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "siyam",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "email",
@@ -22,7 +22,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "siyamoffice0273@gmail.com",
       required: true,
-      keyboard: KeyboardType.EMAIL_ADDRESS
+      keyboard: KeyboardType.EMAIL_ADDRESS,
     },
     {
       name: "phone",
@@ -32,7 +32,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "1234567890",
       required: true,
-      keyboard: KeyboardType.PHONE_PAD
+      keyboard: KeyboardType.PHONE_PAD,
     },
     {
       name: "password",
@@ -42,7 +42,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "123456",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "confirmPassword",
@@ -52,7 +52,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "123456",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "agree",
@@ -62,7 +62,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "city",
@@ -72,7 +72,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "New York",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "address",
@@ -82,7 +82,7 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "123 Main St",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "referralCode",
@@ -92,12 +92,12 @@ const CustomerSignUpFields = () => {
       error: false,
       value: "",
       required: false,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
-  ])
-  return { fields, setFields }
-}
+  ]);
+  return { fields, setFields };
+};
 
-export default CustomerSignUpFields
+export default CustomerSignUpFields;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

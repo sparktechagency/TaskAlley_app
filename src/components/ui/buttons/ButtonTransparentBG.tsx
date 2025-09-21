@@ -5,12 +5,12 @@ const ButtonTransparentBG = ({
   style,
   text,
   handler,
-  activeOpacity = 0.7
+  activeOpacity = 0.7,
 }: {
   style?: ViewStyle;
   text?: string;
   handler?: () => void;
-  activeOpacity?: number
+  activeOpacity?: number;
 }) => {
   return (
     <TouchableOpacity

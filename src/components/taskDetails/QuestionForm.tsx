@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
-import { Image, ImageSourcePropType, TextInput, View } from 'react-native'
-import { otherIcons } from '../../constant/images'
-import FlexText from '../shered/FlexText'
-import ButtonBG from '../ui/buttons/ButtonBG'
-import ImageUploader from '../ui/file/ImageUploader'
+import React, { useState } from "react";
+import { Image, ImageSourcePropType, TextInput, View } from "react-native";
+import { otherIcons } from "../../constant/images";
+import FlexText from "../shered/FlexText";
+import ButtonBG from "../ui/buttons/ButtonBG";
+import ImageUploader from "../ui/file/ImageUploader";
 
 const QuestionForm = () => {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("");
   return (
-    <View style={{
-      padding: 10,
-      backgroundColor: "#E6F4F1",
-      marginTop: 10
-    }}>
+    <View
+      style={{
+        padding: 10,
+        backgroundColor: "#E6F4F1",
+        marginTop: 10,
+      }}
+    >
       <TextInput
         value={value}
         style={{
@@ -24,24 +26,22 @@ const QuestionForm = () => {
       />
       <FlexText
         style={{
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         }}
       >
         <ImageUploader
-          component={<Image
-            source={otherIcons.Image as ImageSourcePropType}
-          />}
+          component={<Image source={otherIcons.Image as ImageSourcePropType} />}
         />
         <ButtonBG
-          text='Send'
+          text="Send"
           style={{
-            width: "auto"
+            width: "auto",
           }}
           handler={() => console.log("")}
         />
       </FlexText>
     </View>
-  )
-}
+  );
+};
 
-export default QuestionForm
+export default QuestionForm;

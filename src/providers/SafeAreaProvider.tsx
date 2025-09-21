@@ -1,13 +1,19 @@
-import { CommonActions, NavigationProp, ParamListBase, useNavigation, useRoute } from '@react-navigation/native';
-import React, { ReactNode, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import BackButton from '../components/shered/BackButton';
-import { useGlobalContext } from './GlobalContextProvider';
+import {
+  CommonActions,
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+  useRoute,
+} from "@react-navigation/native";
+import React, { ReactNode, useEffect } from "react";
+import { StyleSheet, View } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BackButton from "../components/shered/BackButton";
+import { useGlobalContext } from "./GlobalContextProvider";
 const withoutLog = [
-  'login',
-  'signup',
+  "login",
+  "signup",
   "forget",
   "verify",
   "resetpassword",
@@ -16,13 +22,19 @@ const withoutLog = [
   "servicesignup",
   "trustedservices",
   "securepayments",
-  "realtimebooking"
+  "realtimebooking",
 ];
-const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, backButtonText?: string }) => {
+const SafeAreaProvider = ({
+  children,
+  backButtonText,
+}: {
+  children: ReactNode;
+  backButtonText?: string;
+}) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const route = useRoute();
-  const { role } = useGlobalContext()
+  const { role } = useGlobalContext();
   useEffect(() => {
     if (!role) {
       const currentRoute = route.name.toLowerCase();
@@ -30,21 +42,25 @@ const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, b
         navigation.dispatch(
           CommonActions.reset({
             index: 0,
-            routes: [{ name: 'Login' }],
+            routes: [{ name: "Login" }],
           })
         );
       }
     }
   }, [role, route.name]);
   return (
-    <View style={{
-      marginTop: top,
-      marginBottom: bottom,
-    }}>
+    <View
+      style={{
+        marginTop: top,
+        marginBottom: bottom,
+      }}
+    >
       {backButtonText && <BackButton text={backButtonText} />}
-      <View style={{
-        paddingHorizontal: 20,
-      }}>
+      <View
+        style={{
+          paddingHorizontal: 20,
+        }}
+      >
         <KeyboardAwareScrollView
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
@@ -53,9 +69,9 @@ const SafeAreaProvider = ({ children, backButtonText }: { children: ReactNode, b
         </KeyboardAwareScrollView>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default SafeAreaProvider
+export default SafeAreaProvider;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

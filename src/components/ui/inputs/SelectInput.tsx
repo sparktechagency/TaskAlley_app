@@ -1,7 +1,7 @@
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import React, { useRef } from "react";
 
-import { Portal } from '@gorhom/portal';
+import { Portal } from "@gorhom/portal";
 import {
   Image,
   ImageSourcePropType,
@@ -12,8 +12,8 @@ import {
   View,
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
-import HeaderSecondary from '../../shered/HeaderSecondary';
-import TextPrimary from '../../shered/TextPrimary';
+import HeaderSecondary from "../../shered/HeaderSecondary";
+import TextPrimary from "../../shered/TextPrimary";
 const SelectInput = ({
   value,
   placeHolder = "please select",
@@ -26,7 +26,7 @@ const SelectInput = ({
   error = false,
   handler,
   name,
-  required = true
+  required = true,
 }: {
   value?: string;
   placeHolder?: string;
@@ -36,7 +36,7 @@ const SelectInput = ({
   error?: boolean;
   handler?: (name: string, value: string) => void;
   name?: string;
-  required: boolean
+  required: boolean;
 }) => {
   const bottomSheetRef = useRef<BottomSheet | null>(null);
   const handleClose = () => {
@@ -47,14 +47,13 @@ const SelectInput = ({
     <>
       <HeaderSecondary
         style={{
-          color: required ? error ? "red" : "#111827" : "#111827",
+          color: required ? (error ? "red" : "#111827") : "#111827",
         }}
         text={label}
       />
       <TouchableOpacity
         onPress={() => bottomSheetRef.current?.snapToIndex(1)}
         style={{
-
           padding: 15,
           borderRadius: 6,
           backgroundColor: "#E6F4F1",
@@ -65,9 +64,7 @@ const SelectInput = ({
           ...style,
         }}
       >
-        <TextPrimary
-          text={value ? value : placeHolder}
-        />
+        <TextPrimary text={value ? value : placeHolder} />
         <Image source={otherIcons.arrowDown as ImageSourcePropType} />
       </TouchableOpacity>
       <Portal>
@@ -123,7 +120,8 @@ const SelectInput = ({
                   }}
                   style={{
                     padding: 6,
-                    backgroundColor: item?.value == value ? "#C1E0DA" : "#E6F4F1",
+                    backgroundColor:
+                      item?.value == value ? "#C1E0DA" : "#E6F4F1",
                     width: "100%",
                     borderRadius: 4,
                   }}

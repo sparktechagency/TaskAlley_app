@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { StyleSheet } from 'react-native'
-import { FieldsType, FieldType, KeyboardType } from '../types/Types'
+import { useState } from "react";
+import { StyleSheet } from "react-native";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const ServiceSignUpFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -12,7 +12,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "siyam",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "email",
@@ -22,7 +22,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "siyamoffice0273@gmail.com",
       required: true,
-      keyboard: KeyboardType.EMAIL_ADDRESS
+      keyboard: KeyboardType.EMAIL_ADDRESS,
     },
     {
       name: "phone",
@@ -32,7 +32,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "1234567890",
       required: true,
-      keyboard: KeyboardType.PHONE_PAD
+      keyboard: KeyboardType.PHONE_PAD,
     },
     {
       name: "password",
@@ -42,7 +42,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "123456",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "confirmPassword",
@@ -52,7 +52,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "123456",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "agree",
@@ -62,7 +62,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "bvn",
@@ -72,7 +72,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "1252",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "documentType",
@@ -84,11 +84,14 @@ const ServiceSignUpFields = () => {
       required: true,
       keyboard: KeyboardType.DEFAULT,
       options: [
-        { label: "National Identification Number (NIN)", value: "National Identification Number (NIN)" },
+        {
+          label: "National Identification Number (NIN)",
+          value: "National Identification Number (NIN)",
+        },
         { label: "Voter’s Card", value: "Voter’s Card" },
         { label: "International Passport", value: "international_passport" },
         { label: "Driver’s License", value: "Driver’s License" },
-      ]
+      ],
     },
     {
       name: "bvn_id",
@@ -98,7 +101,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "258",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "city",
@@ -108,7 +111,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "New York",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "address",
@@ -118,7 +121,7 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "123 Main St",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "referralCode",
@@ -128,12 +131,12 @@ const ServiceSignUpFields = () => {
       error: false,
       value: "685",
       required: false,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
-  ])
-  return { fields, setFields }
-}
+  ]);
+  return { fields, setFields };
+};
 
-export default ServiceSignUpFields
+export default ServiceSignUpFields;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

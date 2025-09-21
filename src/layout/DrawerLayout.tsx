@@ -4,10 +4,9 @@ import StackLayout from "./StackLayout";
 const Drawer = createDrawerNavigator();
 
 const DrawerLayout = () => {
-
   return (
     <Drawer.Navigator
-      screenOptions={{ headerShown: false, swipeEnabled: false, }}
+      screenOptions={{ headerShown: false, swipeEnabled: false }}
       initialRouteName="StackLayout"
     >
       <Drawer.Screen name="StackLayout" component={StackLayout} />

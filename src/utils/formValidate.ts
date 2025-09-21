@@ -1,4 +1,4 @@
-import { FieldsType } from '../types/Types';
+import { FieldsType } from "../types/Types";
 
 export const validateFields = (
   fields: FieldsType[],
@@ -6,9 +6,9 @@ export const validateFields = (
 ): boolean => {
   let isValid = true;
 
-  setFields(prev =>
-    prev.map(field => {
-      console.log({ prev })
+  setFields((prev) =>
+    prev.map((field) => {
+      console.log({ prev });
       let hasError = false;
 
       if (field.required) {

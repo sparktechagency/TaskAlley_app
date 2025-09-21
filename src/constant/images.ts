@@ -52,5 +52,5 @@ export const otherIcons = Object.freeze({
   Watch,
   Location,
   Calendar,
-  Filter
+  Filter,
 });

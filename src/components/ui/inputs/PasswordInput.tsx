@@ -6,10 +6,10 @@ import {
   StyleSheetProperties,
   TextInput,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
-import HeaderSecondary from '../../shered/HeaderSecondary';
+import HeaderSecondary from "../../shered/HeaderSecondary";
 
 const PasswordInput = ({
   keyboard,
@@ -21,7 +21,7 @@ const PasswordInput = ({
   handler,
   value,
   name,
-  required = true
+  required = true,
 }: {
   keyboard: string;
   style?: StyleSheetProperties;
@@ -32,7 +32,7 @@ const PasswordInput = ({
   handler?: (name: string, value: string) => void;
   value?: string;
   name?: string;
-  required?: boolean
+  required?: boolean;
 }) => {
   const [show, setShow] = useState(true);
   return (
@@ -45,8 +45,8 @@ const PasswordInput = ({
     >
       <HeaderSecondary
         style={{
-          color: required ? error ? "red" : "#111827" : "#111827",
-          marginBottom: 5
+          color: required ? (error ? "red" : "#111827") : "#111827",
+          marginBottom: 5,
         }}
         text={label}
       />
@@ -61,9 +61,9 @@ const PasswordInput = ({
           lineHeight: 26,
           ...(error
             ? {
-              borderColor: "red",
-              borderWidth: 1,
-            }
+                borderColor: "red",
+                borderWidth: 1,
+              }
             : {}),
           ...inputStyle,
         }}

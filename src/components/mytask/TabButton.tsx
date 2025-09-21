@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import { FlatList } from 'react-native';
-import ButtonBG from '../ui/buttons/ButtonBG';
+import React, { useState } from "react";
+import { FlatList } from "react-native";
+import ButtonBG from "../ui/buttons/ButtonBG";
 
 const TabButton = () => {
-  const tabs = ["All Tasks", "open for bids", "in Progress", "completed", "cancelled"];
+  const tabs = [
+    "All Tasks",
+    "open for bids",
+    "in Progress",
+    "completed",
+    "cancelled",
+  ];
   const [activeTab, setActiveTab] = useState<string>(tabs[0]);
 
   return (
@@ -19,7 +25,7 @@ const TabButton = () => {
           style={{
             width: "auto",
             backgroundColor: item == activeTab ? "#115E59" : "#E6F4F1",
-            marginHorizontal: 5
+            marginHorizontal: 5,
           }}
           textStyle={{
             color: item == activeTab ? "#FFFFFF" : "#000000",
@@ -31,5 +37,3 @@ const TabButton = () => {
 };
 
 export default TabButton;
-
-

@@ -1,32 +1,31 @@
-import React from 'react'
-import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
-import OnboardingBackButton from '../../../components/onboarding/OnboardingBackButton'
-import HeaderDesign from '../../../components/shered/HeaderDesign'
-import TextSecondary from '../../../components/shered/TextSecondary'
-import ButtonBG from '../../../components/ui/buttons/ButtonBG'
-import Dots from '../../../components/ui/dots/Dots'
-import { otherIcons } from '../../../constant/images'
-import SafeAreaProviderNoScroll from '../../../providers/SafeAreaProviderNoScroll'
-import Navigate from '../../../utils/Navigate'
+import React from "react";
+import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
+import OnboardingBackButton from "../../../components/onboarding/OnboardingBackButton";
+import HeaderDesign from "../../../components/shered/HeaderDesign";
+import TextSecondary from "../../../components/shered/TextSecondary";
+import ButtonBG from "../../../components/ui/buttons/ButtonBG";
+import Dots from "../../../components/ui/dots/Dots";
+import { otherIcons } from "../../../constant/images";
+import SafeAreaProviderNoScroll from "../../../providers/SafeAreaProviderNoScroll";
+import Navigate from "../../../utils/Navigate";
 
 const TrustedServices = () => {
-  const navigate = Navigate()
+  const navigate = Navigate();
   return (
     <SafeAreaProviderNoScroll>
       <OnboardingBackButton show={false} />
-      <View style={{
-        position: "relative",
-        height: "100%",
-      }}>
-        <Image
-          source={otherIcons.TrustedImage as ImageSourcePropType}
-
-        />
+      <View
+        style={{
+          position: "relative",
+          height: "100%",
+        }}
+      >
+        <Image source={otherIcons.TrustedImage as ImageSourcePropType} />
         <HeaderDesign
           style={{
             textAlign: "center",
           }}
-          text='Find Trusted Services Instantly'
+          text="Find Trusted Services Instantly"
         />
         <TextSecondary
           style={{
@@ -35,10 +34,7 @@ const TrustedServices = () => {
           }}
           text="Browse and book reliable service providers in your area — anytime, anywhere, with just a few taps."
         />
-        <Dots
-          size={3}
-          current={0}
-        />
+        <Dots size={3} current={0} />
         <ButtonBG
           style={{
             position: "absolute",
@@ -46,13 +42,13 @@ const TrustedServices = () => {
             width: "100%",
           }}
           handler={() => navigate("RealTimeBooking")}
-          text='Next'
+          text="Next"
         />
       </View>
-    </SafeAreaProviderNoScroll >
-  )
-}
+    </SafeAreaProviderNoScroll>
+  );
+};
 
-export default TrustedServices
+export default TrustedServices;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

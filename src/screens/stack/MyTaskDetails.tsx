@@ -1,13 +1,11 @@
-import React from 'react'
-import { StyleSheet } from 'react-native'
-import DetailsTask from '../../components/taskDetails/DetailsTask'
+import React from "react";
+import { StyleSheet } from "react-native";
+import DetailsTask from "../../components/taskDetails/DetailsTask";
 
 const MyTaskDetails = () => {
-  return <DetailsTask
-    heading='My Tasks Details'
-  />
-}
+  return <DetailsTask heading="My Tasks Details" status="inprogress" />;
+};
 
-export default MyTaskDetails
+export default MyTaskDetails;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

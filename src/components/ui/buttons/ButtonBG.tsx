@@ -5,10 +5,10 @@ const ButtonBG = ({
   style,
   text,
   handler,
-  textStyle
+  textStyle,
 }: {
   style?: ViewStyle;
-  textStyle?: TextStyle,
+  textStyle?: TextStyle;
   text?: string;
   handler: () => void;
 }) => {
@@ -35,7 +35,7 @@ const ButtonBG = ({
         style={{
           lineHeight: 23,
           color: "#FFFFFF",
-          ...textStyle
+          ...textStyle,
         }}
       >
         {text ? text : "Close"}

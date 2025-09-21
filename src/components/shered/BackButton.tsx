@@ -1,16 +1,27 @@
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native'
-import React from 'react'
-import { ImageSourcePropType, StyleSheet, Text, View } from 'react-native'
-import { otherIcons } from '../../constant/images'
-import CircleButton from '../ui/buttons/CircleButton'
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
+import React from "react";
+import { ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import { otherIcons } from "../../constant/images";
+import CircleButton from "../ui/buttons/CircleButton";
 
 interface propType {
-  text?: string
+  text?: string;
 }
 const BackButton = ({ text }: propType) => {
-  const navigation = useNavigation<NavigationProp<ParamListBase>>()
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, justifyContent: 'space-between', }}>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+        justifyContent: "space-between",
+      }}
+    >
       <CircleButton
         style={{
           height: 30,
@@ -19,7 +30,7 @@ const BackButton = ({ text }: propType) => {
           marginTop: 10,
           backgroundColor: "#E6F4F1",
           borderColor: "#115E59",
-          borderWidth: 1
+          borderWidth: 1,
         }}
         imageSource={otherIcons.ArrowLeft as ImageSourcePropType}
         onPress={() => navigation.goBack()}
@@ -28,14 +39,16 @@ const BackButton = ({ text }: propType) => {
         numberOfLines={1}
         style={{
           fontSize: 20,
-          fontWeight: '500',
-
-        }}>{text}</Text>
+          fontWeight: "500",
+        }}
+      >
+        {text}
+      </Text>
       <Text></Text>
     </View>
-  )
-}
+  );
+};
 
-export default BackButton
+export default BackButton;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

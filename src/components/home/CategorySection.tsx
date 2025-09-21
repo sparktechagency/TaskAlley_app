@@ -1,10 +1,9 @@
-import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
-import Navigate from '../../utils/Navigate';
-import ScreenSize from '../../utils/ScreenSize';
-import CategoryButton from '../category/CategoryButton';
-import SectionHeading from '../shered/SectionHeading';
-
+import React from "react";
+import { FlatList, StyleSheet, View } from "react-native";
+import Navigate from "../../utils/Navigate";
+import ScreenSize from "../../utils/ScreenSize";
+import CategoryButton from "../category/CategoryButton";
+import SectionHeading from "../shered/SectionHeading";
 
 const data = [
   { name: "Cleaning", image: "" },
@@ -14,13 +13,13 @@ const data = [
   { name: "Moving", image: "" },
   { name: "Furniture", image: "" },
   { name: "Gardening", image: "" },
-  { name: "Carpentry", image: "" }
+  { name: "Carpentry", image: "" },
 ];
 
 const CategorySection = () => {
-  const { width } = ScreenSize()
+  const { width } = ScreenSize();
   const itemWidth = (width - 80) / 4;
-  const navigate = Navigate()
+  const navigate = Navigate();
   return (
     <View style={{ marginTop: 10 }}>
       <SectionHeading text="Category" handler={() => navigate("Category")} />
@@ -31,9 +30,8 @@ const CategorySection = () => {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <CategoryButton
-
             width={itemWidth}
-            style={{ width: itemWidth, paddingVertical: 15, }}
+            style={{ width: itemWidth, paddingVertical: 15 }}
             name={item.name}
           />
         )}
@@ -48,6 +46,6 @@ const styles = StyleSheet.create({
   listContent: {
     alignItems: "center",
     gap: 10,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
 });

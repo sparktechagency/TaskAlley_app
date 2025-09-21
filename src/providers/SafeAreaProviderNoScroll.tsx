@@ -1,12 +1,18 @@
-import { CommonActions, NavigationProp, ParamListBase, useNavigation, useRoute } from '@react-navigation/native';
-import React, { ReactNode, useEffect } from 'react';
-import { Dimensions, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import BackButton from '../components/shered/BackButton';
-import { useGlobalContext } from './GlobalContextProvider';
+import {
+  CommonActions,
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+  useRoute,
+} from "@react-navigation/native";
+import React, { ReactNode, useEffect } from "react";
+import { Dimensions, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BackButton from "../components/shered/BackButton";
+import { useGlobalContext } from "./GlobalContextProvider";
 const withoutLog = [
-  'login',
-  'signup',
+  "login",
+  "signup",
   "forget",
   "verify",
   "resetpassword",
@@ -15,15 +21,21 @@ const withoutLog = [
   "servicesignup",
   "trustedservices",
   "securepayments",
-  "realtimebooking"
+  "realtimebooking",
 ];
 
-const SafeAreaProviderNoScroll = ({ children, backButtonText }: { children: ReactNode, backButtonText?: string }) => {
+const SafeAreaProviderNoScroll = ({
+  children,
+  backButtonText,
+}: {
+  children: ReactNode;
+  backButtonText?: string;
+}) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const route = useRoute();
-  const { height } = Dimensions.get("window")
-  const { role } = useGlobalContext()
+  const { height } = Dimensions.get("window");
+  const { role } = useGlobalContext();
   useEffect(() => {
     if (!role) {
       const currentRoute = route.name.toLowerCase();
@@ -31,27 +43,30 @@ const SafeAreaProviderNoScroll = ({ children, backButtonText }: { children: Reac
         navigation.dispatch(
           CommonActions.reset({
             index: 0,
-            routes: [{ name: 'Login' }],
+            routes: [{ name: "Login" }],
           })
         );
       }
     }
   }, [role, route.name]);
   return (
-    <View style={{
-      marginTop: top,
-      marginBottom: bottom,
-      height
-    }}>
+    <View
+      style={{
+        marginTop: top,
+        marginBottom: bottom,
+        height,
+      }}
+    >
       {backButtonText && <BackButton text={backButtonText} />}
-      <View style={{
-        paddingHorizontal: 20,
-      }}>
+      <View
+        style={{
+          paddingHorizontal: 20,
+        }}
+      >
         {children}
       </View>
     </View>
-  )
-}
+  );
+};
 
-
-export default SafeAreaProviderNoScroll
+export default SafeAreaProviderNoScroll;

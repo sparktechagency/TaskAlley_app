@@ -1,39 +1,41 @@
-import React from 'react'
-import { Image, ImageSourcePropType, TouchableOpacity, ViewStyle } from 'react-native'
-import { otherIcons } from '../../constant/images'
-import FlexText from './FlexText'
-import HeaderSecondary from './HeaderSecondary'
-import TextPrimary from './TextPrimary'
+import React from "react";
+import {
+  Image,
+  ImageSourcePropType,
+  TouchableOpacity,
+  ViewStyle,
+} from "react-native";
+import { otherIcons } from "../../constant/images";
+import FlexText from "./FlexText";
+import HeaderSecondary from "./HeaderSecondary";
+import TextPrimary from "./TextPrimary";
 
 const SectionHeading = ({
   color = "#1F2937",
   handler,
   text = "heading",
   style,
-  showViewButton = true
+  showViewButton = true,
 }: {
-  color?: string,
-  handler?: () => void,
-  text?: string,
-  style?: ViewStyle,
-  showViewButton?: boolean
+  color?: string;
+  handler?: () => void;
+  text?: string;
+  style?: ViewStyle;
+  showViewButton?: boolean;
 }) => {
   return (
     <FlexText
       style={{
         justifyContent: "space-between",
         alignItems: "center",
-        ...style
+        ...style,
       }}
     >
-      <FlexText
-        style={{
-        }}
-      >
+      <FlexText style={{}}>
         <Image
           source={otherIcons.Represent as ImageSourcePropType}
           style={{
-            tintColor: color
+            tintColor: color,
           }}
         />
         <HeaderSecondary
@@ -41,25 +43,22 @@ const SectionHeading = ({
           style={{
             fontWeight: "700",
             fontSize: 18,
-            color
+            color,
           }}
         />
       </FlexText>
-      {
-        showViewButton && <TouchableOpacity
-          onPress={() => handler?.()}
-        >
+      {showViewButton && (
+        <TouchableOpacity onPress={() => handler?.()}>
           <TextPrimary
             style={{
-              color: "#0EA5E9"
+              color: "#0EA5E9",
             }}
             text={`View All`}
           />
         </TouchableOpacity>
-      }
-
+      )}
     </FlexText>
-  )
-}
+  );
+};
 
-export default SectionHeading
+export default SectionHeading;

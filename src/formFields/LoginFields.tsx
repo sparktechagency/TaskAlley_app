@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { FieldsType, FieldType, KeyboardType } from '../types/Types'
+import { useState } from "react";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const LoginFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -11,7 +11,7 @@ const LoginFields = () => {
       error: false,
       value: "siyamoffice0273@gmail.com",
       required: true,
-      keyboard: KeyboardType.EMAIL_ADDRESS
+      keyboard: KeyboardType.EMAIL_ADDRESS,
     },
     {
       name: "password",
@@ -21,7 +21,7 @@ const LoginFields = () => {
       error: false,
       value: "123456",
       required: true,
-      keyboard: KeyboardType.DEFAULT
+      keyboard: KeyboardType.DEFAULT,
     },
     {
       name: "remember",
@@ -31,10 +31,10 @@ const LoginFields = () => {
       error: false,
       value: "",
       required: true,
-      keyboard: KeyboardType.DEFAULT
-    }
-  ])
-  return { fields, setFields }
-}
+      keyboard: KeyboardType.DEFAULT,
+    },
+  ]);
+  return { fields, setFields };
+};
 
-export default LoginFields
+export default LoginFields;

@@ -1,10 +1,7 @@
-import DetailsTask from '../../components/taskDetails/DetailsTask'
-
+import DetailsTask from "../../components/taskDetails/DetailsTask";
 
 const TaskDetails = () => {
+  return <DetailsTask />;
+};
 
-  return <DetailsTask />
-}
-
-export default TaskDetails
-
+export default TaskDetails;
