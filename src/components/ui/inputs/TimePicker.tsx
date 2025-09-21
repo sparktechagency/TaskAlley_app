@@ -31,7 +31,8 @@ const TimePicker = ({
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
-    handler?.(name as string, currentDate)
+    console.log(currentDate)
+    // handler?.(name as string, currentDate)
   };
   return (
     <View
@@ -66,7 +67,7 @@ const TimePicker = ({
             : {}),
           ...inputStyle,
         }}>
-          {value ?? placeHolder}
+          {value != "" ? value : placeHolder}
         </Text>
       </TouchableOpacity>
       {show && (

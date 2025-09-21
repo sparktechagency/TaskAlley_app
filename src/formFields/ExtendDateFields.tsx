@@ -23,7 +23,16 @@ const ExtendDateFields = () => {
       required: true,
       keyboard: KeyboardType.DEFAULT,
     },
-
+    {
+      name: "reason",
+      type: FieldType.TEXTAREA,
+      placeHolder: "Write Reason for Request",
+      label: "Reason for Request",
+      error: false,
+      value: "",
+      required: true,
+      keyboard: KeyboardType.DEFAULT,
+    },
   ]);
   return { fields, setFields };
 };

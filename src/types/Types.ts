@@ -5,7 +5,8 @@ export enum FieldType {
   CHECKBOX = "checkbox",
   PASSWORD = "password",
   DATE = "date",
-  TIME = "time"
+  TIME = "time",
+  TEXTAREA = "textarea"
 }
 
 export enum KeyboardType {
@@ -26,7 +27,7 @@ export enum KeyboardType {
 export interface FieldsType {
   name: string;
   type: FieldType;
-  keyboard?: KeyboardType;
+  keyboard: KeyboardType;
   placeHolder: string;
   label: string;
   error: boolean;

@@ -4,6 +4,8 @@ import Input from "../components/ui/inputs/Input";
 import InputCheckbox from "../components/ui/inputs/InputCheckbox";
 import PasswordInput from "../components/ui/inputs/PasswordInput";
 import SelectInput from "../components/ui/inputs/SelectInput";
+import TextArea from '../components/ui/inputs/TextArea';
+import TimePicker from '../components/ui/inputs/TimePicker';
 import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 export const RenderField = (
@@ -70,6 +72,28 @@ export const RenderField = (
       />
     );
   }
+
+  if (field.type == FieldType.TEXTAREA) {
+    return (
+      <TextArea
+        placeHolder={field?.placeHolder}
+        error={field?.error}
+        key={field.name}
+        handler={(name, value) =>
+          setFields((prev) =>
+            prev.map((field) =>
+              field.name === name ? { ...field, value, error: false } : field
+            )
+          )
+        }
+        label={field?.label}
+        name={field?.name}
+        value={field?.value as string}
+        keyboard={field?.keyboard}
+      />
+    );
+  }
+
   if (field.type == FieldType.SELECT) {
     return (
       <SelectInput
@@ -114,7 +138,7 @@ export const RenderField = (
   }
   if (field.type == FieldType.TIME) {
     return (
-      <DatePicker
+      <TimePicker
         placeHolder={field?.placeHolder}
         error={field?.error}
         key={field.name}
