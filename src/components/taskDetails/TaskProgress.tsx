@@ -5,6 +5,7 @@ import ProgressBar from "../shered/ProgressBar";
 import TextPrimary from "../shered/TextPrimary";
 import TextSecondary from "../shered/TextSecondary";
 import GreenLine from "../ui/line/GreenLine";
+import FeedbackStatusButton from "./FeedbackStatusButton";
 
 const TaskProgress = () => {
   return (
@@ -40,6 +41,7 @@ const TaskProgress = () => {
         <TextSecondary text="₦ 27.6" />
       </FlexText>
       <ProgressBar />
+      <FeedbackStatusButton />
     </View>
   );
 };

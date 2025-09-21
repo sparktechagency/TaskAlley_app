@@ -20,7 +20,6 @@ import ButtonBG from "../ui/buttons/ButtonBG";
 import ButtonGreenOpacity30 from "../ui/buttons/ButtonGreenOpacity30";
 import ButtonTransparentBG from "../ui/buttons/ButtonTransparentBG";
 import Bids_Question from "./Bids_Question";
-import ProgressBar from "../shered/ProgressBar";
 import TaskProgress from "./TaskProgress";
 
 const DetailsTask = ({
