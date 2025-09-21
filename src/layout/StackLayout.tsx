@@ -15,12 +15,14 @@ import SecurePayments from "../screens/stack/onboarding/SecurePayments";
 import TrustedServices from "../screens/stack/onboarding/TrustedServices";
 import ProviderDetails from "../screens/stack/ProviderDetails";
 import RegulationsCenter from '../screens/stack/RegulationsCenter';
+import RequestCancel from '../screens/stack/RequestCancel';
 import Search from "../screens/stack/Search";
 import TaskDetails from "../screens/stack/TaskDetails";
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
 
 const StackLayout = () => {
+
   const screens = {
     Login: Login,
     Forget: ForgetPassword,
@@ -39,7 +41,8 @@ const StackLayout = () => {
     ProviderDetails: ProviderDetails,
     MyTaskDetails: MyTaskDetails,
     RegulationsCenter: RegulationsCenter,
-    ExtendDate: ExtendDate
+    ExtendDate: ExtendDate,
+    RequestCancel: RequestCancel
   };
 
   const stacks = Object.keys(screens).map((key) => ({

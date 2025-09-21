@@ -41,12 +41,14 @@ const RegulationsCenter = () => {
           />
         </FlexText>
       </TouchableOpacity>
-      <TouchableOpacity style={{
-        marginTop: 10,
-        padding: 10,
-        borderRadius: 10,
-        backgroundColor: "#E6F4F1"
-      }}>
+      <TouchableOpacity
+        onPress={() => navigate("RequestCancel")}
+        style={{
+          marginTop: 10,
+          padding: 10,
+          borderRadius: 10,
+          backgroundColor: "#E6F4F1"
+        }}>
         <FlexText
           style={{
             justifyContent: "space-between"
