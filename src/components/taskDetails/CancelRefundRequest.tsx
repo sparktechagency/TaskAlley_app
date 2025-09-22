@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
 import { otherIcons } from '../../constant/images'
 import FlexText from '../shered/FlexText'
@@ -6,13 +6,16 @@ import HeaderSecondary from '../shered/HeaderSecondary'
 import ImageFlex from '../shered/ImageFlex'
 import TextSecondary from '../shered/TextSecondary'
 import ButtonBG from '../ui/buttons/ButtonBG'
+import ButtonTransparentBG from '../ui/buttons/ButtonTransparentBG'
 import GreenLine from '../ui/line/GreenLine'
 
 const CancelRefundRequest = () => {
+  const [type, setType] = useState<"cancel" | "refund">("cancel")
   return (
     <View style={{
       padding: 10,
-      backgroundColor: "#E6F4F1"
+      backgroundColor: "#E6F4F1",
+      marginTop: 10
     }}>
       <FlexText
         style={{
@@ -50,8 +53,36 @@ const CancelRefundRequest = () => {
         </View>
       </FlexText>
       <GreenLine />
+      {
+        type == "refund" && <View style={{
+          padding: 10,
+          borderWidth: .3,
+          borderRadius: 8,
+          marginBottom: 5
+        }}>
+          <HeaderSecondary
+            style={{
+              fontWeight: 700
+            }}
+            text='Current Completion Date'
+          />
+          <TextSecondary
+            text='15 May 2020 8:00 am'
+          />
+          <GreenLine />
+          <HeaderSecondary
+            style={{
+              fontWeight: 700
+            }}
+            text='New Proposed Date'
+          />
+          <TextSecondary
+            text='15 May 2020 8:00 am'
+          />
+        </View>
+      }
       <HeaderSecondary
-        text='Details'
+        text={type == "cancel" ? "Reason for Cancel" : "Reason for Request"}
       />
       <TextSecondary
         text={`I request the immediate cancellation of the project due to repeated breaches: poor communication, multiple missed meetings, delays without real progress, and deliverables not meeting agreed standards. I request a full refund and preservation of all evidence in accordance with Fiverr's Terms of Service, Article 5.3.`}
@@ -61,7 +92,7 @@ const CancelRefundRequest = () => {
         style={{
           width: 600
         }}
-        text='Cancellation Status'
+        text={type == 'cancel' ? 'Cancellation Status' : 'Extensions Status'}
       />
       <TextSecondary
         style={{
@@ -71,13 +102,31 @@ const CancelRefundRequest = () => {
       />
       <GreenLine />
       <FlexText>
-        <ButtonBG
-          text='Cancel the request'
-          handler={() => console.log('')}
-          style={{
-            width: "auto"
-          }}
-        />
+        {
+          type == "cancel" ? <ButtonBG
+            text='Cancel the request'
+            handler={() => console.log('')}
+            style={{
+              width: "auto"
+            }}
+          /> : <>
+            <ButtonTransparentBG
+              text='Cancel'
+              handler={() => console.log('')}
+              style={{
+                width: "auto"
+              }}
+            />
+            <ButtonBG
+              text='Accept'
+              handler={() => console.log('')}
+              style={{
+                width: "auto"
+              }}
+            />
+          </>
+        }
+
       </FlexText>
     </View>
   )
