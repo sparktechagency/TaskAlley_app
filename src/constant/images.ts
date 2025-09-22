@@ -24,12 +24,20 @@ import Notifications from "../assets/notification.png";
 import RealTimeImage from "../assets/onboarding/booking.png";
 import SecurePaymentImage from "../assets/onboarding/secure.png";
 import TrustedImage from "../assets/onboarding/trusted.png";
+import Card from "../assets/profile/card.png";
+import Logout from "../assets/profile/logout.png";
+import Privacy from "../assets/profile/privacy.png";
+import Question from "../assets/profile/question.png";
+import Refer from "../assets/profile/reffar.png";
+import Setting from "../assets/profile/setting.png";
+import Terms from "../assets/profile/terms.png";
 import Report from "../assets/Report.png";
 import Represent from "../assets/Represent.png";
 import Search from "../assets/Search.png";
 import Send from "../assets/Send.png";
 import Service from "../assets/service.png";
 import Watch from "../assets/Watch.png";
+
 export const TabIcons = {
   Home,
   "My Tasks": post,
@@ -37,6 +45,15 @@ export const TabIcons = {
   Profile,
   "Post Task": task,
 };
+export const profileIcons = {
+  Card,
+  Setting,
+  Refer,
+  Terms,
+  Privacy,
+  Question,
+  Logout
+}
 export const otherIcons = Object.freeze({
   manCircle,
   Eye,
