@@ -1,11 +1,24 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-
+import { FlatList, StyleSheet } from "react-native";
+import ChatItems from '../../components/chat/ChatItems';
+import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
+const data = [1, 2, 3, 4, 5, 6]
 const Chat = () => {
+
   return (
-    <View>
-      <Text>Chat</Text>
-    </View>
+    <SafeAreaProviderNoScroll
+      backButtonText='Messages'
+    >
+      <FlatList
+        keyExtractor={(item, index) => index.toString()}
+        contentContainerStyle={{
+          paddingBottom: 150,
+        }}
+        showsVerticalScrollIndicator={false}
+        data={data}
+        renderItem={({ item }) => <ChatItems />}
+      />
+    </SafeAreaProviderNoScroll>
   );
 };
 

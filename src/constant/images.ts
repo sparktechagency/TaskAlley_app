@@ -3,6 +3,7 @@ import ArrowLeft from "../assets/arrowLeft.png";
 import Block from "../assets/Block.png";
 import Calendar from "../assets/Calendar.png";
 import Category from "../assets/category.png";
+import ChatBlock from "../assets/ChatBlock.png";
 import Check from "../assets/check.png";
 import Close from "../assets/close.png";
 import Customer from "../assets/customer.png";
@@ -26,6 +27,7 @@ import TrustedImage from "../assets/onboarding/trusted.png";
 import Report from "../assets/Report.png";
 import Represent from "../assets/Represent.png";
 import Search from "../assets/Search.png";
+import Send from "../assets/Send.png";
 import Service from "../assets/service.png";
 import Watch from "../assets/Watch.png";
 export const TabIcons = {
@@ -60,5 +62,7 @@ export const otherIcons = Object.freeze({
   Check,
   Report,
   Block,
-  Info
+  Info,
+  ChatBlock,
+  Send
 });

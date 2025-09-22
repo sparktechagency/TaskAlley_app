@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import DetailsTask from "../../components/taskDetails/DetailsTask";
 
 const MyTaskDetails = () => {
-  return <DetailsTask heading="My Tasks Details" status="inprogress" />;
+  return <DetailsTask heading="My Tasks Details" />;
 };
 
 export default MyTaskDetails;
