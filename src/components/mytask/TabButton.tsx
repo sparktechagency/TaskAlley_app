@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FlatList } from "react-native";
 import ButtonBG from "../ui/buttons/ButtonBG";
 
-const TabButton = () => {
+const TabButton = ({ tab, handler }: { tab?: string[], handler?: (tab: string) => void }) => {
   const tabs = [
     "All Tasks",
     "open for bids",
@@ -10,18 +10,18 @@ const TabButton = () => {
     "completed",
     "cancelled",
   ];
-  const [activeTab, setActiveTab] = useState<string>(tabs[0]);
+  const [activeTab, setActiveTab] = useState<string>(tab ? tab[0] : tabs[0]);
 
   return (
     <FlatList
-      data={tabs}
+      data={tab || tabs}
       horizontal
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item}
       renderItem={({ item }) => (
         <ButtonBG
           text={item}
-          handler={() => setActiveTab(item)}
+          handler={() => { setActiveTab(item), handler?.(item) }}
           style={{
             width: "auto",
             backgroundColor: item == activeTab ? "#115E59" : "#E6F4F1",

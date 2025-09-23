@@ -40,6 +40,7 @@ import Search from "../assets/Search.png";
 import Send from "../assets/Send.png";
 import Service from "../assets/service.png";
 import Watch from "../assets/Watch.png";
+import Share from "../assets/Share.png"
 export const TabIcons = {
   Home,
   "My Tasks": post,
@@ -86,5 +87,6 @@ export const otherIcons = Object.freeze({
   Info,
   ChatBlock,
   Send,
-  Edit
+  Edit,
+  Share
 });

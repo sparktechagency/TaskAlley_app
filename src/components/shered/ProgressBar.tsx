@@ -23,6 +23,7 @@ const data: IStatusData[] = [
     name: "Completed on",
     status: "pending",
   },
+
 ];
 
 const ProgressBar = () => {

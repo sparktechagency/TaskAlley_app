@@ -16,7 +16,7 @@ const data = [
   {
     "name": "Refer & Discounts",
     "image": profileIcons.Refer,
-    "navigate": "ReferDiscountsScreen"
+    "navigate": "ReferDiscounts"
   },
   {
     "name": "Shaved Account",

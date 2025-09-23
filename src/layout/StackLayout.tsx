@@ -15,6 +15,7 @@ import RealTimeBooking from "../screens/stack/onboarding/RealTimeBooking";
 import SecurePayments from "../screens/stack/onboarding/SecurePayments";
 import TrustedServices from "../screens/stack/onboarding/TrustedServices";
 import ProviderDetails from "../screens/stack/ProviderDetails";
+import ReferDiscounts from '../screens/stack/ReferDiscounts';
 import RegulationsCenter from '../screens/stack/RegulationsCenter';
 import RequestCancel from '../screens/stack/RequestCancel';
 import Search from "../screens/stack/Search";
@@ -48,7 +49,8 @@ const StackLayout = () => {
     RequestCancel: RequestCancel,
     Messages: Messages,
     MyProfile: MyProfile,
-    ChangePassword: ChangePassword
+    ChangePassword: ChangePassword,
+    ReferDiscounts: ReferDiscounts
   };
 
   const stacks = Object.keys(screens).map((key) => ({
