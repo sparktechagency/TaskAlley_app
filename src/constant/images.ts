@@ -7,6 +7,7 @@ import ChatBlock from "../assets/ChatBlock.png";
 import Check from "../assets/check.png";
 import Close from "../assets/close.png";
 import Customer from "../assets/customer.png";
+import Edit from "../assets/Edit.png";
 import Eye from "../assets/eye.png";
 import EyeX from "../assets/eyeX.png";
 import Filter from "../assets/Filter.png";
@@ -25,6 +26,8 @@ import RealTimeImage from "../assets/onboarding/booking.png";
 import SecurePaymentImage from "../assets/onboarding/secure.png";
 import TrustedImage from "../assets/onboarding/trusted.png";
 import Card from "../assets/profile/card.png";
+import deleteAccount from "../assets/profile/deleteAccount.png";
+import Lock from "../assets/profile/lock.png";
 import Logout from "../assets/profile/logout.png";
 import Privacy from "../assets/profile/privacy.png";
 import Question from "../assets/profile/question.png";
@@ -37,7 +40,6 @@ import Search from "../assets/Search.png";
 import Send from "../assets/Send.png";
 import Service from "../assets/service.png";
 import Watch from "../assets/Watch.png";
-
 export const TabIcons = {
   Home,
   "My Tasks": post,
@@ -52,7 +54,9 @@ export const profileIcons = {
   Terms,
   Privacy,
   Question,
-  Logout
+  Logout,
+  Lock,
+  deleteAccount
 }
 export const otherIcons = Object.freeze({
   manCircle,
@@ -81,5 +85,6 @@ export const otherIcons = Object.freeze({
   Block,
   Info,
   ChatBlock,
-  Send
+  Send,
+  Edit
 });

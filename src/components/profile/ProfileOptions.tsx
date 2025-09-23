@@ -6,12 +6,12 @@ const data = [
   {
     "name": "My Profile",
     "image": TabIcons.Profile,
-    "navigate": "ProfileScreen"
+    "navigate": "MyProfile"
   },
   {
-    "name": "Account Setting",
-    "image": profileIcons.Setting,
-    "navigate": "AccountSettingScreen"
+    "name": "Change Password",
+    "image": profileIcons.Lock,
+    "navigate": "ChangePassword"
   },
   {
     "name": "Refer & Discounts",
@@ -31,12 +31,12 @@ const data = [
   {
     "name": "Terms & Condition",
     "image": profileIcons.Terms,
-    "navigate": "TermsConditionScreen"
+    "navigate": "Terms"
   },
   {
     "name": "Privacy policy",
     "image": profileIcons.Privacy,
-    "navigate": "PrivacyPolicyScreen"
+    "navigate": "Privacy"
   },
   {
     "name": "Help/Support",

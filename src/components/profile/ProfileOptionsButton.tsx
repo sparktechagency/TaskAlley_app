@@ -34,6 +34,9 @@ const ProfileOptionsButton = ({
         <FlexText>
           <Image
             source={icon}
+            style={{
+              tintColor: "#115E59"
+            }}
           />
           <TextSecondary
             text={name}
@@ -42,6 +45,7 @@ const ProfileOptionsButton = ({
         <Image
           style={{
             transform: [{ rotate: "-90deg" }],
+
           }}
           source={otherIcons.arrowDown as ImageSourcePropType}
         />

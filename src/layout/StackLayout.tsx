@@ -18,6 +18,8 @@ import ProviderDetails from "../screens/stack/ProviderDetails";
 import RegulationsCenter from '../screens/stack/RegulationsCenter';
 import RequestCancel from '../screens/stack/RequestCancel';
 import Search from "../screens/stack/Search";
+import ChangePassword from '../screens/stack/settings/ChangePassword';
+import MyProfile from '../screens/stack/settings/MyProfile';
 import TaskDetails from "../screens/stack/TaskDetails";
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
@@ -44,7 +46,9 @@ const StackLayout = () => {
     RegulationsCenter: RegulationsCenter,
     ExtendDate: ExtendDate,
     RequestCancel: RequestCancel,
-    Messages: Messages
+    Messages: Messages,
+    MyProfile: MyProfile,
+    ChangePassword: ChangePassword
   };
 
   const stacks = Object.keys(screens).map((key) => ({
