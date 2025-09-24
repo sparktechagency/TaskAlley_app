@@ -21,12 +21,12 @@ const data = [
   {
     "name": "Shaved Account",
     "image": profileIcons.Card,
-    "navigate": "ShavedAccountScreen"
+    "navigate": "SavedAccount"
   },
   {
     "name": "Notification",
     "image": otherIcons.Notifications,
-    "navigate": "NotificationScreen"
+    "navigate": "Notifications"
   },
   {
     "name": "Terms & Condition",
@@ -36,12 +36,12 @@ const data = [
   {
     "name": "Privacy policy",
     "image": profileIcons.Privacy,
-    "navigate": "Privacy"
+    "navigate": "PrivacyPolicy"
   },
   {
     "name": "Help/Support",
     "image": profileIcons.Question,
-    "navigate": "HelpSupportScreen"
+    "navigate": "Help"
   }
 ]
 const ProfileOptions = () => {

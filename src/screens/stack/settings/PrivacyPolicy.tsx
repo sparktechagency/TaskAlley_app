@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import TextSecondary from '../../../components/shered/TextSecondary'
-import SafeAreaProviderNoScroll from '../../../providers/SafeAreaProviderNoScroll'
+import SafeAreaProvider from '../../../providers/SafeAreaProvider'
 
-const Terms = () => {
+const PrivacyPolicy = () => {
   return (
-    <SafeAreaProviderNoScroll
-      backButtonText='Terms & Condition'
+    <SafeAreaProvider
+      backButtonText='Privacy Policy'
     >
       <TextSecondary
         text='Privacy Policy – TaskAlley
@@ -71,10 +71,10 @@ TaskAlley is intended for users aged 18 and above. We do not knowingly collect i
 10. Policy Updates
 This Privacy Policy may be updated occasionally. You will be notified of any significant changes through the platform or email. Continued use of TaskAlley confirms your acceptance of the latest version.'
       />
-    </SafeAreaProviderNoScroll>
+    </SafeAreaProvider>
   )
 }
 
-export default Terms
+export default PrivacyPolicy
 
 const styles = StyleSheet.create({})

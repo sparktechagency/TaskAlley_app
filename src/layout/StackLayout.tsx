@@ -20,7 +20,12 @@ import RegulationsCenter from '../screens/stack/RegulationsCenter';
 import RequestCancel from '../screens/stack/RequestCancel';
 import Search from "../screens/stack/Search";
 import ChangePassword from '../screens/stack/settings/ChangePassword';
+import Help from '../screens/stack/settings/Help';
 import MyProfile from '../screens/stack/settings/MyProfile';
+import Notifications from '../screens/stack/settings/Notifications';
+import PrivacyPolicy from '../screens/stack/settings/PrivacyPolicy';
+import SavedAccount from '../screens/stack/settings/SavedAccount';
+import Terms from '../screens/stack/settings/Terms';
 import TaskDetails from "../screens/stack/TaskDetails";
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
@@ -50,7 +55,12 @@ const StackLayout = () => {
     Messages: Messages,
     MyProfile: MyProfile,
     ChangePassword: ChangePassword,
-    ReferDiscounts: ReferDiscounts
+    ReferDiscounts: ReferDiscounts,
+    SavedAccount: SavedAccount,
+    Notifications: Notifications,
+    PrivacyPolicy: PrivacyPolicy,
+    Terms: Terms,
+    Help: Help
   };
 
   const stacks = Object.keys(screens).map((key) => ({
