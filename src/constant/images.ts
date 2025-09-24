@@ -39,15 +39,17 @@ import Represent from "../assets/Represent.png";
 import Search from "../assets/Search.png";
 import Send from "../assets/Send.png";
 import Service from "../assets/service.png";
+import Share from "../assets/Share.png";
+import StateBg from "../assets/stateBg.png";
 import Watch from "../assets/Watch.png";
-import Share from "../assets/Share.png"
-import StateBg from "../assets/stateBg.png"
 export const TabIcons = {
   Home,
   "My Tasks": post,
   Chat,
   Profile,
   "Post Task": task,
+  "My Service": task,
+  Dashboard: Home
 };
 export const profileIcons = {
   Card,
