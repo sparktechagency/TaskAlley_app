@@ -90,9 +90,10 @@ const Login = () => {
         <ButtonBG
           text=" Log In"
           handler={() => {
-            setRole("user");
-            navigate("TabLayout");
             handleSignIn(fields, setFields);
+            const email = fields[0]?.value + ""
+            setRole(email?.includes("user") ? "user" : "service");
+            navigate("TabLayout");
           }}
         />
       </View>

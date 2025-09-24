@@ -9,7 +9,7 @@ const LoginFields = () => {
       placeHolder: "Enter Email Address",
       label: "Email Address",
       error: false,
-      value: "siyamoffice0273@gmail.com",
+      value: "user@gmail.com",
       required: true,
       keyboard: KeyboardType.EMAIL_ADDRESS,
     },
