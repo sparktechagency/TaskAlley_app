@@ -38,8 +38,9 @@ const DetailsTask = ({
   "open for bids" |
   "in Progress" |
   "completed" |
-  "cancelled" | "dispute"
+  "cancelled" | "dispute" | "Ongoing Tasks" | "Bids  Made" | "Bids  Received"
 }) => {
+  console.log(heading, from, status)
   const elements = [
     <ButtonGreenOpacity30
       key={1}
@@ -187,12 +188,12 @@ const DetailsTask = ({
       </FlexText>
     ),
 
-    (status == "All Tasks") ? (
+    (status == "All Tasks" || status == "open for bids" || from == "service") ? (
       <Bids_Question from={from} key={10} />
     ) : (
       <></>
     ),
-    (status != "All Tasks" && status != "open for bids") ? <>
+    (status != "All Tasks" && status != "open for bids" && from == "user") ? <>
       <TaskProgress key={11} />
       {
         status != "cancelled" && <>
