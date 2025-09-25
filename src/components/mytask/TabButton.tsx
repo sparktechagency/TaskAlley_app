@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { FlatList } from "react-native";
+import { useGlobalContext } from '../../providers/GlobalContextProvider';
 import ButtonBG from "../ui/buttons/ButtonBG";
 
 const TabButton = ({ tab, handler }: { tab?: string[], handler?: (tab: string) => void }) => {
-  const tabs = [
+  const { role } = useGlobalContext()
+  const tabs = role == "user" ? [
     "All Tasks",
     "open for bids",
     "in Progress",
     "completed",
     "cancelled", "dispute"
-  ];
+  ] : ["Ongoing Tasks", "Bids  Made", "Bids  Received", "dispute"]
   const [activeTab, setActiveTab] = useState<string>(tab ? tab[0] : tabs[0]);
 
   return (

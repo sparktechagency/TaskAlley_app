@@ -86,7 +86,7 @@ const DetailsTask = ({
       />
     ),
 
-    status == "in Progress" ? <FlexText
+    (status == "in Progress" || status == "Ongoing Tasks") ? <FlexText
       style={{
         justifyContent: "space-between"
       }}
@@ -188,15 +188,15 @@ const DetailsTask = ({
       </FlexText>
     ),
 
-    (status == "All Tasks" || status == "open for bids" || from == "service") ? (
-      <Bids_Question from={from} key={10} />
+    (status == "All Tasks" || status == "open for bids" || from == "service" || status == "Bids  Made") ? (
+      <Bids_Question from={from} status={status} key={10} />
     ) : (
       <></>
     ),
     (status != "All Tasks" && status != "open for bids" && from == "user") ? <>
       <TaskProgress key={11} />
       {
-        status != "cancelled" && <>
+        status == "dispute" && <>
           <CancelRefundRequest />
           <FeedbackStatusButton status={status} />
         </>

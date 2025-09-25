@@ -122,4 +122,3 @@ const PostTask = () => {
 
 export default PostTask;
 
-const styles = StyleSheet.create({});

@@ -19,6 +19,7 @@ import ReferDiscounts from '../screens/stack/ReferDiscounts';
 import RegulationsCenter from '../screens/stack/RegulationsCenter';
 import RequestCancel from '../screens/stack/RequestCancel';
 import Search from "../screens/stack/Search";
+import ServiceDetails from '../screens/stack/ServiceDetails';
 import ChangePassword from '../screens/stack/settings/ChangePassword';
 import Help from '../screens/stack/settings/Help';
 import MyProfile from '../screens/stack/settings/MyProfile';
@@ -60,7 +61,8 @@ const StackLayout = () => {
     Notifications: Notifications,
     PrivacyPolicy: PrivacyPolicy,
     Terms: Terms,
-    Help: Help
+    Help: Help,
+    ServiceDetails: ServiceDetails
   };
 
   const stacks = Object.keys(screens).map((key) => ({
