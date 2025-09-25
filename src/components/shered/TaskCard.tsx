@@ -20,15 +20,21 @@ import TextPrimary from "./TextPrimary";
 const TaskCard = ({
   imageStyle,
   showDetailsButton = false,
+  tab,
+  from
 }: {
   imageStyle?: ImageStyle;
   showDetailsButton?: boolean;
+  tab?: string,
+  from: "user" | "service"
 }) => {
   const navigate = Navigate();
   return (
     <TouchableOpacity
       activeOpacity={showDetailsButton ? 1 : 0.7}
-      onPress={() => (showDetailsButton ? null : navigate("TaskDetails"))}
+      onPress={() => (showDetailsButton ? null : navigate("TaskDetails", {
+        params: { status: tab, from, heading: from == "user" ? "My Tasks Details" : "Tasks Details" }
+      }))}
       style={{
         backgroundColor: "#FFFFFF",
         padding: 10,

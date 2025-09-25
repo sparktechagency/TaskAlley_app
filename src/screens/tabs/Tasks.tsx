@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import TabButton from "../../components/mytask/TabButton";
 import SectionHeading from "../../components/shered/SectionHeading";
@@ -85,6 +85,7 @@ const data = [
   },
 ];
 const Tasks = () => {
+  const [tab, setTab] = useState("")
   const elements = [
     <SectionHeading
       style={{
@@ -94,13 +95,13 @@ const Tasks = () => {
       showViewButton={false}
       key={1}
     />,
-    <TabButton key={2} />,
+    <TabButton handler={(tab) => setTab(tab)} key={2} />,
 
     <FlatList
       key={3}
       data={data}
       keyExtractor={(item, index) => index.toString()}
-      renderItem={({ item }) => <TaskCard showDetailsButton={true} />}
+      renderItem={({ item }) => <TaskCard from='user' tab={tab} showDetailsButton={true} />}
     />,
   ];
   return (

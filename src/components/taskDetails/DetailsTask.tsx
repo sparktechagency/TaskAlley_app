@@ -30,6 +30,12 @@ const DetailsTask = ({
   heading = "Tasks Details",
 }: {
   heading?: "Tasks Details" | "My Tasks Details";
+  from: "user" | "service",
+  status: "All Tasks" |
+  "open for bids" |
+  "in Progress" |
+  "completed" |
+  "cancelled",
 }) => {
   const [status, setStatus] = useState<"open" | "inprogress" | "dispute">("dispute")
   const elements = [
