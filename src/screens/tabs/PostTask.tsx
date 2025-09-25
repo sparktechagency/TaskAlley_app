@@ -103,6 +103,8 @@ const PostTask = () => {
               console.log(isValid)
               if (isValid && currentSlide < 3) {
                 setCurrentSlide((prev) => prev + 1);
+              } else if (currentSlide == 3) {
+                navigate("Task")
               }
               //  else if (currentSlide == 2) {
               //   navigate("Verify", {

@@ -10,7 +10,7 @@ const TaskDetails = () => {
       "open for bids" |
       "in Progress" |
       "completed" |
-      "cancelled",
+      "cancelled" | "dispute"
     }
   };
   return <DetailsTask heading={heading} from={from} status={status} />;

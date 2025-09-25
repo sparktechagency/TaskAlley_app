@@ -5,7 +5,7 @@ import ChatHeader from '../../components/message/ChatHeader';
 import Message from '../../components/message/Message';
 import SendMessage from '../../components/message/SendMessage';
 import { otherIcons } from '../../constant/images';
-import SafeAreaProvider from '../../providers/SafeAreaProvider';
+import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
 import Navigate from '../../utils/Navigate';
 import ScreenSize from '../../utils/ScreenSize';
 const data = [1, 2, 3, 4, 5, 6]
@@ -15,7 +15,7 @@ const Messages = () => {
   const { top, bottom } = useSafeAreaInsets();
 
   return (
-    <SafeAreaProvider
+    <SafeAreaProviderNoScroll
     >
       <View style={{
         flexDirection: "column",
@@ -25,17 +25,17 @@ const Messages = () => {
         <FlatList
           style={{
             height: height,
-            maxHeight: height - (top + bottom + 60 + 15 + 60 + 40),
+            maxHeight: height - (top + bottom + 60 + 15 + 60 + 40 + 50),
           }}
           keyExtractor={(item, index) => index.toString()}
           inverted
           showsVerticalScrollIndicator={false}
-          data={[...data, ...data, ...data]}
+          data={[...data, ...data, ...data, ...data, ...data, ...data]}
           renderItem={({ item, index }) => <Message i={index} />}
         />
         <SendMessage />
       </View>
-    </SafeAreaProvider>
+    </SafeAreaProviderNoScroll>
   );
 };
 export default Messages

@@ -8,7 +8,7 @@ const TabButton = ({ tab, handler }: { tab?: string[], handler?: (tab: string) =
     "open for bids",
     "in Progress",
     "completed",
-    "cancelled",
+    "cancelled", "dispute"
   ];
   const [activeTab, setActiveTab] = useState<string>(tab ? tab[0] : tabs[0]);
 

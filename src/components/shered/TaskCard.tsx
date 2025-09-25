@@ -116,7 +116,9 @@ const TaskCard = ({
               width: 120,
             }}
             text="Details"
-            handler={() => navigate("MyTaskDetails")}
+            handler={() => navigate("TaskDetails", {
+              params: { status: tab, from, heading: from == "user" ? "My Tasks Details" : "Tasks Details" }
+            })}
           />
         </>
       )}

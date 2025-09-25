@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FlatList,
   Image,
@@ -24,10 +24,13 @@ import IconButtonTransparent from '../ui/buttons/IconButtonTransparent';
 import Bids_Question from "./Bids_Question";
 import CancelRefundRequest from './CancelRefundRequest';
 import FeedbackStatusButton from './FeedbackStatusButton';
+import SubmitBitButt from './SubmitBitButt';
 import TaskProgress from "./TaskProgress";
 
 const DetailsTask = ({
-  heading = "Tasks Details",
+  heading,
+  from,
+  status
 }: {
   heading?: "Tasks Details" | "My Tasks Details";
   from: "user" | "service",
@@ -35,14 +38,13 @@ const DetailsTask = ({
   "open for bids" |
   "in Progress" |
   "completed" |
-  "cancelled",
+  "cancelled" | "dispute"
 }) => {
-  const [status, setStatus] = useState<"open" | "inprogress" | "dispute">("dispute")
   const elements = [
     <ButtonGreenOpacity30
       key={1}
       activeOpacity={1}
-      text="Open for Bids "
+      text={status}
       style={{
         backgroundColor: "#FFEDD5",
         width: 200,
@@ -82,7 +84,8 @@ const DetailsTask = ({
         text1="Marvin Fey"
       />
     ),
-    status == "inprogress" ? <FlexText
+
+    status == "in Progress" ? <FlexText
       style={{
         justifyContent: "space-between"
       }}
@@ -90,7 +93,7 @@ const DetailsTask = ({
       <ImageFlex
         key={4}
         image={`https://placehold.co/400x400.png`}
-        text="Posted by"
+        text="Assigned To"
         text1="Marvin Fey"
       />
       <IconButtonTransparent
@@ -103,6 +106,7 @@ const DetailsTask = ({
         }}
       />
     </FlexText> : <></>,
+
     <ImageFlex
       component={
         <BlueBadgeOpacity30 icon={otherIcons.Location as ImageSourcePropType} />
@@ -119,6 +123,7 @@ const DetailsTask = ({
       text="to be done on  "
       text1="15 May 2020 8:00 am"
     />,
+
     <HeaderSecondary
       key={7}
       style={{
@@ -132,7 +137,7 @@ const DetailsTask = ({
     />,
 
     heading == "My Tasks Details" ? (
-      status != "open" ? (
+      status != "All Tasks" ? (
         <></>
       ) : (
         <FlexText
@@ -178,32 +183,32 @@ const DetailsTask = ({
           <TextSecondary text="Task budget " />
           <HeaderDesign text="₦24.00" />
         </View>
-        <ButtonBG
-          style={{
-            width: "auto",
-          }}
-          text="Submit a Bid"
-          handler={() => { }}
-        />
+        <SubmitBitButt />
       </FlexText>
     ),
 
-    (status != "inprogress" && status != "dispute") ? (
-      <Bids_Question from="My Tasks Details" key={10} />
+    (status == "All Tasks") ? (
+      <Bids_Question from={from} key={10} />
     ) : (
       <></>
     ),
-    status != "open" ? <>
+    (status != "All Tasks" && status != "open for bids") ? <>
       <TaskProgress key={11} />
-      <CancelRefundRequest />
-      <FeedbackStatusButton />
+      {
+        status != "cancelled" && <>
+          <CancelRefundRequest />
+          <FeedbackStatusButton status={status} />
+        </>
+      }
+
     </>
       : <></>,
   ];
+  console.log()
   const navigate = Navigate()
   return (
     <SafeAreaProviderNoScroll>
-      <BackButton text={heading} show={status == "inprogress"} handler={() => navigate("RegulationsCenter")} />
+      <BackButton text={heading} show={status == "in Progress"} handler={() => navigate("RegulationsCenter")} />
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{

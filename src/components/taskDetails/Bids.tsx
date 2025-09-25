@@ -3,9 +3,9 @@ import { View } from "react-native";
 import Bids_QuestionCard from "./Bids_QuestionCard";
 
 const Bids = ({
-  from = "Tasks Details",
+  from = "service",
 }: {
-  from?: "Tasks Details" | "My Tasks Details";
+  from?: "user" | "service";
 }) => {
   return (
     <View

@@ -6,8 +6,10 @@ import FlexText from '../../components/shered/FlexText';
 import TextSecondary from '../../components/shered/TextSecondary';
 import { profileIcons } from '../../constant/images';
 import SafeAreaProviderNoScroll from '../../providers/SafeAreaProviderNoScroll';
+import Navigate from '../../utils/Navigate';
 
 const Profile = () => {
+  const navigate = Navigate()
   const elements = [
     <ProfilePictureName key={1} />,
     <ProfileOptions key={2} />,
@@ -46,7 +48,7 @@ const Profile = () => {
     </TouchableOpacity>,
     <TouchableOpacity
       key={4}
-      onPress={() => { }}
+      onPress={() => navigate("Login")}
       style={{
         marginTop: 10,
         padding: 10,

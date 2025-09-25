@@ -10,10 +10,10 @@ import IconButtonTransparent from "../ui/buttons/IconButtonTransparent";
 
 const Bids_QuestionCard = ({
   type,
-  from = "Tasks Details",
+  from = "service",
 }: {
   type: "bids" | "question";
-  from?: "Tasks Details" | "My Tasks Details";
+  from?: "user" | "service";
 }) => {
   return (
     <View
@@ -29,7 +29,7 @@ const Bids_QuestionCard = ({
         text="Ronald Richards"
         text1="⭐ 4.5 (149 Reviews)"
       />
-      {from == "My Tasks Details" && type == "bids" && (
+      {from == "user" && type == "bids" && (
         <FlexText
           key={9}
           style={{
@@ -49,12 +49,12 @@ const Bids_QuestionCard = ({
               width: "auto",
             }}
             text="Accept"
-            handler={() => {}}
+            handler={() => { }}
           />
         </FlexText>
       )}
       <TextSecondary text="I was a bit nervous to be buying a secondhand phone from Amazon, but I couldn’t be happier with my purchase!! I have a pre-paid data plan so I was worried that this phone wouldn’t connect with my data plan, since the new phones don’t have the physical Sim tray anymore." />
-      {from == "My Tasks Details" && type == "question" && (
+      {from == "user" && type == "question" && (
         <IconButtonTransparent
           style={{
             marginTop: 10,

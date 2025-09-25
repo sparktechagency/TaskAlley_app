@@ -4,16 +4,16 @@ import Bids_QuestionCard from "./Bids_QuestionCard";
 import QuestionForm from "./QuestionForm";
 
 const Questions = ({
-  from = "Tasks Details",
+  from = "service",
 }: {
-  from?: "Tasks Details" | "My Tasks Details";
+  from?: "user" | "service";
 }) => {
   return (
     <View style={{
-      marginTop: from == "Tasks Details" ? 0 : 10
+      marginTop: from == "service" ? 0 : 10
     }}>
       {
-        from == "Tasks Details" && <QuestionForm />
+        from == "service" && <QuestionForm />
       }
       {[...Array(5).keys()]?.map((item) => (
         <Bids_QuestionCard type="question" from={from} />

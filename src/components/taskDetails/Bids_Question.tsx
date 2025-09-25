@@ -7,9 +7,9 @@ import Questions from "./Questions";
 const tab = ["Bids", "Questions"];
 
 const Bids_Question = ({
-  from = "Tasks Details",
+  from = "service",
 }: {
-  from?: "Tasks Details" | "My Tasks Details";
+  from?: "user" | "service";
 }) => {
   const [active, setActive] = useState(tab[0]);
   const component = {
