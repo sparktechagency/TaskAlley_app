@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { FieldsType, FieldType, KeyboardType } from '../types/Types';
+import { useState } from "react";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const PostTaskFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -31,7 +31,8 @@ const PostTaskFields = () => {
     {
       name: "desc",
       type: FieldType.TEXTAREA,
-      placeHolder: "Clearly explain what needs to be done, including details like location, required tools, and specific expectations.",
+      placeHolder:
+        "Clearly explain what needs to be done, including details like location, required tools, and specific expectations.",
       label: " Enter Task Description",
       error: false,
       value: "options 1",
@@ -112,7 +113,8 @@ const PostTaskFields = () => {
       name: "confirm",
       type: FieldType.CHECKBOX,
       placeHolder: "",
-      label: "I confirm this task complies with all platform rules and community guidelines. ",
+      label:
+        "I confirm this task complies with all platform rules and community guidelines. ",
       error: false,
       value: " ",
       required: true,
@@ -120,6 +122,6 @@ const PostTaskFields = () => {
     },
   ]);
   return { fields, setFields };
-}
+};
 
-export default PostTaskFields
+export default PostTaskFields;

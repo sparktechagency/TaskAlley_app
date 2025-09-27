@@ -1,5 +1,5 @@
-import { FieldsType } from '../types/Types';
-import { validateFields } from '../utils/formValidate';
+import { FieldsType } from "../types/Types";
+import { validateFields } from "../utils/formValidate";
 
 export const handleExtendDate = (
   fields: FieldsType[],

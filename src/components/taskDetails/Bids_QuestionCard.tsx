@@ -11,15 +11,20 @@ import IconButtonTransparent from "../ui/buttons/IconButtonTransparent";
 const Bids_QuestionCard = ({
   type,
   from = "service",
-  status
+  status,
 }: {
   type: "bids" | "question";
   from?: "user" | "service";
-  status: "All Tasks" |
-  "open for bids" |
-  "in Progress" |
-  "completed" |
-  "cancelled" | "dispute" | "Ongoing Tasks" | "Bids  Made" | "Bids  Received"
+  status:
+    | "All Tasks"
+    | "open for bids"
+    | "in Progress"
+    | "completed"
+    | "cancelled"
+    | "dispute"
+    | "Ongoing Tasks"
+    | "Bids  Made"
+    | "Bids  Received";
 }) => {
   return (
     <View
@@ -55,7 +60,7 @@ const Bids_QuestionCard = ({
               width: "auto",
             }}
             text={status == "Bids  Made" ? "Update Offer" : "Accept"}
-            handler={() => { }}
+            handler={() => {}}
           />
         </FlexText>
       )}

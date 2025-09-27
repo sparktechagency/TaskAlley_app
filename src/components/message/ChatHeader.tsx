@@ -6,14 +6,14 @@ import {
 import React from "react";
 import { Image, ImageSourcePropType, Text, View } from "react-native";
 import { otherIcons } from "../../constant/images";
-import FlexText from '../shered/FlexText';
+import FlexText from "../shered/FlexText";
 import CircleButton from "../ui/buttons/CircleButton";
 
 interface propType {
   text?: string;
   show?: boolean;
   imageSource?: ImageSourcePropType;
-  handler?: () => void
+  handler?: () => void;
 }
 const ChatHeader = ({ text, show = false, imageSource, handler }: propType) => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
@@ -29,9 +29,11 @@ const ChatHeader = ({ text, show = false, imageSource, handler }: propType) => {
         height: 60,
       }}
     >
-      <FlexText style={{
-        alignItems: "center"
-      }}>
+      <FlexText
+        style={{
+          alignItems: "center",
+        }}
+      >
         <CircleButton
           style={{
             height: 30,
@@ -45,26 +47,30 @@ const ChatHeader = ({ text, show = false, imageSource, handler }: propType) => {
           imageSource={otherIcons.ArrowLeft as ImageSourcePropType}
           onPress={() => navigation.goBack()}
         />
-        <FlexText style={{
-          marginBottom: -6
-        }}>
+        <FlexText
+          style={{
+            marginBottom: -6,
+          }}
+        >
           <Image
             src="https://placehold.co/400x400.png"
             style={{
               height: 40,
               width: 40,
-              borderRadius: 100
+              borderRadius: 100,
             }}
           />
           <View>
-            <Text style={{
-              fontWeight: 600
-            }}>
+            <Text
+              style={{
+                fontWeight: 600,
+              }}
+            >
               Jane Cooper
             </Text>
             <Text
               style={{
-                fontSize: 12
+                fontSize: 12,
               }}
             >
               Jane@gmail.com
@@ -72,8 +78,8 @@ const ChatHeader = ({ text, show = false, imageSource, handler }: propType) => {
           </View>
         </FlexText>
       </FlexText>
-      {
-        show ? <CircleButton
+      {show ? (
+        <CircleButton
           style={{
             height: 30,
             width: 30,
@@ -83,12 +89,17 @@ const ChatHeader = ({ text, show = false, imageSource, handler }: propType) => {
             borderColor: "#115E59",
             borderWidth: 1,
           }}
-          imageSource={imageSource ? imageSource : otherIcons.Report as ImageSourcePropType}
+          imageSource={
+            imageSource
+              ? imageSource
+              : (otherIcons.Report as ImageSourcePropType)
+          }
           onPress={() => handler?.()}
-        /> : <Text></Text>
-      }
-
+        />
+      ) : (
+        <Text></Text>
+      )}
     </View>
   );
 };
-export default ChatHeader
+export default ChatHeader;

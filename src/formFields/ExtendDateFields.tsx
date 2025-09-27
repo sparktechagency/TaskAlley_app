@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { FieldsType, FieldType, KeyboardType } from '../types/Types';
+import { useState } from "react";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const ExtendDateFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -37,4 +37,4 @@ const ExtendDateFields = () => {
   return { fields, setFields };
 };
 
-export default ExtendDateFields
+export default ExtendDateFields;

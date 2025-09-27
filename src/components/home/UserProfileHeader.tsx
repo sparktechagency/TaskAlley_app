@@ -1,13 +1,13 @@
 import React from "react";
 import { ImageSourcePropType, StyleSheet } from "react-native";
 import { otherIcons } from "../../constant/images";
-import Navigate from '../../utils/Navigate';
+import Navigate from "../../utils/Navigate";
 import FlexText from "../shered/FlexText";
 import ImageFlex from "../shered/ImageFlex";
 import ImageButton from "../ui/buttons/ImageButton";
 
 const UserProfileHeader = () => {
-  const navigate = Navigate()
+  const navigate = Navigate();
   return (
     <FlexText
       style={{

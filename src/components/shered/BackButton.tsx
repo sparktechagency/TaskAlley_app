@@ -12,7 +12,7 @@ interface propType {
   text?: string;
   show?: boolean;
   imageSource?: ImageSourcePropType;
-  handler?: () => void
+  handler?: () => void;
 }
 const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
@@ -47,8 +47,8 @@ const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
       >
         {text}
       </Text>
-      {
-        show ? <CircleButton
+      {show ? (
+        <CircleButton
           style={{
             height: 30,
             width: 30,
@@ -58,11 +58,16 @@ const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
             borderColor: "#115E59",
             borderWidth: 1,
           }}
-          imageSource={imageSource ? imageSource : otherIcons.Report as ImageSourcePropType}
+          imageSource={
+            imageSource
+              ? imageSource
+              : (otherIcons.Report as ImageSourcePropType)
+          }
           onPress={() => handler?.()}
-        /> : <Text></Text>
-      }
-
+        />
+      ) : (
+        <Text></Text>
+      )}
     </View>
   );
 };

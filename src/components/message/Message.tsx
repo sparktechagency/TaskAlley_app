@@ -1,22 +1,26 @@
-import React from 'react'
-import { StyleSheet } from 'react-native'
-import TextPrimary from '../shered/TextPrimary'
+import React from "react";
+import { StyleSheet } from "react-native";
+import TextPrimary from "../shered/TextPrimary";
 
 const Message = ({ i }: { i: number }) => {
-  return <TextPrimary
-    text={`this is message ${i}`}
-    style={{
-      ...(i % 2 == 0 ? {
-        marginLeft: "auto",
-        backgroundColor: "#FFFFFF"
-      } : { marginRight: "auto", backgroundColor: "#E6F4F1" }),
-      borderRadius: 10,
-      width: "auto",
-      padding: 8
-    }}
-  />
-}
+  return (
+    <TextPrimary
+      text={`this is message ${i}`}
+      style={{
+        ...(i % 2 == 0
+          ? {
+              marginLeft: "auto",
+              backgroundColor: "#FFFFFF",
+            }
+          : { marginRight: "auto", backgroundColor: "#E6F4F1" }),
+        borderRadius: 10,
+        width: "auto",
+        padding: 8,
+      }}
+    />
+  );
+};
 
-export default Message
+export default Message;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

@@ -1,17 +1,17 @@
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 import CategorySection from "../../components/home/CategorySection";
-import MyStats from '../../components/home/MyStats';
+import MyStats from "../../components/home/MyStats";
 import PopularTaskProvider from "../../components/home/PopularTaskProvider";
 import RecentlyAddedTask from "../../components/home/RecentlyAddedTask";
 import UserProfileHeader from "../../components/home/UserProfileHeader";
 import SearchBar from "../../components/shered/SearchBar";
-import { useGlobalContext } from '../../providers/GlobalContextProvider';
+import { useGlobalContext } from "../../providers/GlobalContextProvider";
 import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
 
 const Home = () => {
-  const { role } = useGlobalContext()
-  console.log(role)
+  const { role } = useGlobalContext();
+  console.log(role);
   const elements = [
     <UserProfileHeader key={1} />,
     <SearchBar key={2} />,

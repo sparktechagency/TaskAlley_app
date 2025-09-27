@@ -4,14 +4,19 @@ import Bids_QuestionCard from "./Bids_QuestionCard";
 
 const Bids = ({
   from = "service",
-  status
+  status,
 }: {
   from?: "user" | "service";
-  status: "All Tasks" |
-  "open for bids" |
-  "in Progress" |
-  "completed" |
-  "cancelled" | "dispute" | "Ongoing Tasks" | "Bids  Made" | "Bids  Received"
+  status:
+    | "All Tasks"
+    | "open for bids"
+    | "in Progress"
+    | "completed"
+    | "cancelled"
+    | "dispute"
+    | "Ongoing Tasks"
+    | "Bids  Made"
+    | "Bids  Received";
 }) => {
   return (
     <View

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { FieldsType, FieldType, KeyboardType } from '../types/Types';
+import { useState } from "react";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const RequestCancelFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -36,5 +36,4 @@ const RequestCancelFields = () => {
   return { fields, setFields };
 };
 
-
-export default RequestCancelFields
+export default RequestCancelFields;

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { StyleSheet } from 'react-native';
-import { FieldsType, FieldType, KeyboardType } from '../types/Types';
+import { useState } from "react";
+import { StyleSheet } from "react-native";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const ChangePasswordFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -36,8 +36,8 @@ const ChangePasswordFields = () => {
     },
   ]);
   return { fields, setFields };
-}
+};
 
-export default ChangePasswordFields
+export default ChangePasswordFields;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

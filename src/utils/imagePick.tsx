@@ -1,4 +1,4 @@
-import { pick } from '@react-native-documents/picker';
+import { pick } from "@react-native-documents/picker";
 
 export const SelectImage = async () => {
   try {
@@ -13,4 +13,4 @@ export const SelectImage = async () => {
   } catch (err: unknown) {
     // see error handling
   }
-}
+};

@@ -33,7 +33,10 @@ const ReferTable = () => {
       {/* Header Row */}
       <FlexText style={styles.headerRow}>
         <HeaderSecondary style={styles.headerCell} text="Referral Type" />
-        <HeaderSecondary style={{ ...styles.headerCell, ...styles.middleCell }} text="Status" />
+        <HeaderSecondary
+          style={{ ...styles.headerCell, ...styles.middleCell }}
+          text="Status"
+        />
         <HeaderSecondary style={styles.headerCell} text="Value" />
         <HeaderSecondary style={styles.headerCell} text="Applied Date" />
       </FlexText>
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     overflow: "hidden",
-    marginTop: 10
+    marginTop: 10,
   },
   headerRow: {
     borderBottomWidth: 1,
@@ -79,13 +82,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     flex: 1,
     fontWeight: "bold",
-    fontSize: 12
+    fontSize: 12,
   },
   cell: {
     textAlign: "center",
     flex: 1,
     paddingHorizontal: 4,
-    fontSize: 12
+    fontSize: 12,
   },
   middleCell: {
     borderLeftWidth: 1,

@@ -9,12 +9,19 @@ import {
 } from "react-native";
 import ButtonBG from "../ui/buttons/ButtonBG";
 
-const FeedbackStatusButton = ({ status }: {
-  status: "All Tasks" |
-  "open for bids" |
-  "in Progress" |
-  "completed" |
-  "cancelled" | "dispute" | "Ongoing Tasks" | "Bids  Made" | "Bids  Received"
+const FeedbackStatusButton = ({
+  status,
+}: {
+  status:
+    | "All Tasks"
+    | "open for bids"
+    | "in Progress"
+    | "completed"
+    | "cancelled"
+    | "dispute"
+    | "Ongoing Tasks"
+    | "Bids  Made"
+    | "Bids  Received";
 }) => {
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
@@ -39,7 +46,7 @@ const FeedbackStatusButton = ({ status }: {
       <ButtonBG
         handler={() => {
           if (status == "completed") {
-            setOpen(true)
+            setOpen(true);
           }
         }}
         text={status == "completed" ? "Send Feedback" : "Mark As Complete"}

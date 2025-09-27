@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: "hidden",
     backgroundColor: "#fff",
-    marginTop: 10
+    marginTop: 10,
   },
   header: {
     flexDirection: "row",

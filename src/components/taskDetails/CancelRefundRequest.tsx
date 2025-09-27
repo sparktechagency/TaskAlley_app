@@ -1,36 +1,36 @@
-import React, { useState } from 'react'
-import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
-import { otherIcons } from '../../constant/images'
-import FlexText from '../shered/FlexText'
-import HeaderSecondary from '../shered/HeaderSecondary'
-import ImageFlex from '../shered/ImageFlex'
-import TextSecondary from '../shered/TextSecondary'
-import ButtonBG from '../ui/buttons/ButtonBG'
-import ButtonTransparentBG from '../ui/buttons/ButtonTransparentBG'
-import GreenLine from '../ui/line/GreenLine'
+import React, { useState } from "react";
+import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
+import { otherIcons } from "../../constant/images";
+import FlexText from "../shered/FlexText";
+import HeaderSecondary from "../shered/HeaderSecondary";
+import ImageFlex from "../shered/ImageFlex";
+import TextSecondary from "../shered/TextSecondary";
+import ButtonBG from "../ui/buttons/ButtonBG";
+import ButtonTransparentBG from "../ui/buttons/ButtonTransparentBG";
+import GreenLine from "../ui/line/GreenLine";
 
 const CancelRefundRequest = () => {
-  const [type, setType] = useState<"cancel" | "refund">("cancel")
+  const [type, setType] = useState<"cancel" | "refund">("cancel");
   return (
-    <View style={{
-      padding: 10,
-      backgroundColor: "#E6F4F1",
-      marginTop: 10
-    }}>
+    <View
+      style={{
+        padding: 10,
+        backgroundColor: "#E6F4F1",
+        marginTop: 10,
+      }}
+    >
       <FlexText
         style={{
-          gap: 10
+          gap: 10,
         }}
       >
-        <Image
-          source={otherIcons.Info as ImageSourcePropType}
-        />
+        <Image source={otherIcons.Info as ImageSourcePropType} />
         <HeaderSecondary
           style={{
             fontWeight: 700,
-            lineHeight: 20
+            lineHeight: 20,
           }}
-          text='You requested to Cancel the task Via resolution center'
+          text="You requested to Cancel the task Via resolution center"
         />
       </FlexText>
       <GreenLine />
@@ -39,48 +39,39 @@ const CancelRefundRequest = () => {
           justifyContent: "space-between",
         }}
       >
-        <ImageFlex
-          text1='Me'
-          text='Requested By'
-        />
+        <ImageFlex text1="Me" text="Requested By" />
         <View>
-          <TextSecondary
-            text='15 May'
-          />
-          <TextSecondary
-            text='2020 8:00 am'
-          />
+          <TextSecondary text="15 May" />
+          <TextSecondary text="2020 8:00 am" />
         </View>
       </FlexText>
       <GreenLine />
-      {
-        type == "refund" && <View style={{
-          padding: 10,
-          borderWidth: .3,
-          borderRadius: 8,
-          marginBottom: 5
-        }}>
+      {type == "refund" && (
+        <View
+          style={{
+            padding: 10,
+            borderWidth: 0.3,
+            borderRadius: 8,
+            marginBottom: 5,
+          }}
+        >
           <HeaderSecondary
             style={{
-              fontWeight: 700
+              fontWeight: 700,
             }}
-            text='Current Completion Date'
+            text="Current Completion Date"
           />
-          <TextSecondary
-            text='15 May 2020 8:00 am'
-          />
+          <TextSecondary text="15 May 2020 8:00 am" />
           <GreenLine />
           <HeaderSecondary
             style={{
-              fontWeight: 700
+              fontWeight: 700,
             }}
-            text='New Proposed Date'
+            text="New Proposed Date"
           />
-          <TextSecondary
-            text='15 May 2020 8:00 am'
-          />
+          <TextSecondary text="15 May 2020 8:00 am" />
         </View>
-      }
+      )}
       <HeaderSecondary
         text={type == "cancel" ? "Reason for Cancel" : "Reason for Request"}
       />
@@ -90,48 +81,49 @@ const CancelRefundRequest = () => {
       <GreenLine />
       <HeaderSecondary
         style={{
-          width: 600
+          width: 600,
         }}
-        text={type == 'cancel' ? 'Cancellation Status' : 'Extensions Status'}
+        text={type == "cancel" ? "Cancellation Status" : "Extensions Status"}
       />
       <TextSecondary
         style={{
-          color: "#0EA5E9"
+          color: "#0EA5E9",
         }}
-        text='In Progress'
+        text="In Progress"
       />
       <GreenLine />
       <FlexText>
-        {
-          type == "cancel" ? <ButtonBG
-            text='Cancel the request'
-            handler={() => console.log('')}
+        {type == "cancel" ? (
+          <ButtonBG
+            text="Cancel the request"
+            handler={() => console.log("")}
             style={{
-              width: "auto"
+              width: "auto",
             }}
-          /> : <>
+          />
+        ) : (
+          <>
             <ButtonTransparentBG
-              text='Cancel'
-              handler={() => console.log('')}
+              text="Cancel"
+              handler={() => console.log("")}
               style={{
-                width: "auto"
+                width: "auto",
               }}
             />
             <ButtonBG
-              text='Accept'
-              handler={() => console.log('')}
+              text="Accept"
+              handler={() => console.log("")}
               style={{
-                width: "auto"
+                width: "auto",
               }}
             />
           </>
-        }
-
+        )}
       </FlexText>
     </View>
-  )
-}
+  );
+};
 
-export default CancelRefundRequest
+export default CancelRefundRequest;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

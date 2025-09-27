@@ -1,18 +1,22 @@
-import React from 'react'
-import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity, View } from 'react-native'
-import ButtonBG from '../../../components/ui/buttons/ButtonBG'
-import { otherIcons } from '../../../constant/images'
-import profileUpdateFields from '../../../formFields/profileUpdateFields'
-import SafeAreaProvider from '../../../providers/SafeAreaProvider'
-import { FieldsType } from '../../../types/Types'
-import { RenderField } from '../../../utils/RenderField'
+import React from "react";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import ButtonBG from "../../../components/ui/buttons/ButtonBG";
+import { otherIcons } from "../../../constant/images";
+import profileUpdateFields from "../../../formFields/profileUpdateFields";
+import SafeAreaProvider from "../../../providers/SafeAreaProvider";
+import { FieldsType } from "../../../types/Types";
+import { RenderField } from "../../../utils/RenderField";
 
 const MyProfile = () => {
-  const { fields, setFields } = profileUpdateFields()
+  const { fields, setFields } = profileUpdateFields();
   return (
-    <SafeAreaProvider
-      backButtonText='My Profile'
-    >
+    <SafeAreaProvider backButtonText="My Profile">
       <View
         style={{
           height: 100,
@@ -29,7 +33,6 @@ const MyProfile = () => {
             height: 100,
             width: 100,
             borderRadius: 100,
-
           }}
         />
         <TouchableOpacity
@@ -39,28 +42,24 @@ const MyProfile = () => {
             bottom: 3,
             padding: 6,
             backgroundColor: "#E6F4F1",
-            borderRadius: 100
+            borderRadius: 100,
           }}
         >
-          <Image
-            source={otherIcons.Edit as ImageSourcePropType}
-          />
+          <Image source={otherIcons.Edit as ImageSourcePropType} />
         </TouchableOpacity>
       </View>
       {fields?.map((field: FieldsType) => RenderField(field, setFields))}
       <ButtonBG
         style={{
-          marginTop: 10
+          marginTop: 10,
         }}
         text="Update"
-        handler={() => {
-
-        }}
+        handler={() => {}}
       />
     </SafeAreaProvider>
-  )
-}
+  );
+};
 
-export default MyProfile
+export default MyProfile;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

@@ -1,7 +1,14 @@
-import DateTimePicker from '@react-native-community/datetimepicker';
-import React, { useState } from 'react';
-import { Platform, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
-import HeaderSecondary from '../../shered/HeaderSecondary';
+import DateTimePicker from "@react-native-community/datetimepicker";
+import React, { useState } from "react";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native";
+import HeaderSecondary from "../../shered/HeaderSecondary";
 const TimePicker = ({
   style,
   inputStyle,
@@ -29,9 +36,9 @@ const TimePicker = ({
   const [show, setShow] = useState(false);
   const onChange = (event: any, selectedDate: any) => {
     const currentDate = selectedDate || date;
-    setShow(Platform.OS === 'ios');
+    setShow(Platform.OS === "ios");
     setDate(currentDate);
-    console.log(currentDate)
+    console.log(currentDate);
     // handler?.(name as string, currentDate)
   };
   return (
@@ -50,23 +57,23 @@ const TimePicker = ({
           text={label}
         />
       )}
-      <TouchableOpacity
-        onPress={() => setShow(true)}
-      >
-        <Text style={{
-          backgroundColor: "#E6F4F1",
-          lineHeight: 26,
-          padding: 15,
-          paddingVertical: 12,
-          borderRadius: 8,
-          ...(error
-            ? {
-              borderColor: "red",
-              borderWidth: 1,
-            }
-            : {}),
-          ...inputStyle,
-        }}>
+      <TouchableOpacity onPress={() => setShow(true)}>
+        <Text
+          style={{
+            backgroundColor: "#E6F4F1",
+            lineHeight: 26,
+            padding: 15,
+            paddingVertical: 12,
+            borderRadius: 8,
+            ...(error
+              ? {
+                  borderColor: "red",
+                  borderWidth: 1,
+                }
+              : {}),
+            ...inputStyle,
+          }}
+        >
           {value != "" ? value : placeHolder}
         </Text>
       </TouchableOpacity>
@@ -74,7 +81,7 @@ const TimePicker = ({
         <DateTimePicker
           testID="dateTimePicker"
           value={date}
-          mode={'time'}
+          mode={"time"}
           is24Hour={true}
           display="default"
           onChange={onChange}
@@ -84,6 +91,6 @@ const TimePicker = ({
   );
 };
 
-export default TimePicker
+export default TimePicker;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

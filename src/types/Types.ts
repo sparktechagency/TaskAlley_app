@@ -6,7 +6,7 @@ export enum FieldType {
   PASSWORD = "password",
   DATE = "date",
   TIME = "time",
-  TEXTAREA = "textarea"
+  TEXTAREA = "textarea",
 }
 
 export enum KeyboardType {

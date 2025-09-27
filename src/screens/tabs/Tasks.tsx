@@ -85,7 +85,7 @@ const data = [
   },
 ];
 const Tasks = () => {
-  const [tab, setTab] = useState("All Tasks")
+  const [tab, setTab] = useState("All Tasks");
   const elements = [
     <SectionHeading
       style={{
@@ -101,7 +101,9 @@ const Tasks = () => {
       key={3}
       data={data}
       keyExtractor={(item, index) => index.toString()}
-      renderItem={({ item }) => <TaskCard from='user' tab={tab} showDetailsButton={true} />}
+      renderItem={({ item }) => (
+        <TaskCard from="user" tab={tab} showDetailsButton={true} />
+      )}
     />,
   ];
   return (

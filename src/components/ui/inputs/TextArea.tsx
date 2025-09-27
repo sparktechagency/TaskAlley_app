@@ -57,9 +57,9 @@ const TextArea = ({
           textAlignVertical: "top",
           ...(error
             ? {
-              borderColor: "red",
-              borderWidth: 1,
-            }
+                borderColor: "red",
+                borderWidth: 1,
+              }
             : {}),
           ...inputStyle,
         }}
@@ -71,4 +71,4 @@ const TextArea = ({
   );
 };
 
-export default TextArea
+export default TextArea;

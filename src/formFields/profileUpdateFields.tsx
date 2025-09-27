@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { FieldsType, FieldType, KeyboardType } from '../types/Types';
+import { useState } from "react";
+import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 const profileUpdateFields = () => {
   const [fields, setFields] = useState<FieldsType[]>([
@@ -45,6 +45,6 @@ const profileUpdateFields = () => {
     },
   ]);
   return { fields, setFields };
-}
+};
 
-export default profileUpdateFields
+export default profileUpdateFields;

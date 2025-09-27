@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { otherIcons, TabIcons } from "../../constant/images";
 import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
-import Navigate from '../../utils/Navigate';
+import Navigate from "../../utils/Navigate";
 import BackButton from "../shered/BackButton";
 import FlexText from "../shered/FlexText";
 import HeaderDesign from "../shered/HeaderDesign";
@@ -20,27 +20,32 @@ import BlueBadgeOpacity30 from "../ui/badges/BlueBadgeOpacity30";
 import ButtonBG from "../ui/buttons/ButtonBG";
 import ButtonGreenOpacity30 from "../ui/buttons/ButtonGreenOpacity30";
 import ButtonTransparentBG from "../ui/buttons/ButtonTransparentBG";
-import IconButtonTransparent from '../ui/buttons/IconButtonTransparent';
+import IconButtonTransparent from "../ui/buttons/IconButtonTransparent";
 import Bids_Question from "./Bids_Question";
-import CancelRefundRequest from './CancelRefundRequest';
-import FeedbackStatusButton from './FeedbackStatusButton';
-import SubmitBitButt from './SubmitBitButt';
+import CancelRefundRequest from "./CancelRefundRequest";
+import FeedbackStatusButton from "./FeedbackStatusButton";
+import SubmitBitButt from "./SubmitBitButt";
 import TaskProgress from "./TaskProgress";
 
 const DetailsTask = ({
   heading,
   from,
-  status
+  status,
 }: {
   heading?: "Tasks Details" | "My Tasks Details";
-  from: "user" | "service",
-  status: "All Tasks" |
-  "open for bids" |
-  "in Progress" |
-  "completed" |
-  "cancelled" | "dispute" | "Ongoing Tasks" | "Bids  Made" | "Bids  Received"
+  from: "user" | "service";
+  status:
+    | "All Tasks"
+    | "open for bids"
+    | "in Progress"
+    | "completed"
+    | "cancelled"
+    | "dispute"
+    | "Ongoing Tasks"
+    | "Bids  Made"
+    | "Bids  Received";
 }) => {
-  console.log(heading, from, status)
+  console.log(heading, from, status);
   const elements = [
     <ButtonGreenOpacity30
       key={1}
@@ -86,27 +91,31 @@ const DetailsTask = ({
       />
     ),
 
-    (status == "in Progress" || status == "Ongoing Tasks") ? <FlexText
-      style={{
-        justifyContent: "space-between"
-      }}
-    >
-      <ImageFlex
-        key={4}
-        image={`https://placehold.co/400x400.png`}
-        text="Assigned To"
-        text1="Marvin Fey"
-      />
-      <IconButtonTransparent
-        text='Chat'
-        icon={TabIcons.Chat as ImageSourcePropType}
-        handler={() => console.log("")}
+    status == "in Progress" || status == "Ongoing Tasks" ? (
+      <FlexText
         style={{
-          width: "auto",
-          paddingVertical: 6
+          justifyContent: "space-between",
         }}
-      />
-    </FlexText> : <></>,
+      >
+        <ImageFlex
+          key={4}
+          image={`https://placehold.co/400x400.png`}
+          text="Assigned To"
+          text1="Marvin Fey"
+        />
+        <IconButtonTransparent
+          text="Chat"
+          icon={TabIcons.Chat as ImageSourcePropType}
+          handler={() => console.log("")}
+          style={{
+            width: "auto",
+            paddingVertical: 6,
+          }}
+        />
+      </FlexText>
+    ) : (
+      <></>
+    ),
 
     <ImageFlex
       component={
@@ -167,7 +176,7 @@ const DetailsTask = ({
                 width: "auto",
               }}
               text="Remove the task."
-              handler={() => { }}
+              handler={() => {}}
             />
           </FlexText>
         </FlexText>
@@ -188,28 +197,37 @@ const DetailsTask = ({
       </FlexText>
     ),
 
-    (status == "All Tasks" || status == "open for bids" || from == "service" || status == "Bids  Made") ? (
+    status == "All Tasks" ||
+    status == "open for bids" ||
+    from == "service" ||
+    status == "Bids  Made" ? (
       <Bids_Question from={from} status={status} key={10} />
     ) : (
       <></>
     ),
-    (status != "All Tasks" && status != "open for bids" && from == "user") ? <>
-      <TaskProgress key={11} />
-      {
-        status == "dispute" && <>
-          <CancelRefundRequest />
-          <FeedbackStatusButton status={status} />
-        </>
-      }
-
-    </>
-      : <></>,
+    status != "All Tasks" && status != "open for bids" && from == "user" ? (
+      <>
+        <TaskProgress key={11} />
+        {status == "dispute" && (
+          <>
+            <CancelRefundRequest />
+            <FeedbackStatusButton status={status} />
+          </>
+        )}
+      </>
+    ) : (
+      <></>
+    ),
   ];
-  console.log()
-  const navigate = Navigate()
+  console.log();
+  const navigate = Navigate();
   return (
     <SafeAreaProviderNoScroll>
-      <BackButton text={heading} show={status == "in Progress"} handler={() => navigate("RegulationsCenter")} />
+      <BackButton
+        text={heading}
+        show={status == "in Progress"}
+        handler={() => navigate("RegulationsCenter")}
+      />
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{

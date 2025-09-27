@@ -12,11 +12,13 @@ const IconButtonTransparent = ({
   icon,
   text,
   handler,
+  color = "#115E59"
 }: {
   style?: ViewStyle;
   icon?: ImageSourcePropType;
   text?: string;
   handler: () => void;
+  color?: string
 }) => {
   return (
     <TouchableOpacity
@@ -44,12 +46,12 @@ const IconButtonTransparent = ({
         style={{
           height: 24,
           width: 24,
-          tintColor: "#115E59",
+          tintColor: color
         }}
       />
       <Text
         style={{
-          color: "#115E59",
+          color
         }}
       >
         {text ? text : "Map View"}

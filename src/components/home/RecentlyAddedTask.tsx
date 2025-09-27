@@ -99,7 +99,7 @@ const RecentlyAddedTask = () => {
       <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => <TaskCard from='service' />}
+        renderItem={({ item }) => <TaskCard from="service" />}
       />
     </View>
   );

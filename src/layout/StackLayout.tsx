@@ -8,31 +8,30 @@ import ResetPassword from "../screens/stack/auth/ResetPassword";
 import ServiceSignUp from "../screens/stack/auth/ServiceSignUp";
 import Verify from "../screens/stack/auth/Verify";
 import Category from "../screens/stack/Category";
-import ExtendDate from '../screens/stack/ExtendDate';
-import Messages from '../screens/stack/Messages';
+import ExtendDate from "../screens/stack/ExtendDate";
+import Messages from "../screens/stack/Messages";
 import MyTaskDetails from "../screens/stack/MyTaskDetails";
 import RealTimeBooking from "../screens/stack/onboarding/RealTimeBooking";
 import SecurePayments from "../screens/stack/onboarding/SecurePayments";
 import TrustedServices from "../screens/stack/onboarding/TrustedServices";
 import ProviderDetails from "../screens/stack/ProviderDetails";
-import ReferDiscounts from '../screens/stack/ReferDiscounts';
-import RegulationsCenter from '../screens/stack/RegulationsCenter';
-import RequestCancel from '../screens/stack/RequestCancel';
+import ReferDiscounts from "../screens/stack/ReferDiscounts";
+import RegulationsCenter from "../screens/stack/RegulationsCenter";
+import RequestCancel from "../screens/stack/RequestCancel";
 import Search from "../screens/stack/Search";
-import ServiceDetails from '../screens/stack/ServiceDetails';
-import ChangePassword from '../screens/stack/settings/ChangePassword';
-import Help from '../screens/stack/settings/Help';
-import MyProfile from '../screens/stack/settings/MyProfile';
-import Notifications from '../screens/stack/settings/Notifications';
-import PrivacyPolicy from '../screens/stack/settings/PrivacyPolicy';
-import SavedAccount from '../screens/stack/settings/SavedAccount';
-import Terms from '../screens/stack/settings/Terms';
+import ServiceDetails from "../screens/stack/ServiceDetails";
+import ChangePassword from "../screens/stack/settings/ChangePassword";
+import Help from "../screens/stack/settings/Help";
+import MyProfile from "../screens/stack/settings/MyProfile";
+import Notifications from "../screens/stack/settings/Notifications";
+import PrivacyPolicy from "../screens/stack/settings/PrivacyPolicy";
+import SavedAccount from "../screens/stack/settings/SavedAccount";
+import Terms from "../screens/stack/settings/Terms";
 import TaskDetails from "../screens/stack/TaskDetails";
 import TabLayout from "./TabLayout";
 const Stack = createNativeStackNavigator();
 
 const StackLayout = () => {
-
   const screens = {
     Login: Login,
     Forget: ForgetPassword,
@@ -62,7 +61,7 @@ const StackLayout = () => {
     PrivacyPolicy: PrivacyPolicy,
     Terms: Terms,
     Help: Help,
-    ServiceDetails: ServiceDetails
+    ServiceDetails: ServiceDetails,
   };
 
   const stacks = Object.keys(screens).map((key) => ({

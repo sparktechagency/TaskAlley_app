@@ -1,5 +1,11 @@
 import React, { ReactNode } from "react";
-import { Image, ImageSourcePropType, ImageStyle, StyleSheet, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  ImageStyle,
+  StyleSheet,
+  View,
+} from "react-native";
 import FlexText from "./FlexText";
 import HeaderSecondary from "./HeaderSecondary";
 import TextSecondary from "./TextSecondary";
@@ -10,14 +16,14 @@ const ImageFlex = ({
   text = "text",
   component,
   showText1 = true,
-  style
+  style,
 }: {
   image?: string | ImageSourcePropType;
   text?: string;
   text1?: string;
   component?: ReactNode;
   showText1?: boolean;
-  style?: ImageStyle
+  style?: ImageStyle;
 }) => {
   return (
     <FlexText
@@ -34,7 +40,7 @@ const ImageFlex = ({
             height: 50,
             width: 50,
             borderRadius: 50,
-            ...style
+            ...style,
           }}
         />
       )}

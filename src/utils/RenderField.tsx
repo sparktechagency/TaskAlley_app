@@ -1,11 +1,11 @@
 import React from "react";
-import DatePicker from '../components/ui/inputs/DatePicker';
+import DatePicker from "../components/ui/inputs/DatePicker";
 import Input from "../components/ui/inputs/Input";
 import InputCheckbox from "../components/ui/inputs/InputCheckbox";
 import PasswordInput from "../components/ui/inputs/PasswordInput";
 import SelectInput from "../components/ui/inputs/SelectInput";
-import TextArea from '../components/ui/inputs/TextArea';
-import TimePicker from '../components/ui/inputs/TimePicker';
+import TextArea from "../components/ui/inputs/TextArea";
+import TimePicker from "../components/ui/inputs/TimePicker";
 import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 export const RenderField = (

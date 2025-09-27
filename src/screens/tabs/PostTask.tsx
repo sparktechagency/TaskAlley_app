@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import FlexText from '../../components/shered/FlexText';
-import SectionHeading from '../../components/shered/SectionHeading';
-import ButtonBG from '../../components/ui/buttons/ButtonBG';
-import ButtonTransparentBG from '../../components/ui/buttons/ButtonTransparentBG';
-import ImageUploader from '../../components/ui/file/ImageUploader';
-import PostTaskFields from '../../formFields/PostTaskFields';
-import { handlePostTask } from '../../handler/postTask';
-import SafeAreaProvider from '../../providers/SafeAreaProvider';
-import { FieldsType } from '../../types/Types';
-import Navigate from '../../utils/Navigate';
-import { RenderField } from '../../utils/RenderField';
-import ScreenSize from '../../utils/ScreenSize';
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import FlexText from "../../components/shered/FlexText";
+import SectionHeading from "../../components/shered/SectionHeading";
+import ButtonBG from "../../components/ui/buttons/ButtonBG";
+import ButtonTransparentBG from "../../components/ui/buttons/ButtonTransparentBG";
+import ImageUploader from "../../components/ui/file/ImageUploader";
+import PostTaskFields from "../../formFields/PostTaskFields";
+import { handlePostTask } from "../../handler/postTask";
+import SafeAreaProvider from "../../providers/SafeAreaProvider";
+import { FieldsType } from "../../types/Types";
+import Navigate from "../../utils/Navigate";
+import { RenderField } from "../../utils/RenderField";
+import ScreenSize from "../../utils/ScreenSize";
 const slide = [
   {
     skip: 0,
@@ -35,7 +35,7 @@ const slide = [
     keep: 1,
   },
 ];
-const title = ["Task Overview", "Task Details", "Date & Time", "Budget "]
+const title = ["Task Overview", "Task Details", "Date & Time", "Budget "];
 
 const PostTask = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -53,13 +53,10 @@ const PostTask = () => {
           justifyContent: "flex-start",
           minHeight: height - top - bottom,
           paddingBottom: 90,
-          marginTop: 10
+          marginTop: 10,
         }}
       >
-        <SectionHeading
-          text={title[currentSlide]}
-          showViewButton={false}
-        />
+        <SectionHeading text={title[currentSlide]} showViewButton={false} />
         {fields
           ?.slice(
             slide[currentSlide].skip,
@@ -76,10 +73,10 @@ const PostTask = () => {
             marginTop: 6,
           }}
         >
-          {(currentSlide != 0) && (
+          {currentSlide != 0 && (
             <ButtonTransparentBG
               style={{
-                width: "auto"
+                width: "auto",
               }}
               text="Previous"
               handler={() => setCurrentSlide((prev) => prev - 1)}
@@ -87,8 +84,7 @@ const PostTask = () => {
           )}
           <ButtonBG
             style={{
-
-              width: "auto"
+              width: "auto",
             }}
             text={currentSlide == 3 ? "Post" : "Continue"}
             handler={() => {
@@ -100,11 +96,11 @@ const PostTask = () => {
                 setFields,
                 currentSlide
               );
-              console.log(isValid)
+              console.log(isValid);
               if (isValid && currentSlide < 3) {
                 setCurrentSlide((prev) => prev + 1);
               } else if (currentSlide == 3) {
-                navigate("Task")
+                navigate("Task");
               }
               //  else if (currentSlide == 2) {
               //   navigate("Verify", {
@@ -114,11 +110,9 @@ const PostTask = () => {
             }}
           />
         </FlexText>
-
       </View>
     </SafeAreaProvider>
   );
 };
 
 export default PostTask;
-

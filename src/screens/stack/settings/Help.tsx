@@ -11,7 +11,10 @@ import {
 import SafeAreaProviderNoScroll from "../../../providers/SafeAreaProviderNoScroll";
 
 // Enable LayoutAnimation on Android
-if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
@@ -76,12 +79,16 @@ const Help = () => {
         ))}
 
         {/* Need More Help */}
-        <Text style={[styles.sectionTitle, { marginTop: 20 }]}>Need More Help?</Text>
+        <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
+          Need More Help?
+        </Text>
         <View style={styles.helpBox}>
           <Text style={styles.helpText}>
             📧 Mail Us: <Text style={styles.mail}>support@taskalley.com</Text>
           </Text>
-          <Text style={styles.helpLine}>Our help line service is active: 24/7</Text>
+          <Text style={styles.helpLine}>
+            Our help line service is active: 24/7
+          </Text>
         </View>
       </View>
     </SafeAreaProviderNoScroll>
@@ -91,8 +98,7 @@ const Help = () => {
 export default Help;
 
 const styles = StyleSheet.create({
-  container: {
-  },
+  container: {},
   sectionTitle: {
     fontSize: 16,
     fontWeight: "600",
@@ -123,7 +129,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   faqAnswerBox: {
-    borderTopWidth: .3,
+    borderTopWidth: 0.3,
     borderColor: "#000",
     padding: 12,
     backgroundColor: "#E6F4F1",

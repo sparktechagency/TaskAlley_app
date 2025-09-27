@@ -1,20 +1,25 @@
-import React from 'react'
-import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity } from 'react-native'
-import { otherIcons } from '../../constant/images'
-import Navigate from '../../utils/Navigate'
-import FlexText from '../shered/FlexText'
-import TextSecondary from '../shered/TextSecondary'
+import React from "react";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { otherIcons } from "../../constant/images";
+import Navigate from "../../utils/Navigate";
+import FlexText from "../shered/FlexText";
+import TextSecondary from "../shered/TextSecondary";
 
 const ProfileOptionsButton = ({
   name,
   icon,
-  href
+  href,
 }: {
-  name: string,
-  icon: ImageSourcePropType,
-  href: string
+  name: string;
+  icon: ImageSourcePropType;
+  href: string;
 }) => {
-  const navigate = Navigate()
+  const navigate = Navigate();
   return (
     <TouchableOpacity
       onPress={() => navigate(href)}
@@ -24,36 +29,34 @@ const ProfileOptionsButton = ({
         borderRadius: 10,
         // backgroundColor: "#E6F4F1"
         borderWidth: 1,
-        paddingVertical: 14
-      }}>
+        paddingVertical: 14,
+      }}
+    >
       <FlexText
         style={{
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         }}
       >
         <FlexText>
           <Image
             source={icon}
             style={{
-              tintColor: "#115E59"
+              tintColor: "#115E59",
             }}
           />
-          <TextSecondary
-            text={name}
-          />
+          <TextSecondary text={name} />
         </FlexText>
         <Image
           style={{
             transform: [{ rotate: "-90deg" }],
-
           }}
           source={otherIcons.arrowDown as ImageSourcePropType}
         />
       </FlexText>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default ProfileOptionsButton
+export default ProfileOptionsButton;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

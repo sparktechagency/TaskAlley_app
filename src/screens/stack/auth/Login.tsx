@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  View
-} from "react-native";
+import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FlexText from "../../../components/shered/FlexText";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
@@ -91,7 +86,7 @@ const Login = () => {
           text=" Log In"
           handler={() => {
             handleSignIn(fields, setFields);
-            const email = fields[0]?.value + ""
+            const email = fields[0]?.value + "";
             setRole(email?.includes("user") ? "user" : "service");
             navigate("TabLayout");
           }}

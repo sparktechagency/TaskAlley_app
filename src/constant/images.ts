@@ -49,7 +49,7 @@ export const TabIcons = {
   Profile,
   "Post Task": task,
   "My Service": task,
-  Dashboard: Home
+  Dashboard: Home,
 };
 export const profileIcons = {
   Card,
@@ -60,8 +60,8 @@ export const profileIcons = {
   Question,
   Logout,
   Lock,
-  deleteAccount
-}
+  deleteAccount,
+};
 export const otherIcons = Object.freeze({
   manCircle,
   Eye,
@@ -92,5 +92,5 @@ export const otherIcons = Object.freeze({
   Send,
   Edit,
   Share,
-  StateBg
+  StateBg,
 });

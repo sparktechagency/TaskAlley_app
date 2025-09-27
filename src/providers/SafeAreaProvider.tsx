@@ -27,11 +27,11 @@ const withoutLog = [
 const SafeAreaProvider = ({
   children,
   backButtonText,
-  zeroPadding = false
+  zeroPadding = false,
 }: {
   children: ReactNode;
   backButtonText?: string;
-  zeroPadding?: boolean
+  zeroPadding?: boolean;
 }) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
