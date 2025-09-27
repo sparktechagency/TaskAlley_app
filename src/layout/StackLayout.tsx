@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import AddUpdateService from '../screens/stack/AddUpdateService';
 import ChooseSignUp from "../screens/stack/auth/ChooseSignUp";
 import CustomerSignUp from "../screens/stack/auth/CustomerSignUp";
 import ForgetPassword from "../screens/stack/auth/ForgetPassword";
@@ -62,6 +63,7 @@ const StackLayout = () => {
     Terms: Terms,
     Help: Help,
     ServiceDetails: ServiceDetails,
+    AddUpdateService: AddUpdateService
   };
 
   const stacks = Object.keys(screens).map((key) => ({

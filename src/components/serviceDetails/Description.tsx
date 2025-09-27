@@ -1,12 +1,14 @@
 import React from 'react'
 import { FlatList, ImageSourcePropType, View } from 'react-native'
 import { otherIcons } from '../../constant/images'
+import Navigate from '../../utils/Navigate'
 import FlexText from '../shered/FlexText'
 import HeaderSecondary from '../shered/HeaderSecondary'
 import TextSecondary from '../shered/TextSecondary'
 import IconButtonTransparent from '../ui/buttons/IconButtonTransparent'
 
 const Description = () => {
+  const navigate = Navigate()
   const elem = [
     <View style={{
       marginTop: 10,
@@ -34,7 +36,7 @@ Price Range: Starting from ₦50`}
           style={{
             width: "auto"
           }}
-          handler={() => console.log("")}
+          handler={() => navigate("AddUpdateService")}
           icon={otherIcons.Edit as ImageSourcePropType}
           text='Update Details'
         />
