@@ -88,7 +88,9 @@ const FIlteredTask = () => {
       <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => <TaskCard />}
+        renderItem={({ item }) => <TaskCard
+          from='user'
+        />}
       />
     </View>
   );

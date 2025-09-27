@@ -1,3 +1,5 @@
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
 import React from "react";
 import { ImageSourcePropType, StyleSheet } from "react-native";
 import { otherIcons } from "../../constant/images";
@@ -8,6 +10,7 @@ import CircleButton from "../ui/buttons/CircleButton";
 
 const FilterOptions = ({ type }: { type: "Provider" | "Task" }) => {
   const navigation = Navigation();
+  const navigate = useNavigation<DrawerNavigationProp<ParamListBase>>()
   return (
     <FlexText
       style={{
@@ -43,7 +46,7 @@ const FilterOptions = ({ type }: { type: "Provider" | "Task" }) => {
           borderWidth: 1,
         }}
         imageSource={otherIcons.Filter as ImageSourcePropType}
-        onPress={() => console.log("")}
+        onPress={() => navigate.openDrawer()}
       />
     </FlexText>
   );

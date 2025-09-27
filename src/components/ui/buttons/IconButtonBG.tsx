@@ -2,9 +2,9 @@ import {
   Image,
   ImageSourcePropType,
   StyleSheet,
-  StyleSheetProperties,
   Text,
   TouchableOpacity,
+  ViewStyle
 } from "react-native";
 import { otherIcons } from "../../../constant/images";
 
@@ -14,7 +14,7 @@ const IconButtonBG = ({
   text,
   handler,
 }: {
-  style?: StyleSheetProperties;
+  style?: ViewStyle;
   icon?: ImageSourcePropType;
   text?: string;
   handler: () => void;

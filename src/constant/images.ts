@@ -45,6 +45,7 @@ import StateBg from "../assets/stateBg.png";
 import Watch from "../assets/Watch.png";
 import Time from "../assets/time.png"
 import ArrowBoth from "../assets/arrowBoth.png"
+import List from "../assets/List.png"
 export const TabIcons = {
   Home,
   "My Tasks": post, Chat,
@@ -97,5 +98,6 @@ export const otherIcons = Object.freeze({
   Share,
   StateBg,
   Time,
-  ArrowBoth
+  ArrowBoth,
+  List
 });
