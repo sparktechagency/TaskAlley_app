@@ -11,7 +11,6 @@ import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
 
 const Home = () => {
   const { role } = useGlobalContext();
-  console.log(role);
   const elements = [
     <UserProfileHeader key={1} />,
     <SearchBar key={2} />,

@@ -22,6 +22,7 @@ import RequestCancel from "../screens/stack/RequestCancel";
 import Search from "../screens/stack/Search";
 import ServiceDetails from "../screens/stack/ServiceDetails";
 import ChangePassword from "../screens/stack/settings/ChangePassword";
+import Earnings from '../screens/stack/settings/Earnings';
 import Help from "../screens/stack/settings/Help";
 import MyProfile from "../screens/stack/settings/MyProfile";
 import Notifications from "../screens/stack/settings/Notifications";
@@ -63,7 +64,8 @@ const StackLayout = () => {
     Terms: Terms,
     Help: Help,
     ServiceDetails: ServiceDetails,
-    AddUpdateService: AddUpdateService
+    AddUpdateService: AddUpdateService,
+    Earnings: Earnings
   };
 
   const stacks = Object.keys(screens).map((key) => ({

@@ -7,6 +7,7 @@ import ChatBlock from "../assets/ChatBlock.png";
 import Check from "../assets/check.png";
 import Close from "../assets/close.png";
 import Customer from "../assets/customer.png";
+import Earning from "../assets/Earning.png";
 import Edit from "../assets/Edit.png";
 import Eye from "../assets/eye.png";
 import EyeX from "../assets/eyeX.png";
@@ -42,10 +43,11 @@ import Service from "../assets/service.png";
 import Share from "../assets/Share.png";
 import StateBg from "../assets/stateBg.png";
 import Watch from "../assets/Watch.png";
+import Time from "../assets/time.png"
+import ArrowBoth from "../assets/arrowBoth.png"
 export const TabIcons = {
   Home,
-  "My Tasks": post,
-  Chat,
+  "My Tasks": post, Chat,
   Profile,
   "Post Task": task,
   "My Service": task,
@@ -61,6 +63,7 @@ export const profileIcons = {
   Logout,
   Lock,
   deleteAccount,
+  Earning
 };
 export const otherIcons = Object.freeze({
   manCircle,
@@ -93,4 +96,6 @@ export const otherIcons = Object.freeze({
   Edit,
   Share,
   StateBg,
+  Time,
+  ArrowBoth
 });
