@@ -59,6 +59,9 @@ const SafeAreaProvider = ({
     >
       {backButtonText && <BackButton text={backButtonText} />}
       <View
+        style={{
+          marginTop: backButtonText ? style?.justifyContent == "center" ? 0 : 45 : 0
+        }}
       >
 
         <KeyboardAwareScrollView

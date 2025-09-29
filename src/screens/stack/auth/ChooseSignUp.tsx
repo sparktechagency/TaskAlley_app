@@ -2,9 +2,7 @@ import React from "react";
 import {
   Dimensions,
   ImageSourcePropType,
-  ScrollView,
-  StyleSheet,
-  View,
+  StyleSheet
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
@@ -19,35 +17,29 @@ const ChooseSignUp = () => {
   const { top, bottom } = useSafeAreaInsets();
   const navigate = Navigate();
   return (
-    <SafeAreaProvider backButtonText="Sign Up as">
-      <ScrollView showsVerticalScrollIndicator={false} style={{}}>
-        <View
-          style={{
-            flex: 1,
-            gap: 6,
-            justifyContent: "center",
-            minHeight: height - top - bottom,
-            paddingBottom: 90,
-          }}
-        >
-          <HeaderDesign text="Choose Your Role to Get Started" />
-          <TextSecondary text="Select the profile that best suits your journey. Whether you're here to book reliable services or offer them, we’ve built the right tools just for you." />
-          <ImageButton
-            imageSource={otherIcons.Customer as ImageSourcePropType}
-            title="Customer"
-            onPress={() => navigate("CustomerSignUp")}
-          />
-          <ImageButton
-            imageSource={otherIcons.Service as ImageSourcePropType}
-            title="Service Provider"
-            onPress={() => navigate("ServiceSignUp")}
-          />
-          {/* <ButtonBG
+    <SafeAreaProvider
+      style={{
+        justifyContent: "center",
+        flex: 1
+      }}
+      backButtonText="Sign Up as">
+
+      <HeaderDesign text="Choose Your Role to Get Started" />
+      <TextSecondary text="Select the profile that best suits your journey. Whether you're here to book reliable services or offer them, we’ve built the right tools just for you." />
+      <ImageButton
+        imageSource={otherIcons.Customer as ImageSourcePropType}
+        title="Customer"
+        onPress={() => navigate("CustomerSignUp")}
+      />
+      <ImageButton
+        imageSource={otherIcons.Service as ImageSourcePropType}
+        title="Service Provider"
+        onPress={() => navigate("ServiceSignUp")}
+      />
+      {/* <ButtonBG
             text='Continue'
             handler={() => { }}
           /> */}
-        </View>
-      </ScrollView>
     </SafeAreaProvider>
   );
 };
