@@ -1,7 +1,7 @@
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import React from "react";
-import { ImageSourcePropType, StyleSheet } from "react-native";
+import { ImageSourcePropType } from "react-native";
 import { otherIcons } from "../../constant/images";
 import { Navigation } from "../../utils/Navigate";
 import FlexText from "../shered/FlexText";
@@ -54,4 +54,3 @@ const FilterOptions = ({ type }: { type: "Provider" | "Task" }) => {
 
 export default FilterOptions;
 
-const styles = StyleSheet.create({});

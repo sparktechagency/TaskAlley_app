@@ -31,7 +31,9 @@ Customer Rating: ⭐ 4.8 (320+ Reviews)
 Languages Spoken: English, Spanish
 Price Range: Starting from ₦50`}
       />
-      <FlexText >
+      <FlexText style={{
+        flexWrap: "wrap"
+      }}>
         <IconButtonTransparent
           style={{
             width: "auto"

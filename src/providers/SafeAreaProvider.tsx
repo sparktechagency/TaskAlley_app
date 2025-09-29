@@ -26,12 +26,16 @@ const SafeAreaProvider = ({
   children,
   backButtonText,
   zeroPadding = false,
-  style
+  style,
+  headerComponent,
+  keyboard = true
 }: {
   children: ReactNode;
   backButtonText?: string;
   zeroPadding?: boolean;
-  style?: ViewStyle
+  style?: ViewStyle,
+  headerComponent?: ReactNode,
+  keyboard?: boolean
 }) => {
   const navigation = Navigation();
   const route = useRoute();
@@ -57,19 +61,22 @@ const SafeAreaProvider = ({
         paddingHorizontal: zeroPadding ? 0 : 20,
       }}
     >
-      {backButtonText && <BackButton text={backButtonText} />}
+      {headerComponent ? headerComponent : backButtonText && <BackButton text={backButtonText} />}
       <View
         style={{
           marginTop: backButtonText ? style?.justifyContent == "center" ? 0 : 45 : 0
         }}
       >
+        {
+          keyboard ? <KeyboardAwareScrollView
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+          >
+            {children}
+          </KeyboardAwareScrollView> : children
+        }
 
-        <KeyboardAwareScrollView
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-        >
-          {children}
-        </KeyboardAwareScrollView>
+
       </View>
     </SafeAreaView>
   );

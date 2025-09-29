@@ -35,15 +35,15 @@ const DetailsTask = ({
   heading?: "Tasks Details" | "My Tasks Details";
   from: "user" | "service";
   status:
-    | "All Tasks"
-    | "open for bids"
-    | "in Progress"
-    | "completed"
-    | "cancelled"
-    | "dispute"
-    | "Ongoing Tasks"
-    | "Bids  Made"
-    | "Bids  Received";
+  | "All Tasks"
+  | "open for bids"
+  | "in Progress"
+  | "completed"
+  | "cancelled"
+  | "dispute"
+  | "Ongoing Tasks"
+  | "Bids  Made"
+  | "Bids  Received";
 }) => {
   console.log(heading, from, status);
   const elements = [
@@ -176,7 +176,7 @@ const DetailsTask = ({
                 width: "auto",
               }}
               text="Remove the task."
-              handler={() => {}}
+              handler={() => { }}
             />
           </FlexText>
         </FlexText>
@@ -198,9 +198,9 @@ const DetailsTask = ({
     ),
 
     status == "All Tasks" ||
-    status == "open for bids" ||
-    from == "service" ||
-    status == "Bids  Made" ? (
+      status == "open for bids" ||
+      from == "service" ||
+      status == "Bids  Made" ? (
       <Bids_Question from={from} status={status} key={10} />
     ) : (
       <></>
@@ -219,7 +219,6 @@ const DetailsTask = ({
       <></>
     ),
   ];
-  console.log();
   const navigate = Navigate();
   return (
     <SafeAreaProviderNoScroll>
@@ -227,6 +226,9 @@ const DetailsTask = ({
         text={heading}
         show={status == "in Progress"}
         handler={() => navigate("RegulationsCenter")}
+        style={{
+          position: "static"
+        }}
       />
       <FlatList
         keyExtractor={(item, index) => index.toString()}

@@ -9,7 +9,7 @@ const Chat = () => {
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{
-          paddingBottom: 150,
+          // paddingBottom: 150,
         }}
         showsVerticalScrollIndicator={false}
         data={data}

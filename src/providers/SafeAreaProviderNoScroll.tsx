@@ -6,7 +6,7 @@ import {
   useRoute,
 } from "@react-navigation/native";
 import React, { ReactNode, useEffect } from "react";
-import { Dimensions, View } from "react-native";
+import { Dimensions, View, ViewStyle } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import BackButton from "../components/shered/BackButton";
 import { useGlobalContext } from "./GlobalContextProvider";
@@ -28,10 +28,12 @@ const SafeAreaProviderNoScroll = ({
   children,
   backButtonText,
   zeroPadding = false,
+  style
 }: {
   children: ReactNode;
   backButtonText?: string;
   zeroPadding?: boolean;
+  style?: ViewStyle
 }) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
@@ -55,14 +57,16 @@ const SafeAreaProviderNoScroll = ({
     <SafeAreaView
       style={{
         height: height - (top + bottom),
+        position: "relative",
+        paddingHorizontal: zeroPadding ? 0 : 20,
       }}
     >
+      {backButtonText && <BackButton text={backButtonText} />}
       <View
         style={{
-          paddingHorizontal: zeroPadding ? 0 : 20,
+          marginTop: backButtonText ? style?.justifyContent == "center" ? 0 : 45 : 0
         }}
       >
-        {backButtonText && <BackButton text={backButtonText} />}
         {children}
       </View>
     </SafeAreaView>

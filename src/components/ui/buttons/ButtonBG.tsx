@@ -23,10 +23,10 @@ const ButtonBG = ({
         paddingVertical: 10,
         borderRadius: 6,
         backgroundColor: "#115E59",
-        flexDirection: "row",
-        gap: 10,
-        alignItems: "center",
-        justifyContent: "center",
+        // flexDirection: "row",
+        // gap: 10,
+        // alignItems: "center",
+        // justifyContent: "center",
         width: "100%",
         ...style,
       }}
@@ -35,6 +35,7 @@ const ButtonBG = ({
         style={{
           lineHeight: 23,
           color: "#FFFFFF",
+          textAlign: "center",
           ...textStyle,
         }}
       >

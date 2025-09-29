@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FlexText from "../../components/shered/FlexText";
 import SectionHeading from "../../components/shered/SectionHeading";
@@ -100,6 +100,7 @@ const PostTask = () => {
               if (isValid && currentSlide < 3) {
                 setCurrentSlide((prev) => prev + 1);
               } else if (currentSlide == 3) {
+                setCurrentSlide(0)
                 navigate("Task");
               }
               //  else if (currentSlide == 2) {

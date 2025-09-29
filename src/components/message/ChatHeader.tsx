@@ -24,9 +24,11 @@ const ChatHeader = ({ text, show = false, imageSource, handler }: propType) => {
         alignItems: "center",
         gap: 10,
         justifyContent: "space-between",
-        marginTop: 5,
         marginBottom: 10,
         height: 60,
+        zIndex: 99999999,
+        backgroundColor: "#FFF",
+        paddingHorizontal: 20
       }}
     >
       <FlexText

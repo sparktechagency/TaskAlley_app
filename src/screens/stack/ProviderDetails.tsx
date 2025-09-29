@@ -91,7 +91,11 @@ const ProviderDetails = () => {
   ];
   return (
     <SafeAreaProviderNoScroll>
-      <BackButton text="Provider Details" />
+      <BackButton
+        style={{
+          position: "static"
+        }}
+        text="Provider Details" />
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{

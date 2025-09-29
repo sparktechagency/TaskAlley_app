@@ -4,7 +4,7 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import React from "react";
-import { ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import { ImageSourcePropType, StyleSheet, Text, View, ViewStyle } from "react-native";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { otherIcons } from "../../constant/images";
 import ScreenSize from '../../utils/ScreenSize';
@@ -15,8 +15,9 @@ interface propType {
   show?: boolean;
   imageSource?: ImageSourcePropType;
   handler?: () => void;
+  style?: ViewStyle
 }
-const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
+const BackButton = ({ text, show = false, imageSource, handler, style }: propType) => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const { width } = ScreenSize()
   const { top } = useSafeAreaInsets()
@@ -31,7 +32,8 @@ const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
         position: "absolute",
         width: width - 40,
         left: 20,
-        top: top
+        top: top,
+        ...style
       }}
     >
       <CircleButton

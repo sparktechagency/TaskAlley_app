@@ -20,6 +20,7 @@ const Notifications = () => {
         />
       </TouchableOpacity>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={[1, 2, 3, 4, 5, 6]}
         keyExtractor={(item) => item?.toString()}
         renderItem={({ item, index }) => <NotificationCard />}
