@@ -1,15 +1,13 @@
 import {
   CommonActions,
-  NavigationProp,
-  ParamListBase,
-  useNavigation,
-  useRoute,
+  useRoute
 } from "@react-navigation/native";
 import React, { ReactNode, useEffect } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ViewStyle } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import BackButton from "../components/shered/BackButton";
+import { Navigation } from '../utils/Navigate';
 import { useGlobalContext } from "./GlobalContextProvider";
 const withoutLog = [
   "login",
@@ -28,13 +26,14 @@ const SafeAreaProvider = ({
   children,
   backButtonText,
   zeroPadding = false,
+  style
 }: {
   children: ReactNode;
   backButtonText?: string;
   zeroPadding?: boolean;
+  style?: ViewStyle
 }) => {
-  const { top, bottom } = useSafeAreaInsets();
-  const navigation = useNavigation<NavigationProp<ParamListBase>>();
+  const navigation = Navigation();
   const route = useRoute();
   const { role } = useGlobalContext();
   useEffect(() => {
@@ -51,18 +50,17 @@ const SafeAreaProvider = ({
     }
   }, [role, route.name]);
   return (
-    <View
+    <SafeAreaView
       style={{
-        marginTop: zeroPadding ? 0 : top,
-        marginBottom: zeroPadding ? 0 : bottom,
+        ...style,
+        position: "relative",
+        paddingHorizontal: zeroPadding ? 0 : 20,
       }}
     >
+      {backButtonText && <BackButton text={backButtonText} />}
       <View
-        style={{
-          paddingHorizontal: zeroPadding ? 0 : 20,
-        }}
       >
-        {backButtonText && <BackButton text={backButtonText} />}
+
         <KeyboardAwareScrollView
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
@@ -70,7 +68,7 @@ const SafeAreaProvider = ({
           {children}
         </KeyboardAwareScrollView>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

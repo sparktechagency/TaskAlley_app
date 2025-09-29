@@ -27,7 +27,7 @@ const data = {
     amount: 4500,
     total_tasks: 110,
     total_time: "160h 0m"
-  }
+  },
 };
 
 const EarningCard = () => {

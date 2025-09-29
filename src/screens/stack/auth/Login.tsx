@@ -1,6 +1,5 @@
 import React from "react";
-import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import FlexText from "../../../components/shered/FlexText";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
 import HeaderSecondary from "../../../components/shered/HeaderSecondary";
@@ -17,81 +16,75 @@ import Navigate from "../../../utils/Navigate";
 import { RenderField } from "../../../utils/RenderField";
 
 const Login = () => {
-  const { height } = Dimensions.get("window");
   const { fields, setFields } = LoginFields();
-  const { top, bottom } = useSafeAreaInsets();
   const { setRole } = useGlobalContext();
   const navigate = Navigate();
   return (
-    <SafeAreaProvider>
-      <View
+    <SafeAreaProvider
+      style={{
+        flex: 1,
+        justifyContent: "center"
+      }}
+    >
+      <HeaderDesign />
+      <TextSecondary text="Log in with your credentials to access your account and manage everything from one place." />
+      {fields?.map((field: FieldsType) => RenderField(field, setFields))}
+
+      <TouchableOpacity
+        onPress={() => navigate("Forget")}
+        style={[styles.forget]}
+      >
+        <TextSecondary
+          style={{
+            color: "#115E59",
+          }}
+          text=" Forget Password ?"
+        />
+      </TouchableOpacity>
+
+      <FlexText
         style={{
-          flex: 1,
-          gap: 6,
-          justifyContent: "center",
-          minHeight: height - top - bottom,
+          marginTop: 8,
         }}
       >
-        <HeaderDesign />
-        <TextSecondary text="Log in with your credentials to access your account and manage everything from one place." />
-        {fields?.map((field: FieldsType) => RenderField(field, setFields))}
+        <Divider
+          style={{
+            width: "45%",
+          }}
+        />
+        <HeaderSecondary text="OR" />
+        <Divider
+          style={{
+            width: "45%",
+          }}
+        />
+      </FlexText>
 
-        <TouchableOpacity
-          onPress={() => navigate("Forget")}
-          style={[styles.forget]}
-        >
+      <FlexText
+        style={{
+          marginTop: 8,
+          marginBottom: 6,
+        }}
+      >
+        <TextPrimary text="Don’t have an account?" />
+        <TouchableOpacity onPress={() => navigate("ChooseSignUp")}>
           <TextSecondary
             style={{
               color: "#115E59",
             }}
-            text=" Forget Password ?"
+            text="Sign Up"
           />
         </TouchableOpacity>
-
-        <FlexText
-          style={{
-            marginTop: 8,
-          }}
-        >
-          <Divider
-            style={{
-              width: "45%",
-            }}
-          />
-          <HeaderSecondary text="OR" />
-          <Divider
-            style={{
-              width: "45%",
-            }}
-          />
-        </FlexText>
-
-        <FlexText
-          style={{
-            marginTop: 8,
-            marginBottom: 6,
-          }}
-        >
-          <TextPrimary text="Don’t have an account?" />
-          <TouchableOpacity onPress={() => navigate("ChooseSignUp")}>
-            <TextSecondary
-              style={{
-                color: "#115E59",
-              }}
-              text="Sign Up"
-            />
-          </TouchableOpacity>
-        </FlexText>
-        <ButtonBG
-          text=" Log In"
-          handler={() => {
-            handleSignIn(fields, setFields);
-            const email = fields[0]?.value + "";
-            setRole(email?.includes("user") ? "user" : "service");
-            navigate("TabLayout");
-          }}
-        />
-      </View>
+      </FlexText>
+      <ButtonBG
+        text=" Log In"
+        handler={() => {
+          handleSignIn(fields, setFields);
+          const email = fields[0]?.value + "";
+          setRole(email?.includes("user") ? "user" : "service");
+          navigate("TabLayout");
+        }}
+      />
     </SafeAreaProvider>
   );
 };

@@ -11,7 +11,9 @@ import ButtonBG from "../../components/ui/buttons/ButtonBG";
 import ButtonGreenOpacity30 from "../../components/ui/buttons/ButtonGreenOpacity30";
 import ButtonTransparentBG from "../../components/ui/buttons/ButtonTransparentBG";
 import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
+import Navigate from '../../utils/Navigate';
 const ProviderDetails = () => {
+  const navigate = Navigate()
   const elements = [
     <ButtonGreenOpacity30
       key={1}
@@ -53,11 +55,13 @@ const ProviderDetails = () => {
         />
       </View>
       <ButtonBG
-        text="Submit a Offer"
+        text="Submit an Offer"
         style={{
           width: "auto",
         }}
-        handler={() => {}}
+        handler={() => navigate("TabLayout", {
+          screen: "PostTask"
+        })}
       />
     </FlexText>,
 
@@ -80,7 +84,7 @@ const ProviderDetails = () => {
           borderWidth: 1,
           borderColor: "#115E59",
         }}
-        handler={() => {}}
+        handler={() => { }}
       />
     </FlexText>,
     <Details_Review key={6} />,

@@ -18,7 +18,7 @@ const ProfileOptions = () => {
       navigate: "ChangePassword",
     },
     {
-      name: "Refer & Discounts",
+      name: "Referral & Discounts",
       image: profileIcons.Refer,
       navigate: "ReferDiscounts",
     },
@@ -28,7 +28,7 @@ const ProfileOptions = () => {
       navigate: "Earnings",
     }] : []),
     {
-      name: "Shaved Account",
+      name: "Linked Account",
       image: profileIcons.Card,
       navigate: "SavedAccount",
     },
