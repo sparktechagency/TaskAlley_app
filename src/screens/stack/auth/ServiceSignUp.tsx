@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, ScrollView, TouchableOpacity, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { TouchableOpacity, View } from "react-native";
 import FlexText from "../../../components/shered/FlexText";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
 import HeaderSecondary from "../../../components/shered/HeaderSecondary";
@@ -65,116 +64,103 @@ const Content = [
 
 const ServiceSignUp = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { height } = Dimensions.get("window");
   const { fields, setFields } = ServiceSignUpFields();
-  const { top, bottom } = useSafeAreaInsets();
   const navigate = Navigate();
 
   return (
     <SafeAreaProvider backButtonText="Sign Up as Service Provider">
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View
-          style={{
-            flex: 1,
-            gap: 6,
-            justifyContent: "center",
-            minHeight: height - top - bottom,
-            paddingBottom: 90,
-          }}
-        >
-          <HeaderDesign text={Content[currentSlide].heading as string} />
-          <TextSecondary text={Content[currentSlide].text as string} />
-          {fields
-            ?.slice(
-              slide[currentSlide].skip,
-              slide[currentSlide].keep + slide[currentSlide].skip
-            )
-            ?.map((field: FieldsType) => RenderField(field, setFields))}
-          {(currentSlide == 2 || currentSlide == 3) && (
-            <View>
-              <ImageUploader />
-            </View>
-          )}
 
-          {currentSlide == 0 && (
-            <>
-              <FlexText
-                style={{
-                  marginTop: 8,
-                }}
-              >
-                <Divider
-                  style={{
-                    width: "45%",
-                  }}
-                />
-                <HeaderSecondary text="OR" />
-                <Divider
-                  style={{
-                    width: "45%",
-                  }}
-                />
-              </FlexText>
+      <HeaderDesign text={Content[currentSlide].heading as string} />
+      <TextSecondary text={Content[currentSlide].text as string} />
+      {fields
+        ?.slice(
+          slide[currentSlide].skip,
+          slide[currentSlide].keep + slide[currentSlide].skip
+        )
+        ?.map((field: FieldsType) => RenderField(field, setFields))}
+      {(currentSlide == 2 || currentSlide == 3) && (
+        <View>
+          <ImageUploader />
+        </View>
+      )}
 
-              <FlexText
-                style={{
-                  marginTop: 8,
-                }}
-              >
-                <TextPrimary text="Already have an account?" />
-                <TouchableOpacity onPress={() => navigate("Login")}>
-                  <TextSecondary
-                    style={{
-                      color: "#115E59",
-                    }}
-                    text="Login"
-                  />
-                </TouchableOpacity>
-              </FlexText>
-            </>
-          )}
-          <ButtonBG
+      {currentSlide == 0 && (
+        <>
+          <FlexText
             style={{
-              marginTop: 6,
+              marginTop: 8,
             }}
-            text={
-              currentSlide == 4
-                ? "Apply Code & Continue"
-                : currentSlide == 1
-                ? "Verify"
-                : "Continue"
-            }
-            handler={() => {
-              const isValid = handleServiceSignUp(
-                fields?.slice(
-                  slide[currentSlide].skip,
-                  slide[currentSlide].keep + slide[currentSlide].skip
-                ),
-                setFields,
-                currentSlide
-              );
-              console.log(isValid);
-              if (isValid && currentSlide < 4) {
-                setCurrentSlide((prev) => prev + 1);
-              } else if (currentSlide == 4) {
-                navigate("Verify", {
-                  params: { phoneNumber: "", from: "signup" },
-                });
-              }
-            }}
-          />
-          {currentSlide == 4 && (
-            <ButtonTransparentBG
-              text="Skip & Continue Without Code"
-              handler={() => {
-                navigate("Verify", {
-                  params: { phoneNumber: "", from: "signup" },
-                });
+          >
+            <Divider
+              style={{
+                width: "45%",
               }}
             />
-          )}
-        </View>
-      </ScrollView>
+            <HeaderSecondary text="OR" />
+            <Divider
+              style={{
+                width: "45%",
+              }}
+            />
+          </FlexText>
+
+          <FlexText
+            style={{
+              marginTop: 8,
+            }}
+          >
+            <TextPrimary text="Already have an account?" />
+            <TouchableOpacity onPress={() => navigate("Login")}>
+              <TextSecondary
+                style={{
+                  color: "#115E59",
+                }}
+                text="Login"
+              />
+            </TouchableOpacity>
+          </FlexText>
+        </>
+      )}
+      <ButtonBG
+        style={{
+          marginTop: 6,
+        }}
+        text={
+          currentSlide == 4
+            ? "Apply Code & Continue"
+            : currentSlide == 1
+              ? "Verify"
+              : "Continue"
+        }
+        handler={() => {
+          const isValid = handleServiceSignUp(
+            fields?.slice(
+              slide[currentSlide].skip,
+              slide[currentSlide].keep + slide[currentSlide].skip
+            ),
+            setFields,
+            currentSlide
+          );
+          console.log(isValid);
+          if (isValid && currentSlide < 4) {
+            setCurrentSlide((prev) => prev + 1);
+          } else if (currentSlide == 4) {
+            navigate("Verify", {
+              params: { phoneNumber: "", from: "signup" },
+            });
+          }
+        }}
+      />
+      {currentSlide == 4 && (
+        <ButtonTransparentBG
+          text="Skip & Continue Without Code"
+          handler={() => {
+            navigate("Verify", {
+              params: { phoneNumber: "", from: "signup" },
+            });
+          }}
+        />
+      )}
     </SafeAreaProvider>
   );
 };
