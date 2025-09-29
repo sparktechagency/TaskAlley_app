@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
+import { Image, ImageSourcePropType, View } from "react-native";
 import OnboardingBackButton from "../../../components/onboarding/OnboardingBackButton";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
 import TextSecondary from "../../../components/shered/TextSecondary";
@@ -51,4 +51,3 @@ const TrustedServices = () => {
 
 export default TrustedServices;
 
-const styles = StyleSheet.create({});

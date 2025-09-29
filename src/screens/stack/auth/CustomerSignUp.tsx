@@ -56,100 +56,91 @@ const CustomerSignUp = () => {
 
   return (
     <SafeAreaProvider backButtonText="Sign Up as Customer">
-      <View
+      <HeaderDesign text={Content[currentSlide].heading as string} />
+      <TextSecondary text={Content[currentSlide].text as string} />
+      {fields
+        ?.slice(
+          slide[currentSlide].skip,
+          slide[currentSlide].keep + slide[currentSlide].skip
+        )
+        ?.map((field: FieldsType) => RenderField(field, setFields))}
+
+      {currentSlide == 1 && (
+        <View>
+          <ImageUploader />
+        </View>
+      )}
+
+      {currentSlide == 0 && (
+        <>
+          <FlexText
+            style={{
+              marginTop: 8,
+            }}
+          >
+            <Divider
+              style={{
+                width: "45%",
+              }}
+            />
+            <HeaderSecondary text="OR" />
+            <Divider
+              style={{
+                width: "45%",
+              }}
+            />
+          </FlexText>
+
+          <FlexText
+            style={{
+              marginTop: 8,
+            }}
+          >
+            <TextPrimary text="Already have an account?" />
+            <TouchableOpacity onPress={() => navigate("Login")}>
+              <TextSecondary
+                style={{
+                  color: "#115E59",
+                }}
+                text="Login"
+              />
+            </TouchableOpacity>
+          </FlexText>
+        </>
+      )}
+      <ButtonBG
         style={{
-          flex: 1,
-          gap: 6,
-          justifyContent: "center",
-          minHeight: height - top - bottom,
-          paddingBottom: 90,
+          marginTop: 6,
         }}
-      >
-        <HeaderDesign text={Content[currentSlide].heading as string} />
-        <TextSecondary text={Content[currentSlide].text as string} />
-        {fields
-          ?.slice(
-            slide[currentSlide].skip,
-            slide[currentSlide].keep + slide[currentSlide].skip
-          )
-          ?.map((field: FieldsType) => RenderField(field, setFields))}
-        {currentSlide == 1 && (
-          <View>
-            <ImageUploader />
-          </View>
-        )}
-
-        {currentSlide == 0 && (
-          <>
-            <FlexText
-              style={{
-                marginTop: 8,
-              }}
-            >
-              <Divider
-                style={{
-                  width: "45%",
-                }}
-              />
-              <HeaderSecondary text="OR" />
-              <Divider
-                style={{
-                  width: "45%",
-                }}
-              />
-            </FlexText>
-
-            <FlexText
-              style={{
-                marginTop: 8,
-              }}
-            >
-              <TextPrimary text="Already have an account?" />
-              <TouchableOpacity onPress={() => navigate("Login")}>
-                <TextSecondary
-                  style={{
-                    color: "#115E59",
-                  }}
-                  text="Login"
-                />
-              </TouchableOpacity>
-            </FlexText>
-          </>
-        )}
-        <ButtonBG
-          style={{
-            marginTop: 6,
-          }}
-          text={currentSlide == 2 ? "Apply Code & Continue" : "Continue"}
+        text={currentSlide == 2 ? "Apply Code & Continue" : "Continue"}
+        handler={() => {
+          const isValid = handleCustomerSignUp(
+            fields?.slice(
+              slide[currentSlide].skip,
+              slide[currentSlide].keep + slide[currentSlide].skip
+            ),
+            setFields,
+            currentSlide
+          );
+          if (isValid && currentSlide < 2) {
+            setCurrentSlide((prev) => prev + 1);
+          } else if (currentSlide == 2) {
+            navigate("Verify", {
+              params: { phoneNumber: "", from: "signup" },
+            });
+          }
+        }}
+      />
+      {currentSlide == 2 && (
+        <ButtonTransparentBG
+          text="Skip & Continue Without Code"
           handler={() => {
-            const isValid = handleCustomerSignUp(
-              fields?.slice(
-                slide[currentSlide].skip,
-                slide[currentSlide].keep + slide[currentSlide].skip
-              ),
-              setFields,
-              currentSlide
-            );
-            if (isValid && currentSlide < 2) {
-              setCurrentSlide((prev) => prev + 1);
-            } else if (currentSlide == 2) {
-              navigate("Verify", {
-                params: { phoneNumber: "", from: "signup" },
-              });
-            }
+            navigate("Verify", {
+              params: { phoneNumber: "", from: "signup" },
+            });
           }}
         />
-        {currentSlide == 2 && (
-          <ButtonTransparentBG
-            text="Skip & Continue Without Code"
-            handler={() => {
-              navigate("Verify", {
-                params: { phoneNumber: "", from: "signup" },
-              });
-            }}
-          />
-        )}
-      </View>
+      )}
     </SafeAreaProvider>
   );
 };

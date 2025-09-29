@@ -7,7 +7,7 @@ import {
 } from "@react-navigation/native";
 import React, { ReactNode, useEffect } from "react";
 import { Dimensions, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import BackButton from "../components/shered/BackButton";
 import { useGlobalContext } from "./GlobalContextProvider";
 const withoutLog = [
@@ -52,11 +52,9 @@ const SafeAreaProviderNoScroll = ({
     }
   }, [role, route.name]);
   return (
-    <View
+    <SafeAreaView
       style={{
-        marginTop: zeroPadding ? 0 : top,
-        marginBottom: zeroPadding ? 0 : bottom,
-        height,
+        height: height - (top + bottom),
       }}
     >
       <View
@@ -67,7 +65,7 @@ const SafeAreaProviderNoScroll = ({
         {backButtonText && <BackButton text={backButtonText} />}
         {children}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

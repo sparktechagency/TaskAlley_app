@@ -1,10 +1,8 @@
 import React from "react";
 import {
-  Dimensions,
   ImageSourcePropType,
   StyleSheet
 } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
 import TextSecondary from "../../../components/shered/TextSecondary";
 import ImageButton from "../../../components/ui/buttons/ImageButton";
@@ -13,8 +11,6 @@ import SafeAreaProvider from "../../../providers/SafeAreaProvider";
 import Navigate from "../../../utils/Navigate";
 
 const ChooseSignUp = () => {
-  const { height } = Dimensions.get("window");
-  const { top, bottom } = useSafeAreaInsets();
   const navigate = Navigate();
   return (
     <SafeAreaProvider
