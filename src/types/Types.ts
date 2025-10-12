@@ -7,6 +7,7 @@ export enum FieldType {
   DATE = "date",
   TIME = "time",
   TEXTAREA = "textarea",
+  RANGE = "range",
 }
 
 export enum KeyboardType {
@@ -31,7 +32,12 @@ export interface FieldsType {
   placeHolder: string;
   label: string;
   error: boolean;
-  value: string | number | boolean;
+  value: string | number | boolean | string[] | { min: number; max: number };
   required: boolean;
   options?: { label: string; value: string }[];
+  multiple?: boolean; // for SELECT: allow multiple selection
+  min?: number;       // for RANGE: lower bound
+  max?: number;       // for RANGE: upper bound
+  step?: number;      // for RANGE: step size
+  range?: boolean;    // for RANGE: enable dual-thumb behavior
 }

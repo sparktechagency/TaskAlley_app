@@ -6,6 +6,7 @@ import PasswordInput from "../components/ui/inputs/PasswordInput";
 import SelectInput from "../components/ui/inputs/SelectInput";
 import TextArea from "../components/ui/inputs/TextArea";
 import TimePicker from "../components/ui/inputs/TimePicker";
+import RangeSelect from "../components/ui/inputs/RangeSelect";
 import { FieldsType, FieldType, KeyboardType } from "../types/Types";
 
 export const RenderField = (
@@ -107,11 +108,12 @@ export const RenderField = (
             )
           )
         }
+        multiple={field?.multiple}
         label={field?.label}
         name={field?.name}
-        value={field?.value as string}
+        value={field?.value as string | string[]}
         required={field?.required}
-        options={field?.options as [{ label: string; value: string }]}
+        options={field?.options as { label: string; value: string }[]}
       />
     );
   }
@@ -153,6 +155,26 @@ export const RenderField = (
         name={field?.name}
         value={field?.value as string}
         required={field?.required}
+      />
+    );
+  }
+
+  if (field.type == FieldType.RANGE) {
+    return (
+      <RangeSelect
+        label={field?.label}
+        name={field?.name}
+        error={field?.error}
+        value={field?.value as number | { min: number; max: number }}
+        min={field?.min}
+        max={field?.max}
+        step={field?.step}
+        range={field?.range}
+        handler={(name, value) =>
+          setFields((prev) =>
+            prev.map((f) => (f.name === name ? { ...f, value, error: false } : f))
+          )
+        }
       />
     );
   }

@@ -2,10 +2,11 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import TextSecondary from "../../../components/shered/TextSecondary";
 import SafeAreaProviderNoScroll from "../../../providers/SafeAreaProviderNoScroll";
+import SafeAreaProvider from "../../../providers/SafeAreaProvider";
 
 const Terms = () => {
   return (
-    <SafeAreaProviderNoScroll backButtonText="Terms & Condition">
+    <SafeAreaProvider backButtonText="Terms & Condition">
       <TextSecondary
         text="Privacy Policy – TaskAlley
 Your privacy is extremely important to us. This Privacy Policy explains how TaskAlley collects, uses, and protects your personal information when you use our website and associated services.
@@ -69,7 +70,7 @@ TaskAlley is intended for users aged 18 and above. We do not knowingly collect i
 10. Policy Updates
 This Privacy Policy may be updated occasionally. You will be notified of any significant changes through the platform or email. Continued use of TaskAlley confirms your acceptance of the latest version."
       />
-    </SafeAreaProviderNoScroll>
+    </SafeAreaProvider>
   );
 };
 

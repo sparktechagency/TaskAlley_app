@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { otherIcons } from "../../../constant/images";
 import HeaderSecondary from "../../shered/HeaderSecondary";
 import TextPrimary from "../../shered/TextPrimary";
@@ -39,6 +40,7 @@ const SelectInput = ({
   required: boolean;
   multiple?: boolean;
 }) => {
+  const { bottom } = useSafeAreaInsets();
   const baseStyle = {
     padding: 15,
     borderRadius: 6,
@@ -58,12 +60,19 @@ const SelectInput = ({
           data={options}
           labelField="label"
           valueField="value"
+          
+          //  mode="modal"  
           placeholder={placeHolder}
           value={Array.isArray(value) ? value : []}
           style={baseStyle}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
-          containerStyle={styles.containerStyle}
+          containerStyle={[
+            styles.containerStyle,
+            { zIndex: 9999, elevation: 12, paddingBottom: bottom + 16, marginBottom: 8 },
+          ]}
+          dropdownPosition="auto"
+          maxHeight={320}
           onChange={(vals: string[]) => handler?.(name as string, vals)}
           renderSelectedItem={(item, unSelect) => (
             <TouchableOpacity style={styles.tag} onPress={() => unSelect && unSelect(item)}>
@@ -77,12 +86,18 @@ const SelectInput = ({
           data={options}
           labelField="label"
           valueField="value"
+          // mode="modal"
           placeholder={placeHolder}
           value={typeof value === "string" ? value : undefined}
           style={baseStyle}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
-          containerStyle={styles.containerStyle}
+          containerStyle={[
+            styles.containerStyle,
+            { zIndex: 9999, elevation: 12, marginBottom: bottom + 50 },
+          ]}
+          dropdownPosition="auto"
+          maxHeight={320}
           onChange={(item: { label: string; value: string }) => handler?.(name as string, item.value)}
           renderRightIcon={() => (
             <Image source={otherIcons.arrowDown as ImageSourcePropType} />
@@ -123,5 +138,5 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     tintColor: "#111827",
-  },
+   },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FlexText from "../../components/shered/FlexText";
 import SectionHeading from "../../components/shered/SectionHeading";
@@ -13,6 +13,7 @@ import { FieldsType } from "../../types/Types";
 import Navigate from "../../utils/Navigate";
 import { RenderField } from "../../utils/RenderField";
 import ScreenSize from "../../utils/ScreenSize";
+import TextPrimary from "../../components/shered/TextPrimary";
 const slide = [
   {
     skip: 0,
@@ -39,6 +40,7 @@ const title = ["Task Overview", "Task Details", "Date & Time", "Budget "];
 
 const PostTask = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+    const [fiels, setFiels] = useState<any>([]);
   const { height } = ScreenSize();
   const { fields, setFields } = PostTaskFields();
   const { top, bottom } = useSafeAreaInsets();
@@ -65,7 +67,16 @@ const PostTask = () => {
           ?.map((field: FieldsType) => RenderField(field, setFields))}
         {currentSlide == 1 && (
           <View>
-            <ImageUploader />
+            <TextPrimary text="Attachments (optional)" />
+            <FlexText>
+              {
+                fiels?.length > 0 && <Image
+                  source={{ uri: fiels?.[0]?.uri }}
+                  style={{ width: 80, height: 80, borderRadius: 8, marginRight: 8, resizeMode: "contain" }}
+                />
+              }
+            <ImageUploader setFiels={setFiels} />
+            </FlexText>
           </View>
         )}
         <FlexText
