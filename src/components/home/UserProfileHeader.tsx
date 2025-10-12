@@ -18,7 +18,7 @@ const UserProfileHeader = () => {
       <ImageFlex
         image={`https://placehold.co/400x400.png`}
         text="Hello Siyam"
-        text1="Welcome to Servify"
+        text1="Welcome to TaskAlley"
       />
       <ImageButton
         style={{
