@@ -6,7 +6,8 @@ import {
   Text,
   View,
 } from "react-native";
-import { TabIcons } from "../../constant/images";
+import { svgIcons, TabIcons } from "../../constant/images";
+import SvgIcon from "../ui/SvgIcon";
 
 const TabItem = ({
   route,
@@ -29,7 +30,7 @@ const TabItem = ({
         backgroundColor: isFocused ? "#E6F4F1" : "transparent",
       }}
     >
-      <Image
+      {/* <Image
         source={TabIcons[label as keyof typeof TabIcons] as ImageSourcePropType}
         style={{
           width: 24,
@@ -37,6 +38,12 @@ const TabItem = ({
           marginBottom: 4,
           tintColor: isFocused ? "#115E59" : "black",
         }}
+      /> */}
+      <SvgIcon
+        component={svgIcons[label as keyof typeof svgIcons] as any}
+        width={24}
+        height={24}
+        color={isFocused ? "#115E59" : "black"}
       />
       <Text
         style={{

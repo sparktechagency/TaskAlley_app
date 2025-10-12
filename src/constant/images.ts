@@ -46,6 +46,11 @@ import Watch from "../assets/Watch.png";
 import Time from "../assets/time.png"
 import ArrowBoth from "../assets/arrowBoth.png"
 import List from "../assets/List.png"
+import HomeIcon from "../assets/svg/home.svg"
+import PostIcon from "../assets/svg/post.svg"
+import ProfileIcon from "../assets/svg/profile.svg"
+import TaskIcon from "../assets/svg/task.svg"
+import ChatIcon from "../assets/svg/chat.svg"
 export const TabIcons = {
   Home,
   "My Tasks": post, Chat,
@@ -54,6 +59,16 @@ export const TabIcons = {
   "My Service": task,
   Dashboard: Home,
 };
+export const svgIcons = {
+  Home: HomeIcon,
+  "My Tasks": PostIcon,
+  Profile: ProfileIcon,
+  "Post Task": TaskIcon,
+  "My Service": TaskIcon,
+  Dashboard: HomeIcon,
+  Chat: ChatIcon
+
+}
 export const profileIcons = {
   Card,
   Setting,
