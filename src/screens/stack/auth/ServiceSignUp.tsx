@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, ScrollView, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, ScrollView, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FlexText from "../../../components/shered/FlexText";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
@@ -14,7 +14,7 @@ import ServiceSignUpFields from "../../../formFields/ServiceSignUpFields";
 import { handleServiceSignUp } from "../../../handler/serviceSignUp";
 import SafeAreaProvider from "../../../providers/SafeAreaProvider";
 import { FieldsType } from "../../../types/Types";
-import Navigate from "../../../utils/Navigate";
+import Navigate, { Navigation } from "../../../utils/Navigate";
 import { RenderField } from "../../../utils/RenderField";
 
 const slide = [
@@ -68,10 +68,18 @@ const ServiceSignUp = () => {
   const { height } = Dimensions.get("window");
   const { fields, setFields } = ServiceSignUpFields();
   const { top, bottom } = useSafeAreaInsets();
+  const [fiels, setFiels] = useState<any>([]);
   const navigate = Navigate();
-
+  const navigation = Navigation()
+  const backHandler = () => {
+    if (currentSlide == 0) {
+      navigation.goBack()
+    } else {
+      setCurrentSlide((prev) => prev - 1);
+    }
+  }
   return (
-    <SafeAreaProvider backButtonText="Sign Up as Service Provider">
+    <SafeAreaProvider backButtonText="Sign Up as Service Provider" handler={backHandler}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
@@ -91,8 +99,26 @@ const ServiceSignUp = () => {
             )
             ?.map((field: FieldsType) => RenderField(field, setFields))}
           {(currentSlide == 2 || currentSlide == 3) && (
-            <View>
-              <ImageUploader />
+            <View style={{ marginTop: 10 }}>
+              <TextPrimary text="Address Verification Document" />
+              <FlexText>
+                {/* {
+                  fiels?.map((file: any, idx: number) => (
+                    <Image
+                      key={idx}
+                      source={{ uri: file?.uri }}
+                      style={{ width: 80, height: 80, borderRadius: 8, marginRight: 8 }}
+                    />
+                  ))
+                } */}
+                {
+                  fiels?.length > 0 && <Image
+                    source={{ uri: fiels?.[0]?.uri }}
+                    style={{ width: 80, height: 80, borderRadius: 8, marginRight: 8, resizeMode: "contain" }}
+                  />
+                }
+                <ImageUploader setFiels={setFiels} />
+              </FlexText>
             </View>
           )}
 
@@ -141,8 +167,8 @@ const ServiceSignUp = () => {
               currentSlide == 4
                 ? "Apply Code & Continue"
                 : currentSlide == 1
-                ? "Verify"
-                : "Continue"
+                  ? "Verify"
+                  : "Continue"
             }
             handler={() => {
               const isValid = handleServiceSignUp(

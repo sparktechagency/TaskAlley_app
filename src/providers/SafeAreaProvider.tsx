@@ -28,10 +28,12 @@ const SafeAreaProvider = ({
   children,
   backButtonText,
   zeroPadding = false,
+  handler,
 }: {
   children: ReactNode;
   backButtonText?: string;
   zeroPadding?: boolean;
+  handler?: () => void;
 }) => {
   const { top, bottom } = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
@@ -62,7 +64,7 @@ const SafeAreaProvider = ({
           paddingHorizontal: zeroPadding ? 0 : 20,
         }}
       >
-        {backButtonText && <BackButton text={backButtonText} />}
+        {backButtonText && <BackButton backHandler={handler} text={backButtonText} />}
         <KeyboardAwareScrollView
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}

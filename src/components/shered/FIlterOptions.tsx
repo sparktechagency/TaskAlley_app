@@ -50,7 +50,7 @@ const FIlterOptions = (props: any) => {
         />
       </FlexText>
       <ButtonBG
-        text='Apply filter'
+        text='Apply'
         handler={() => { }}
       />
       <ButtonGreenOpacity30

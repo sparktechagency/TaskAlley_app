@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FlexText from "../../../components/shered/FlexText";
 import HeaderDesign from "../../../components/shered/HeaderDesign";
@@ -14,7 +14,7 @@ import CustomerSignUpFields from "../../../formFields/CustomerSignUpFields";
 import { handleCustomerSignUp } from "../../../handler/customerSignUp";
 import SafeAreaProvider from "../../../providers/SafeAreaProvider";
 import { FieldsType } from "../../../types/Types";
-import Navigate from "../../../utils/Navigate";
+import Navigate, { Navigation } from "../../../utils/Navigate";
 import { RenderField } from "../../../utils/RenderField";
 
 const slide = [
@@ -52,10 +52,18 @@ const CustomerSignUp = () => {
   const { height } = Dimensions.get("window");
   const { fields, setFields } = CustomerSignUpFields();
   const { top, bottom } = useSafeAreaInsets();
+  const [fiels, setFiels] = useState<any>([]);
   const navigate = Navigate();
-
+  const navigation = Navigation()
+  const backHandler = () => {
+    if (currentSlide == 0) {
+      navigation.goBack()
+    } else {
+      setCurrentSlide((prev) => prev - 1);
+    }
+  }
   return (
-    <SafeAreaProvider backButtonText="Sign Up as Customer">
+    <SafeAreaProvider backButtonText="Sign Up as Customer" handler={backHandler}>
       <View
         style={{
           flex: 1,
@@ -75,7 +83,16 @@ const CustomerSignUp = () => {
           ?.map((field: FieldsType) => RenderField(field, setFields))}
         {currentSlide == 1 && (
           <View>
-            <ImageUploader />
+            <TextPrimary text="Address Verification Document" />
+            <FlexText>
+              {
+                fiels?.length > 0 && <Image
+                  source={{ uri: fiels?.[0]?.uri }}
+                  style={{ width: 80, height: 80, borderRadius: 8, marginRight: 8, resizeMode: "contain" }}
+                />
+              }
+            </FlexText>
+            <ImageUploader setFiels={setFiels} />
           </View>
         )}
 

@@ -21,8 +21,7 @@ const Category = () => {
   const itemWidth = (width - 80) / 2;
   const navigate = Navigate();
   return (
-    <SafeAreaProviderNoScroll>
-      <BackButton text="Tasks Categories" />
+    <SafeAreaProviderNoScroll backButtonText="Tasks Categories">
       <FlatList
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}

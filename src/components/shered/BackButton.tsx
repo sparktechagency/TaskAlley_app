@@ -13,8 +13,9 @@ interface propType {
   show?: boolean;
   imageSource?: ImageSourcePropType;
   handler?: () => void;
+  backHandler?: () => void;
 }
-const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
+const BackButton = ({ text, show = false, imageSource, handler, backHandler }: propType) => {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   return (
     <View
@@ -36,7 +37,7 @@ const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
           borderWidth: 1,
         }}
         imageSource={otherIcons.ArrowLeft as ImageSourcePropType}
-        onPress={() => navigation.goBack()}
+        onPress={() => backHandler ? backHandler() : navigation.goBack()}
       />
       <Text
         numberOfLines={1}
@@ -66,7 +67,7 @@ const BackButton = ({ text, show = false, imageSource, handler }: propType) => {
           onPress={() => handler?.()}
         />
       ) : (
-        <Text></Text>
+        <View style={{ width: 30 }}></View>
       )}
     </View>
   );

@@ -15,7 +15,7 @@ const Root = () => {
             <GlobalContextProvider>
               <StatusBar
                 barStyle={"dark-content"}
-                backgroundColor={`#FFFFFF`}
+                backgroundColor={`#F2F2F2`}
               />
               <DrawerLayout />
             </GlobalContextProvider>

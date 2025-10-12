@@ -38,7 +38,7 @@ const RealTimeBooking = () => {
         <ButtonBG
           style={{
             position: "absolute",
-            bottom: 120,
+            bottom: 160,
             width: "100%",
           }}
           handler={() => navigate("SecurePayments")}

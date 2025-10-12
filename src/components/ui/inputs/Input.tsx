@@ -14,6 +14,7 @@ const Input = ({
   name,
   required = true,
   showLabel = true,
+  onBlur,
 }: {
   keyboard: string;
   style?: ViewStyle;
@@ -26,6 +27,7 @@ const Input = ({
   name?: string;
   required?: boolean;
   showLabel?: boolean;
+  onBlur?: (value: string) => void;
 }) => {
   return (
     <View
@@ -45,6 +47,7 @@ const Input = ({
       )}
 
       <TextInput
+        onBlur={() => onBlur?.(value+"")}
         value={value}
         style={{
           backgroundColor: "#E6F4F1",

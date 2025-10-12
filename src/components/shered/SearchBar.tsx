@@ -8,6 +8,7 @@ import FlexText from "./FlexText";
 
 const SearchBar = ({ style }: { style?: ViewStyle }) => {
   const navigate = Navigate();
+  const [search, setSearch] = React.useState("");
   return (
     <FlexText
       style={{
@@ -22,6 +23,13 @@ const SearchBar = ({ style }: { style?: ViewStyle }) => {
       }}
     >
       <Input
+        onBlur={(value) => {
+          navigate("Search", {
+            search: search,
+          })
+        }}
+        value={search}
+        handler={(name, value) => setSearch(value)}
         style={{
           width: "86%",
         }}
@@ -45,7 +53,7 @@ const SearchBar = ({ style }: { style?: ViewStyle }) => {
         }}
         onPress={() =>
           navigate("Search", {
-            search: "search text",
+            search: search,
           })
         }
         imageSource={otherIcons.Search as ImageSourcePropType}

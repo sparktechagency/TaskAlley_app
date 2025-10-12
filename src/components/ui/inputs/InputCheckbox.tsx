@@ -25,8 +25,8 @@ const InputCheckbox = ({
     >
       <BouncyCheckbox
         size={20}
-        fillColor="#115E59"
-        unFillColor="#FFFFFF"
+        fillColor={error ? "red" : "#115E59"}
+        unFillColor="# "
         isChecked={value}
         iconStyle={{
           borderColor: "#115E59",

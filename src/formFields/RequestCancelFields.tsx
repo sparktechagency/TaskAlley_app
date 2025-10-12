@@ -18,7 +18,7 @@ const RequestCancelFields = () => {
           value: "National Identification Number (NIN)",
         },
         { label: "Voter’s Card", value: "Voter’s Card" },
-        { label: "International Passport", value: "international_passport" },
+        { label: "International Passport", value: "I nternational Passport" },
         { label: "Driver’s License", value: "Driver’s License" },
       ],
     },

@@ -1,7 +1,5 @@
-import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
-import React, { useRef } from "react";
+import React from "react";
 
-import { Portal } from "@gorhom/portal";
 import {
   Image,
   ImageSourcePropType,
@@ -14,6 +12,7 @@ import {
 import { otherIcons } from "../../../constant/images";
 import HeaderSecondary from "../../shered/HeaderSecondary";
 import TextPrimary from "../../shered/TextPrimary";
+import { Dropdown, MultiSelect } from "react-native-element-dropdown";
 const SelectInput = ({
   value,
   placeHolder = "please select",
@@ -27,118 +26,69 @@ const SelectInput = ({
   handler,
   name,
   required = true,
+  multiple = false,
 }: {
-  value?: string;
+  value?: string | string[];
   placeHolder?: string;
   style?: StyleSheetProperties;
   options?: { label: string; value: string }[];
   label?: string;
   error?: boolean;
-  handler?: (name: string, value: string) => void;
+  handler?: (name: string, value: string | string[]) => void;
   name?: string;
   required: boolean;
+  multiple?: boolean;
 }) => {
-  const bottomSheetRef = useRef<BottomSheet | null>(null);
-  const handleClose = () => {
-    bottomSheetRef.current?.close();
-  };
+  const baseStyle = {
+    padding: 15,
+    borderRadius: 6,
+    backgroundColor: "#E6F4F1",
+    paddingVertical: 12,
+    ...style,
+  } as any;
 
   return (
     <>
       <HeaderSecondary
-        style={{
-          color: required ? (error ? "red" : "#111827") : "#111827",
-        }}
+        style={{ color: required ? (error ? "red" : "#111827") : "#111827" }}
         text={label}
       />
-      <TouchableOpacity
-        onPress={() => bottomSheetRef.current?.snapToIndex(1)}
-        style={{
-          padding: 15,
-          borderRadius: 6,
-          backgroundColor: "#E6F4F1",
-          paddingVertical: 12,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          ...style,
-        }}
-      >
-        <TextPrimary text={value ? value : placeHolder} />
-        <Image source={otherIcons.arrowDown as ImageSourcePropType} />
-      </TouchableOpacity>
-      <Portal>
-        <BottomSheet
-          style={{ zIndex: 99999999999 }}
-          onClose={handleClose}
-          handleComponent={() => (
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: 6,
-                paddingHorizontal: 10,
-              }}
-            >
-              <View></View>
-              <View
-                style={{
-                  backgroundColor: "gray",
-                  padding: 3,
-                  paddingHorizontal: 20,
-                  borderRadius: 5,
-                }}
-              ></View>
-              <TouchableOpacity onPress={handleClose}>
-                <Image
-                  source={otherIcons.Close as ImageSourcePropType}
-                  style={styles.closeIcon}
-                  resizeMode="contain"
-                />
-              </TouchableOpacity>
-            </View>
+      {multiple ? (
+        <MultiSelect
+          data={options}
+          labelField="label"
+          valueField="value"
+          placeholder={placeHolder}
+          value={Array.isArray(value) ? value : []}
+          style={baseStyle}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          containerStyle={styles.containerStyle}
+          onChange={(vals: string[]) => handler?.(name as string, vals)}
+          renderSelectedItem={(item, unSelect) => (
+            <TouchableOpacity style={styles.tag} onPress={() => unSelect && unSelect(item)}>
+              <Text style={styles.tagText}>{item.label}</Text>
+              <Image source={otherIcons.Close as ImageSourcePropType} style={styles.tagClose} />
+            </TouchableOpacity>
           )}
-          index={-1}
-          snapPoints={["25%", "45%", "70%"]}
-          ref={bottomSheetRef}
-        >
-          <BottomSheetView style={styles.sheetContent}>
-            <View
-              style={{
-                flex: 1,
-                gap: 8,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-              }}
-            >
-              {options?.map((item) => (
-                <TouchableOpacity
-                  onPress={() => {
-                    bottomSheetRef?.current?.close();
-                    handler?.(name as string, item?.value);
-                  }}
-                  style={{
-                    padding: 6,
-                    backgroundColor:
-                      item?.value == value ? "#C1E0DA" : "#E6F4F1",
-                    width: "100%",
-                    borderRadius: 4,
-                  }}
-                >
-                  <Text
-                    style={{
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    {item?.label}
-                  </Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-          </BottomSheetView>
-        </BottomSheet>
-      </Portal>
+        />
+      ) : (
+        <Dropdown
+          data={options}
+          labelField="label"
+          valueField="value"
+          placeholder={placeHolder}
+          value={typeof value === "string" ? value : undefined}
+          style={baseStyle}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          containerStyle={styles.containerStyle}
+          onChange={(item: { label: string; value: string }) => handler?.(name as string, item.value)}
+          renderRightIcon={() => (
+            <Image source={otherIcons.arrowDown as ImageSourcePropType} />
+          )}
+        />
+      )}
     </>
   );
 };
@@ -146,15 +96,32 @@ const SelectInput = ({
 export default SelectInput;
 
 const styles = StyleSheet.create({
-  sheetContent: {
-    paddingHorizontal: 20,
-    paddingTop: 10,
-    position: "relative",
+  placeholderStyle: {
+    color: "#6B7280",
   },
-
-  closeIcon: {
-    width: 15,
-    height: 15,
-    tintColor: "#000",
+  selectedTextStyle: {
+    color: "#111827",
+  },
+  containerStyle: {
+    borderRadius: 8,
+  },
+  tag: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    backgroundColor: "#C1E0DA",
+    borderRadius: 12,
+    marginRight: 6,
+    marginTop: 6,
+  },
+  tagText: {
+    color: "#111827",
+    marginRight: 6,
+  },
+  tagClose: {
+    width: 12,
+    height: 12,
+    tintColor: "#111827",
   },
 });

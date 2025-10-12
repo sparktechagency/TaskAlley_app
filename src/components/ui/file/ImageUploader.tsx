@@ -13,20 +13,28 @@ import { otherIcons } from "../../../constant/images";
 const ImageUploader = ({
   style,
   component,
+  setFiels,
 }: {
   style?: ViewStyle;
   component?: ReactNode;
+  setFiels?: React.Dispatch<React.SetStateAction<any[]>>;
 }) => {
   return (
     <TouchableOpacity
+      style={{
+        width: component ? "auto" : 140,
+      }}
       onPress={async () => {
         try {
-          const pickResult = (await pick()) as any;
+          const pickResult = (await pick({})) as any;
           const file = {
-            uri: pickResult.uri,
-            name: pickResult.name,
-            type: pickResult.type,
+            uri: pickResult?.[0]?.uri,
+            name: pickResult?.[0]?.name,
+            type: pickResult?.[0]?.type,
           };
+          if (setFiels) {
+            setFiels((prev: any) => [file,...prev]);
+          }
           // const [pickResult] = await pick({mode:'import'}) // equivalent
           // do something with the picked file
         } catch (err: unknown) {

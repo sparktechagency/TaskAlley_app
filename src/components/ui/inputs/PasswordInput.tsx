@@ -59,6 +59,7 @@ const PasswordInput = ({
           paddingVertical: 12,
           borderRadius: 8,
           lineHeight: 26,
+          color:"#111827",
           ...(error
             ? {
                 borderColor: "red",
@@ -75,7 +76,7 @@ const PasswordInput = ({
         style={{
           position: "absolute",
           right: 4,
-          top: 40,
+          top: 45,
         }}
         activeOpacity={0.7}
         onPress={() => setShow(!show)}
