@@ -6,7 +6,7 @@ import Navigate from "../../../utils/Navigate";
 const SavedAccount = () => {
   const navigate = Navigate()
   return (
-    <SafeAreaProviderNoScroll backButtonText="Saved Account">
+    <SafeAreaProviderNoScroll backButtonText="Save Account">
       <View style={styles.card}>
         {/* Header */}
         <View style={styles.header}>

@@ -51,6 +51,9 @@ import PostIcon from "../assets/svg/post.svg"
 import ProfileIcon from "../assets/svg/profile.svg"
 import TaskIcon from "../assets/svg/task.svg"
 import ChatIcon from "../assets/svg/chat.svg"
+import Camera from "../assets/svg/camera.svg"
+import Upload from "../assets/svg/upload.svg"
+import File from "../assets/svg/file.svg"
 export const TabIcons = {
   Home,
   "My Tasks": post, Chat,
@@ -66,7 +69,10 @@ export const svgIcons = {
   "Post Task": TaskIcon,
   "My Service": TaskIcon,
   Dashboard: HomeIcon,
-  Chat: ChatIcon
+  Chat: ChatIcon,
+  Camera: Camera,
+  Upload: Upload,
+  File: File
 
 }
 export const profileIcons = {

@@ -18,7 +18,7 @@ const ReferDiscounts = () => {
     active === "My Discounts" ? <ReferTable key={3} /> : <CreateReferral />,
   ];
   return (
-    <SafeAreaProvider backButtonText="Refer & Discounts">
+    <SafeAreaProvider backButtonText="Referral & Discounts">
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{

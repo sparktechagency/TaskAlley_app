@@ -41,7 +41,7 @@ const ServiceDetails = () => {
         style={{
           padding: 20,
           backgroundColor: "#E6F4F1",
-          marginTop: 10,
+          marginVertical: 10,
           borderRadius: 10,
           justifyContent: "space-between",
         }}

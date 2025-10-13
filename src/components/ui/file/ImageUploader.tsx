@@ -1,4 +1,3 @@
-import { pick } from "@react-native-documents/picker";
 import React, { ReactNode } from "react";
 import {
   Image,
@@ -10,8 +9,10 @@ import {
   ViewStyle,
   Modal,
 } from "react-native";
-import { launchCamera } from "react-native-image-picker";
-import { otherIcons } from "../../../constant/images";
+import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import { pick } from "@react-native-documents/picker";
+import { otherIcons, svgIcons } from "../../../constant/images";
+import SvgIcon from "../SvgIcon";
 const ImageUploader = ({
   style,
   component,
@@ -25,13 +26,40 @@ const ImageUploader = ({
 
   const handlePick = async () => {
     try {
-      const pickResult = (await pick({})) as any;
-      const file = {
-        uri: pickResult?.[0]?.uri,
-        name: pickResult?.[0]?.name,
-        type: pickResult?.[0]?.type,
-      };
-      if (file.uri && setFiels) {
+      const res: any = await launchImageLibrary({
+        mediaType: "photo",
+        selectionLimit: 1,
+      });
+      const asset = res?.assets?.[0];
+      const file = asset
+        ? {
+          uri: asset.uri,
+          name: asset.fileName,
+          type: asset.type,
+        }
+        : null;
+      if (file?.uri && setFiels) {
+        setFiels((prev: any) => [file, ...prev]);
+      }
+    } catch (err: unknown) {
+      // ignore
+    } finally {
+      setShowModal(false);
+    }
+  };
+
+  const handlePickFile = async () => {
+    try {
+      const res: any = await pick({});
+      const first = res?.[0];
+      const file = first
+        ? {
+            uri: first.uri,
+            name: first.name,
+            type: first.type,
+          }
+        : null;
+      if (file?.uri && setFiels) {
         setFiels((prev: any) => [file, ...prev]);
       }
     } catch (err: unknown) {
@@ -50,10 +78,10 @@ const ImageUploader = ({
       const asset = res?.assets?.[0];
       const file = asset
         ? {
-            uri: asset.uri,
-            name: asset.fileName,
-            type: asset.type,
-          }
+          uri: asset.uri,
+          name: asset.fileName,
+          type: asset.type,
+        }
         : null;
       if (file?.uri && setFiels) {
         setFiels((prev: any) => [file, ...prev]);
@@ -117,37 +145,35 @@ const ImageUploader = ({
               elevation: 6,
             }}
           >
-            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
-              <Text style={{ fontSize: 18, fontWeight: "700", color: "#111827" }}>Upload</Text>
-              <TouchableOpacity onPress={() => setShowModal(false)} style={{ padding: 8 }}>
-                <Text style={{ fontSize: 16, color: "#6B7280" }}>✕</Text>
-              </TouchableOpacity>
-            </View>
-            <Text style={{ fontSize: 13, color: "#6B7280", marginBottom: 16 }}>Choose how you want to add your file</Text>
-            <View style={{ gap: 12 }}>
-              <TouchableOpacity
-                onPress={handleCapture}
-                style={{
-                  backgroundColor: "#115E59",
-                  paddingVertical: 12,
-                  borderRadius: 10,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ color: "#fff", fontSize: 15, fontWeight: "600" }}>Capture</Text>
-              </TouchableOpacity>
+            <View style={{ width: "100%" }}>
               <TouchableOpacity
                 onPress={handlePick}
-                style={{
-                  backgroundColor: "#E6F4F1",
-                  paddingVertical: 12,
-                  borderRadius: 10,
-                  alignItems: "center",
-                }}
+                activeOpacity={0.8}
+                style={{ alignItems: "center", paddingVertical: 18, paddingHorizontal: 12, borderStyle: "solid", borderWidth: 1, borderBottomWidth: 1, borderColor: "#D1D5DB", marginBottom: 8, borderRadius: 8, backgroundColor: "#FFFFFF", overflow: "hidden" }}
               >
-                <Text style={{ color: "#115E59", fontSize: 15, fontWeight: "600" }}>Pick</Text>
+                <SvgIcon component={svgIcons.Upload as any} width={24}
+                  height={24} />
+                <Text style={{ marginTop: 8, fontSize: 16, color: "#111827", fontWeight: "500" }}>Photo album</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => setShowModal(false)} style={{ paddingVertical: 10, alignItems: "center" }}>
+              <TouchableOpacity
+                onPress={handlePickFile}
+                activeOpacity={0.8}
+                style={{ alignItems: "center", paddingVertical: 18, paddingHorizontal: 12, borderStyle: "solid", borderWidth: 1, borderBottomWidth: 1, borderColor: "#D1D5DB", marginBottom: 8, borderRadius: 8, backgroundColor: "#FFFFFF", overflow: "hidden" }}
+              >
+                <SvgIcon component={svgIcons.File as any} width={24}
+                  height={24} />
+                <Text style={{ marginTop: 8, fontSize: 16, color: "#111827", fontWeight: "500" }}>Choose File</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={handleCapture}
+                activeOpacity={0.8}
+                style={{ alignItems: "center", paddingVertical: 18, paddingHorizontal: 12, borderStyle: "solid", borderWidth: 1, borderBottomWidth: 1, borderColor: "#D1D5DB", marginBottom: 8, borderRadius: 8, backgroundColor: "#FFFFFF", overflow: "hidden" }}
+              >
+                <SvgIcon component={svgIcons.Camera as any} width={24}
+                  height={24} />
+                <Text style={{ marginTop: 8, fontSize: 16, color: "#111827", fontWeight: "500" }}>Open Camera</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setShowModal(false)} style={{ paddingVertical: 12, alignItems: "center" }}>
                 <Text style={{ color: "#6B7280", fontSize: 14 }}>Cancel</Text>
               </TouchableOpacity>
             </View>

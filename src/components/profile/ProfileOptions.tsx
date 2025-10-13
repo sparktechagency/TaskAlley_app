@@ -28,7 +28,7 @@ const ProfileOptions = () => {
       navigate: "Earnings",
     }] : []),
     {
-      name: "Shaved Account",
+      name: "Save Account",
       image: profileIcons.Card,
       navigate: "SavedAccount",
     },
