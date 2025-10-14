@@ -32,6 +32,8 @@ import Terms from "../screens/stack/settings/Terms";
 import TaskDetails from "../screens/stack/TaskDetails";
 import TabLayout from "./TabLayout";
 import UpdateBankAccount from "../screens/stack/settings/UpdateBankAccount";
+import ViewProfile from "../screens/stack/settings/ViewProfile";
+import { AccountSetting } from "../screens/stack/settings/AccountSetting";
 const Stack = createNativeStackNavigator();
 
 const StackLayout = () => {
@@ -67,7 +69,9 @@ const StackLayout = () => {
     ServiceDetails: ServiceDetails,
     AddUpdateService: AddUpdateService,
     Earnings: Earnings,
-    UpdateBankAccount:UpdateBankAccount
+    UpdateBankAccount: UpdateBankAccount,
+    ViewProfile: ViewProfile,
+    AccountSetting:AccountSetting
   };
 
   const stacks = Object.keys(screens).map((key) => ({

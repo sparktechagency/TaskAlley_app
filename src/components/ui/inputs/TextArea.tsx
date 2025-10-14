@@ -52,6 +52,7 @@ const TextArea = ({
           lineHeight: 26,
           padding: 15,
           paddingVertical: 12,
+          color: "#000000",
           borderRadius: 8,
           height: 100,
           textAlignVertical: "top",

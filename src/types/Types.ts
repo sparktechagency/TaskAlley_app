@@ -8,6 +8,7 @@ export enum FieldType {
   TIME = "time",
   TEXTAREA = "textarea",
   RANGE = "range",
+  GRIDINPUT = "gridinput",
 }
 
 export enum KeyboardType {
@@ -40,4 +41,5 @@ export interface FieldsType {
   max?: number;       // for RANGE: upper bound
   step?: number;      // for RANGE: step size
   range?: boolean;    // for RANGE: enable dual-thumb behavior
+  showLabel?: boolean;
 }

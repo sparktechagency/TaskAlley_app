@@ -4,12 +4,15 @@ import { Text, TextStyle } from "react-native";
 const HeaderDesign = ({
   text,
   style,
+  numberOfLines,
 }: {
   text?: string;
   style?: TextStyle;
+  numberOfLines?: number;
 }) => {
   return (
     <Text
+      numberOfLines={numberOfLines}
       style={[
         {
           fontFamily: "Poppins",

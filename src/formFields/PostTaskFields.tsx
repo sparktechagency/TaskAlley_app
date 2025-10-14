@@ -41,7 +41,7 @@ const PostTaskFields = () => {
     },
     {
       name: "type",
-      type: FieldType.SELECT,
+      type: FieldType.GRIDINPUT,
       placeHolder: "How should the task be done?",
       label: "How should the task be done?",
       error: false,
@@ -52,6 +52,7 @@ const PostTaskFields = () => {
         { label: "Online", value: "Online" },
       ],
       keyboard: KeyboardType.DEFAULT,
+      showLabel: true,
     },
     {
       name: "place",
@@ -65,7 +66,7 @@ const PostTaskFields = () => {
     },
     {
       name: "flexible",
-      type: FieldType.SELECT,
+      type: FieldType.GRIDINPUT,
       placeHolder: "Where to Go to Complete the Task",
       label: "Where to Go to Complete the Task",
       error: false,

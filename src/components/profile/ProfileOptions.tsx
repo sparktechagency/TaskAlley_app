@@ -10,15 +10,15 @@ const ProfileOptions = () => {
     {
       name: "My Profile",
       image: TabIcons.Profile,
-      navigate: "MyProfile",
+      navigate: "ViewProfile",
     },
     {
-      name: "Change Password",
-      image: profileIcons.Lock,
-      navigate: "ChangePassword",
+      name: "Account Setting",
+      image: profileIcons.Setting,
+      navigate: "AccountSetting",
     },
     {
-      name: "Refer & Discounts",
+      name: "Referrals & Discounts",
       image: profileIcons.Refer,
       navigate: "ReferDiscounts",
     },
@@ -28,7 +28,7 @@ const ProfileOptions = () => {
       navigate: "Earnings",
     }] : []),
     {
-      name: "Save Account",
+      name: "Managed Account",
       image: profileIcons.Card,
       navigate: "SavedAccount",
     },
@@ -55,7 +55,9 @@ const ProfileOptions = () => {
 
   ];
   return (
-    <View>
+    <View style={{
+      paddingHorizontal: 20,
+    }}>
       {data?.map((item, i) => (
         <ProfileOptionsButton
           name={item?.name}

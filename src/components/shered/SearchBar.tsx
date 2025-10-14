@@ -32,6 +32,7 @@ const SearchBar = ({ style }: { style?: ViewStyle }) => {
         handler={(name, value) => setSearch(value)}
         style={{
           width: "86%",
+          
         }}
         keyboard="default"
         showLabel={false}

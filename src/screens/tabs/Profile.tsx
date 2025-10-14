@@ -4,6 +4,7 @@ import {
   Image,
   ImageSourcePropType,
   TouchableOpacity,
+  View,
 } from "react-native";
 import ProfileOptions from "../../components/profile/ProfileOptions";
 import ProfilePictureName from "../../components/profile/ProfilePictureName";
@@ -12,81 +13,57 @@ import TextSecondary from "../../components/shered/TextSecondary";
 import { profileIcons } from "../../constant/images";
 import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
 import Navigate from "../../utils/Navigate";
-
+    // {
+    //   name: "Change Password",
+    //   image: profileIcons.Lock,
+    //   navigate: "ChangePassword",
+    // },
 const Profile = () => {
   const navigate = Navigate();
   const elements = [
     <ProfilePictureName key={1} />,
     <ProfileOptions key={2} />,
-    <TouchableOpacity
-      key={3}
-      onPress={() => {}}
-      style={{
-        marginTop: 10,
-        padding: 10,
-        borderRadius: 10,
-        // backgroundColor: "#E6F4F1"
-        borderWidth: 1,
-        paddingVertical: 14,
-      }}
-    >
-      <FlexText
+    <View style={{
+      paddingHorizontal: 20,
+
+    }}>
+      <TouchableOpacity
+        key={4}
+        onPress={() => navigate("Login")}
         style={{
-          justifyContent: "space-between",
+          marginTop: 10,
+          padding: 10,
+          borderRadius: 10,
+          // backgroundColor: "#E6F4F1"
+          borderWidth: 1,
+          paddingVertical: 14,
         }}
       >
-        <FlexText>
-          <Image
-            source={profileIcons.deleteAccount as ImageSourcePropType}
-            style={{
-              tintColor: "#FF0000",
-            }}
-          />
-          <TextSecondary
-            style={{
-              color: "#FF0000",
-            }}
-            text={"Delete Account"}
-          />
+        <FlexText
+          style={{
+            justifyContent: "space-between",
+          }}
+        >
+          <FlexText>
+            <Image
+              source={profileIcons.Logout as ImageSourcePropType}
+              style={{
+                tintColor: "#FF0000",
+              }}
+            />
+            <TextSecondary
+              style={{
+                color: "#FF0000",
+              }}
+              text={"Log Out"}
+            />
+          </FlexText>
         </FlexText>
-      </FlexText>
-    </TouchableOpacity>,
-    <TouchableOpacity
-      key={4}
-      onPress={() => navigate("Login")}
-      style={{
-        marginTop: 10,
-        padding: 10,
-        borderRadius: 10,
-        // backgroundColor: "#E6F4F1"
-        borderWidth: 1,
-        paddingVertical: 14,
-      }}
-    >
-      <FlexText
-        style={{
-          justifyContent: "space-between",
-        }}
-      >
-        <FlexText>
-          <Image
-            source={profileIcons.Logout as ImageSourcePropType}
-            style={{
-              tintColor: "#FF0000",
-            }}
-          />
-          <TextSecondary
-            style={{
-              color: "#FF0000",
-            }}
-            text={"Log Out"}
-          />
-        </FlexText>
-      </FlexText>
-    </TouchableOpacity>,
+      </TouchableOpacity>,
+    </View>
   ];
   return (
-    <SafeAreaProviderNoScroll>
+    <SafeAreaProviderNoScroll zeroPadding={true}>
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{

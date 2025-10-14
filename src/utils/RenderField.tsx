@@ -8,6 +8,7 @@ import TextArea from "../components/ui/inputs/TextArea";
 import TimePicker from "../components/ui/inputs/TimePicker";
 import RangeSelect from "../components/ui/inputs/RangeSelect";
 import { FieldsType, FieldType, KeyboardType } from "../types/Types";
+import OptionGridInput from "../components/ui/inputs/OptionGridInput";
 
 export const RenderField = (
   field: FieldsType,
@@ -175,6 +176,23 @@ export const RenderField = (
             prev.map((f) => (f.name === name ? { ...f, value, error: false } : f))
           )
         }
+      />
+    );
+  }
+  if (field.type == FieldType.GRIDINPUT) {
+    return (
+      <OptionGridInput
+        options={field?.options as { label: string; value: string }[]}
+        value={field?.value as string}
+        handler={(name, value) =>
+          setFields((prev) =>
+            prev.map((f) => (f.name === name ? { ...f, value, error: false } : f))
+          )
+        }
+        name={field?.name}
+        label={field?.label}
+        required={field?.required}
+        showLabel={field?.showLabel}
       />
     );
   }

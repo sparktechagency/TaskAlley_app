@@ -32,6 +32,7 @@ const SendMessage = () => {
           width: "70%",
           height: 40,
           borderRadius: 20,
+          color: "#000000",
         }}
         placeholder="test"
       />

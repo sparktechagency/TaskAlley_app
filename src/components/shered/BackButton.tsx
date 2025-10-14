@@ -24,6 +24,7 @@ const BackButton = ({ text, show = false, imageSource, handler, backHandler }: p
         alignItems: "center",
         gap: 10,
         justifyContent: "space-between",
+        zIndex: 9999999999
       }}
     >
       <CircleButton

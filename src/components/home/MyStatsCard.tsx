@@ -18,6 +18,7 @@ const MyStatsCard = ({ item }: { item: { name: string; value: string } }) => {
         width: (width - 60) / 2,
         padding: 20,
         overflow: "hidden",
+        height: 110,
       }}
     >
       {/* <ImageBackground
@@ -32,6 +33,7 @@ const MyStatsCard = ({ item }: { item: { name: string; value: string } }) => {
           fontSize: 20,
         }}
         text={item?.name}
+        numberOfLines={2}
       />
       <HeaderDesign
         style={{
@@ -39,6 +41,7 @@ const MyStatsCard = ({ item }: { item: { name: string; value: string } }) => {
           color: "#115E59",
         }}
         text={item?.value}
+        numberOfLines={1}
       />
     </ImageBackground>
   );

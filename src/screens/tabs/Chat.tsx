@@ -4,8 +4,9 @@ import ChatItems from "../../components/chat/ChatItems";
 import SafeAreaProviderNoScroll from "../../providers/SafeAreaProviderNoScroll";
 const data = [1, 2, 3, 4, 5, 6];
 const Chat = () => {
+  //  backButtonText="Messages"
   return (
-    <SafeAreaProviderNoScroll backButtonText="Messages">
+    <SafeAreaProviderNoScroll>
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{

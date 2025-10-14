@@ -40,14 +40,14 @@ const title = ["Task Overview", "Task Details", "Date & Time", "Budget "];
 
 const PostTask = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-    const [fiels, setFiels] = useState<any>([]);
+  const [fiels, setFiels] = useState<any>([]);
   const { height } = ScreenSize();
   const { fields, setFields } = PostTaskFields();
   const { top, bottom } = useSafeAreaInsets();
   const navigate = Navigate();
-
+  // backButtonText="Post Task"
   return (
-    <SafeAreaProvider backButtonText="Post Task">
+    <SafeAreaProvider >
       <View
         style={{
           flex: 1,
@@ -75,7 +75,7 @@ const PostTask = () => {
                   style={{ width: 80, height: 80, borderRadius: 8, marginRight: 8, resizeMode: "contain" }}
                 />
               }
-            <ImageUploader setFiels={setFiels} />
+              <ImageUploader setFiels={setFiels} />
             </FlexText>
           </View>
         )}

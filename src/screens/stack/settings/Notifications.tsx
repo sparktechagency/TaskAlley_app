@@ -16,7 +16,7 @@ const Notifications = () => {
           style={{
             color: "#0EA5E9",
           }}
-          text="mark as reed"
+          text="mark as read"
         />
       </TouchableOpacity>
       <FlatList

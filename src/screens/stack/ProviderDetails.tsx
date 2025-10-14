@@ -53,7 +53,7 @@ const ProviderDetails = () => {
         />
       </View>
       <ButtonBG
-        text="Submit a Offer"
+        text="Submit an Offer"
         style={{
           width: "auto",
         }}

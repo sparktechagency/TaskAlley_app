@@ -51,6 +51,7 @@ const Input = ({
         value={value}
         style={{
           backgroundColor: "#E6F4F1",
+          color: "#000000",
           lineHeight: 26,
           padding: 15,
           paddingVertical: 12,

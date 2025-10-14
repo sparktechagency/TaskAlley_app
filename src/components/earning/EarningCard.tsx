@@ -27,6 +27,16 @@ const data = {
     amount: 4500,
     total_tasks: 110,
     total_time: "160h 0m"
+  },
+  "yearly": {
+    amount: 4500,
+    total_tasks: 110,
+    total_time: "160h 0m"
+  },
+  "lifetime": {
+    amount: 4500,
+    total_tasks: 110,
+    total_time: "160h 0m"
   }
 };
 
@@ -54,6 +64,12 @@ const EarningCard = () => {
           onPress={() => {
             switch (tab) {
               case "today":
+                setTab("lifetime")
+                break;
+              case "lifetime":
+                setTab("yearly")
+                break;
+              case "yearly":
                 setTab("this month")
                 break;
               case "this month":
@@ -88,6 +104,12 @@ const EarningCard = () => {
                 setTab("this month")
                 break;
               case "this month":
+                setTab("yearly")
+                break;
+              case "yearly":
+                setTab("lifetime")
+                break;
+              case "lifetime":
                 setTab("today")
                 break;
             }

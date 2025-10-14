@@ -54,6 +54,9 @@ import ChatIcon from "../assets/svg/chat.svg"
 import Camera from "../assets/svg/camera.svg"
 import Upload from "../assets/svg/upload.svg"
 import File from "../assets/svg/file.svg"
+import ProfileImage from "../assets/profilebg.png"
+import Call from "../assets/call.png"
+import At from "../assets/at.png"
 export const TabIcons = {
   Home,
   "My Tasks": post, Chat,
@@ -120,5 +123,8 @@ export const otherIcons = Object.freeze({
   StateBg,
   Time,
   ArrowBoth,
-  List
+  List,
+  ProfileImage,
+  Call,
+  At
 });
